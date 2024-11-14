@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class tempscript
+public class SquishyBall : MonoBehaviour
 {
     
 }
