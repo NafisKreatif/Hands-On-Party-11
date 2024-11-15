@@ -27,7 +27,7 @@ public class GravityRotationController : MonoBehaviour
   private Touch _touchA; // First touch input.
   private Touch _touchB; // Second touch input.
 
-  public void Start()
+  private void Start()
   {
     _initialGravity = Physics2D.gravity.magnitude;
     _screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
@@ -41,11 +41,11 @@ public class GravityRotationController : MonoBehaviour
   // With Gyro, the rotation is based on the axis where the device is facing (supposedly).
   // With Single Cursor, the rotation is calculated from the angle change between a single cursor (mouse or touch input) to the center of the screen.
   // With Double Cursor, the rotation is calculated from the angle change between two cursors (touch input).
-  public void Update()
+  private void Update()
   {
     if (SystemInfo.supportsGyroscope && rotationInput == RotationInputMethod.Gyro && _originAngle == null) // Gyro
-    {      
-      _deviceRotation = new Quaternion(0, 0, -Input.gyro.attitude.z, -Input.gyro.attitude.w);            
+    {
+      _deviceRotation = new Quaternion(0, 0, -Input.gyro.attitude.z, -Input.gyro.attitude.w);
       _currentAngle = _deviceRotation.eulerAngles.z;
     }
     else if ((Input.touchSupported || UnityEditor.EditorApplication.isRemoteConnected) && rotationInput == RotationInputMethod.DoubleCursor) // Touchscreen
@@ -100,7 +100,19 @@ public class GravityRotationController : MonoBehaviour
       }
     }
 
-    // Update camera rotation and gravity
+    UpdateRotation();
+  }
+
+  // Resets the rotation of the camera and the direction of gravity to the initial state.
+  public void Reset()
+  {
+    _currentAngle = 0;
+    UpdateRotation();
+  }
+
+  // Updates the rotation of the camera and the direction of gravity based on the current angle.
+  private void UpdateRotation()
+  {
     _currentAngleRad = _currentAngle * Mathf.Deg2Rad;
     cameraTransform.rotation = Quaternion.AngleAxis(_currentAngle, Vector3.forward);
     Physics2D.gravity = new Vector2(Mathf.Cos(_currentAngleRad - Mathf.PI / 2), Mathf.Sin(_currentAngleRad - Mathf.PI / 2)) * _initialGravity;
