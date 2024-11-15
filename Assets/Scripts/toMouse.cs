@@ -12,7 +12,7 @@ public class toMouse : MonoBehaviour
 	
 	void Update ()
     {
-        if(Input.GetKey(KeyCode.Mouse1))
+        if(Input.GetKey(KeyCode.Mouse0))
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
