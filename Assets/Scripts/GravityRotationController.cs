@@ -69,7 +69,7 @@ public class GravityRotationController : MonoBehaviour
       }
       else if (Input.touchCount == 1 || Input.mousePresent)
       {
-        if (Input.GetButtonDown("Fire1") || _originAngle == null)
+        if (Input.GetButtonDown("Fire1"))
         {
           _mousePosStart = Input.mousePosition;
           _startAngle = _currentAngle;
