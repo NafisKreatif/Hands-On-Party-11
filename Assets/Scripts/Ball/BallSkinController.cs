@@ -51,8 +51,8 @@ public class BallSkinController : MonoBehaviour
             }
 
             // Sesuaikan kurva sudut dengan mengedit arah tangen kiri dan kanan
-            _spriteShape.spline.SetLeftTangent(i, arahKePusat.Perpendicular1() * jariJariCollider);
-            _spriteShape.spline.SetRightTangent(i, arahKePusat.Perpendicular2() * jariJariCollider);
+            _spriteShape.spline.SetLeftTangent(i, -Vector2.Perpendicular(arahKePusat) * jariJariCollider);
+            _spriteShape.spline.SetRightTangent(i, Vector2.Perpendicular(arahKePusat) * jariJariCollider);
         }
     }
 }
