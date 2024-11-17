@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -11,7 +12,10 @@ public class CameraMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("CameraTarget");
+        if (target == null) {
+            target = GameObject.Find("CameraTarget");
+        }
+        
         cameraPos = GameObject.Find("Main Camera");
     }
 

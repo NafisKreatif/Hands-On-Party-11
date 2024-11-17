@@ -405,6 +405,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1719363916}
     m_Modifications:
+    - target: {fileID: 1386983750712395941, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1467718869104441858, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -488,6 +492,30 @@ PrefabInstance:
     - target: {fileID: 4561761773847202628, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       propertyPath: m_Name
       value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428399843874205675, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428399843874205675, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2592716
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428399843874205675, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Color.r
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982463604661400842, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982463604661400842, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982463604661400842, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4528302
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
