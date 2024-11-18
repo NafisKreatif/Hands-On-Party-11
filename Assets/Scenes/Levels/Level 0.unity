@@ -6808,6 +6808,10 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072746
       objectReference: {fileID: 0}
+    - target: {fileID: 6076833521619569394, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: damping
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 6128963673020954924, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072746
@@ -6819,6 +6823,10 @@ PrefabInstance:
     - target: {fileID: 6299423127197780458, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072746
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565794902020114758, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Radius
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7100514374720059108, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
