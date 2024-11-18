@@ -307,6 +307,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7127435965089795443, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
   m_PrefabInstance: {fileID: 1677852701}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &279830051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279830050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1131ba4a28ca14e5cb4dffa4f3e0e787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lajuMaksimal: 15
 --- !u!1 &561989098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6728,9 +6741,25 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.21000022
       objectReference: {fileID: 0}
+    - target: {fileID: 121076103237969814, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 121076103237969814, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 225167683415302974, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072683
+      objectReference: {fileID: 0}
+    - target: {fileID: 225167683415302974, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 225167683415302974, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 352155440197239539, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Creator
@@ -6740,17 +6769,49 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072746
       objectReference: {fileID: 0}
+    - target: {fileID: 371412863507774165, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 371412863507774165, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 570932450508246916, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072683
+      objectReference: {fileID: 0}
+    - target: {fileID: 570932450508246916, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 570932450508246916, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 689196846126682291, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.21000022
       objectReference: {fileID: 0}
+    - target: {fileID: 689196846126682291, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 689196846126682291, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1313672993395769554, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072683
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313672993395769554, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313672993395769554, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1878180667285672024, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Radius
@@ -6764,25 +6825,81 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072683
       objectReference: {fileID: 0}
+    - target: {fileID: 2504341454725254713, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504341454725254713, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2623086429253957229, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623086429253957229, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623086429253957229, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2705118586359185022, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.21000022
       objectReference: {fileID: 0}
+    - target: {fileID: 2705118586359185022, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705118586359185022, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2892752507853163584, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072683
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892752507853163584, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892752507853163584, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007676553392506317, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007676553392506317, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560188229318572902, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072746
       objectReference: {fileID: 0}
+    - target: {fileID: 3560188229318572902, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560188229318572902, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4085284779554092265, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072683
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085284779554092265, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085284779554092265, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4302904725892398537, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Radius
@@ -6804,9 +6921,25 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072746
       objectReference: {fileID: 0}
+    - target: {fileID: 5495283378375781596, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495283378375781596, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5695451263642089765, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695451263642089765, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695451263642089765, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6076833521619569394, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: damping
@@ -6816,6 +6949,14 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072746
       objectReference: {fileID: 0}
+    - target: {fileID: 6128963673020954924, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128963673020954924, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6193142416902125445, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Radius
       value: 1.1
@@ -6824,13 +6965,37 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072746
       objectReference: {fileID: 0}
+    - target: {fileID: 6299423127197780458, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299423127197780458, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6565794902020114758, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Radius
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6846879696436157967, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846879696436157967, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7100514374720059108, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072683
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100514374720059108, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100514374720059108, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7127435965089795443, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Name
@@ -6848,13 +7013,37 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7457456689450112821, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457456689450112821, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7778354178744722031, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.21000022
       objectReference: {fileID: 0}
+    - target: {fileID: 7778354178744722031, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778354178744722031, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7810614107085718857, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810614107085718857, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810614107085718857, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7861752847538887860, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6900,9 +7089,25 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.16072683
       objectReference: {fileID: 0}
+    - target: {fileID: 8202384762538585492, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202384762538585492, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8983988749676650715, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.21000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983988749676650715, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983988749676650715, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_DampingRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9087591732970252856, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Radius
@@ -6911,7 +7116,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7127435965089795443, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 279830051}
   m_SourcePrefab: {fileID: 100100000, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
 --- !u!1 &2145942404
 GameObject:
