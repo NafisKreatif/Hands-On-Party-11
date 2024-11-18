@@ -89,7 +89,7 @@ public class GravityRotationController : MonoBehaviour
     else
     {
       // If no suitable input method exists, update the method that is supported.
-      if (Input.mousePresent || Input.touchSupported || UnityEditor.EditorApplication.isRemoteConnected) rotationInput = RotationInputMethod.Cursor;
+      if (Input.mousePresent || Input.touchSupported) rotationInput = RotationInputMethod.Cursor;
       else if (SystemInfo.supportsGyroscope)
       {
         Input.gyro.enabled = true;
