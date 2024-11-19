@@ -131,6 +131,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paused Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 295759566033908713, guid: 852c75f604006aa4e9d1a30333550adb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547151813607941183, guid: 852c75f604006aa4e9d1a30333550adb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592832906740571604, guid: 852c75f604006aa4e9d1a30333550adb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9187704271958966310, guid: 852c75f604006aa4e9d1a30333550adb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
