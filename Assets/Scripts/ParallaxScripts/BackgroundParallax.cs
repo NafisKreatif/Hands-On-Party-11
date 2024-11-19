@@ -4,15 +4,14 @@ public class BackgroundParallax : MonoBehaviour
 {
     public Rigidbody2D cameraRb;
     public Rigidbody2D backgroundRb;
-    public float parallaxAmount;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float parallaxAmount; // Choose the value. x>1: faster than camera (in front), 0<x<1: slower than camera (behind)
+
     void Start()
     {
         cameraRb = GameObject.Find("Main Camera").GetComponent<Rigidbody2D>();
         backgroundRb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         backgroundRb.linearVelocityX = parallaxAmount * cameraRb.linearVelocityX;

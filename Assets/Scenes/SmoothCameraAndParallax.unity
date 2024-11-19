@@ -687,9 +687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3fe9a448e17f40b65dfc663333310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraRb: {fileID: 1344901168}
-  BackgroundRb: {fileID: 912458446}
-  parallaxAmount: 0.05
+  cameraRb: {fileID: 0}
+  backgroundRb: {fileID: 0}
+  parallaxAmount: 0.9
 --- !u!50 &912458446
 Rigidbody2D:
   serializedVersion: 5
@@ -1139,9 +1139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47efa4700538bb54eb3c9e0e305c966d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1344901168}
-  cameraPos: {fileID: 0}
-  target: {fileID: 0}
+  cameraRb: {fileID: 0}
+  targetCamera: {fileID: 0}
   distanceX: 0
   distanceY: 0
 --- !u!50 &1344901168
