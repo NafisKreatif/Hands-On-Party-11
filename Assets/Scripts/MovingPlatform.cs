@@ -1,14 +1,12 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public Tilemap tilemap;
     public float speed = 2f;
     public Transform[] waypoints;
     
 
-    private int currentWaypointIndex = 0;
+    private int _currentWaypointIndex = 0;
 
 
     private void Awake () {
@@ -21,13 +19,13 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         // Move towards the current waypoint
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[_currentWaypointIndex].position, speed * Time.deltaTime);
 
         // Check if we've reached the waypoint
-        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
+        if (Vector3.Distance(transform.position, waypoints[_currentWaypointIndex].position) < 0.1f)
         {
             // Move to the next waypoint or loop back to the beginning
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            _currentWaypointIndex = (_currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 }
