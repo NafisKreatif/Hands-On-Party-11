@@ -6,9 +6,18 @@ public class MovingPlatform : MonoBehaviour
     public Tilemap tilemap;
     public float speed = 2f;
     public Transform[] waypoints;
+    
 
     private int currentWaypointIndex = 0;
 
+
+    private void Awake () {
+    // Sets each child's parent to null while keeping their world position.
+    foreach (Transform coord in waypoints) 
+    {
+        coord.SetParent(null, true);
+    }
+    }
     void Update()
     {
         // Move towards the current waypoint
