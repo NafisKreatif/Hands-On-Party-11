@@ -1,20 +1,62 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class mainmenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    // Bagian Main menu
-    public void play() // Fungsi mengatur tombol play
+    // Bagian Pause Menu
+    // Variabel untuk melacak apakah permainan sedang pause
+    public static bool paused = false; 
+    // Objek Canvas untuk menampilkan menu pause
+    public GameObject PauseMenuCanvas;
+
+    // Fungsi yang dipanggil sekali saat game dimulai
+    void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Lanjut ke scene selanjutnya setelah mencet play
+        Time.timeScale = 1f; // Mengatur waktu menjadi normal saat game dimulai
     }
-    public void quit() //Fungsi untuk mengatur quit game
+
+    // Fungsi yang dipanggil setiap frame
+    void Update()
     {
-        Application.Quit();
-        Debug.Log("Player Has quit the game");
+        if (Input.GetKeyDown(KeyCode.Escape)) // Mengecek apakah tombol Escape ditekan
+        {
+            if (paused)
+            {
+                Play(); // Melanjutkan permainan jika sedang pause
+            }
+            else
+            {
+                Stop(); // Mem-pause permainan jika tidak sedang pause
+            }
+        }
     }
+
+    // Fungsi untuk mem-pause permainan
+    public void Stop()
+    {
+        PauseMenuCanvas.SetActive(true); // Menampilkan Canvas menu pause
+        Time.timeScale = 0f; // Menghentikan waktu dalam game
+        paused = true; // Menandai bahwa permainan sedang pause
+    }
+
+    public void Play() 
+    {
+        PauseMenuCanvas.SetActive(false); // Menyembunyikan Canvas menu pause
+        Time.timeScale = 1f; // Melanjutkan waktu dalam game
+        paused = false; // Menandai bahwa permainan tidak lagi pause
+        // Debug.Log("Game resumed"); // Log untuk debugging
+    }
+
+    // Fungsi untuk berpindah ke menu utama
+    public void MainMenuButton()
+    {
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); // Memuat scene sebelumnya (main menu)
+    }
+
     //Bagian Audio
     [SerializeField] private AudioMixer myMixer; // Mixer audio untuk mengatur volume musik
     [SerializeField] private Slider musicSlider; // Slider untuk mengatur volume musik
@@ -72,4 +114,6 @@ private void DisableGyroscope()
         // Tidak ada teks untuk diperbarui
     }
 }
+
 }
+
