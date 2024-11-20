@@ -1,20 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class mainmenu : MonoBehaviour
+public class SettingsMenu : MonoBehaviour
 {
-    // Bagian Main menu
-    public void play() // Fungsi mengatur tombol play
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Lanjut ke scene selanjutnya setelah mencet play
-    }
-    public void quit() //Fungsi untuk mengatur quit game
-    {
-        Application.Quit();
-        Debug.Log("Player Has quit the game");
-    }
+    public TransitionController transitionController;
     //Bagian Audio
     [SerializeField] private AudioMixer myMixer; // Mixer audio untuk mengatur volume musik
     [SerializeField] private Slider musicSlider; // Slider untuk mengatur volume musik
