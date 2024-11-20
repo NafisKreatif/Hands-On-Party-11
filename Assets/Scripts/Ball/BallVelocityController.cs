@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BallVelocityController : MonoBehaviour
 {
-    public float lajuMaksimal = 7f;
+    public float maxVelocity = 7f;
     private Rigidbody2D _thisBody;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,11 +13,12 @@ public class BallVelocityController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 laju = _thisBody.linearVelocity;
-        float besarLaju = laju.magnitude;
-        if (besarLaju > lajuMaksimal)
+        Vector2 velocity = _thisBody.linearVelocity;
+        float magnitude = velocity.magnitude;
+        // Kalau besar vektor kecepatan terlalu besar, maka dipendekin menjadi besar maksimal
+        if (magnitude > maxVelocity)
         {
-            _thisBody.linearVelocity = laju.normalized * lajuMaksimal;
+            _thisBody.linearVelocity = velocity.normalized * magnitude;
         }
     }
 }
