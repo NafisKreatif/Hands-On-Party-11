@@ -3,49 +3,45 @@ using TMPro;
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEditor.Animations;
+using System.Linq;
 
 public class DialogManager : MonoBehaviour
 {
-  public static DialogManager instance { get; private set; } // Singleton instance
+  public struct DialogLineResource
+  {
+    public string speaker;
+
+    public string speech;
+    public string animationState; // Animation state name played during the line from the animatorController
+    public AnimatorController animatorController; // Animator controller for the speaker profile, every Controller 
+  }
+
+  public static DialogManager Instance { get; private set; } // Singleton instance
   public float dialogSpeed = 1.0f;
   public GameObject dialogObject;
-  public TextMeshProUGUI dialogSpeakerText;
-  public TextMeshProUGUI dialogSpeechText;
-  private Queue<Tuple<string, string>> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
+  public TextMeshProUGUI speakerText;
+  public TextMeshProUGUI speechText;
+  public Animator speakerProfileAnimator;
+  private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
 
   private void Awake()
   {
     // Singleton pattern
-    if (instance != null && instance != this)
+    if (Instance != null && Instance != this)
     {
       Destroy(this);
     }
     else
     {
-      instance = this;
+      Instance = this;
     }
   }
 
   private void Start()
   {
     dialogObject.SetActive(false);
-
-    // Example usage
-    // EnqueueDialog(
-    //   new Tuple<string, string>("Speaker 1", "Hello, World!"),
-    //   new Tuple<string, string>("Speaker 2", "Hi, there!"),
-    //   new Tuple<string, string>("Speaker 1", "How are you?"),
-    //   new Tuple<string, string>("Speaker 2", "I'm fine, thank you!"),
-    //   new Tuple<string, string>("Speaker 1", "Good to hear that!"),
-    //   new Tuple<string, string>("Speaker 2", "How about you?"),
-    //   new Tuple<string, string>("Speaker 1", "I'm doing great!"),
-    //   new Tuple<string, string>("Speaker 2", "That's awesome!"),
-    //   new Tuple<string, string>("Speaker 1", "Thank you!"),
-    //   new Tuple<string, string>("Speaker 2", "You're welcome!"),
-    //   new Tuple<string, string>("Speaker 1", "Goodbye!"),
-    //   new Tuple<string, string>("Speaker 2", "Goodbye!")
-    // );
   }
 
   private void Update()
@@ -54,14 +50,14 @@ public class DialogManager : MonoBehaviour
     if (dialogObject.activeSelf && (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1")))
     {
       // Check if dialog text is fully displayed, if it is then continue to the next dialog.
-      if (dialogSpeechText.text == _dialogQueue.Peek().Item2)
+      if (speechText.text == _dialogQueue.Peek().speech)
       {
         _dialogQueue.Dequeue();
         if (_dialogQueue.Count == 0)
         {
           dialogObject.SetActive(false);
-          dialogSpeakerText.text = "";
-          dialogSpeechText.text = "";
+          speakerText.text = "";
+          speechText.text = "";
         }
         else
         {
@@ -72,14 +68,14 @@ public class DialogManager : MonoBehaviour
       else
       {
         if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
-        dialogSpeechText.text = _dialogQueue.Peek().Item2;
+        speechText.text = _dialogQueue.Peek().speech;
       }
     }
   }
 
-  public void EnqueueDialog(params Tuple<string, string>[] dialogs)
+  public void EnqueueDialog(params DialogLineResource[] dialogs)
   {
-    foreach (Tuple<string, string> d in dialogs) { _dialogQueue.Enqueue(d); }
+    foreach (DialogLineResource d in dialogs) { _dialogQueue.Enqueue(d); }
     if (!dialogObject.activeSelf)
     {
       dialogObject.SetActive(true);
@@ -90,19 +86,20 @@ public class DialogManager : MonoBehaviour
   // Coroutine for dialog animation
   private IEnumerator StartDialog()
   {
-    if (dialogObject.activeSelf) yield return null;
+    if (!dialogObject.activeSelf) yield return null;
 
-    Tuple<string, string> currentDialog = _dialogQueue.Peek();
-    string speaker = currentDialog.Item1;
-    string speech = currentDialog.Item2;
-    dialogSpeakerText.text = speaker;
-    dialogSpeechText.text = "";
+    DialogLineResource currentDialog = _dialogQueue.Peek();
+    speakerText.text = currentDialog.speaker;
+    speechText.text = "";
+    speakerProfileAnimator.runtimeAnimatorController = currentDialog.animatorController;        
+    speakerProfileAnimator.Rebind();
+    speakerProfileAnimator.Play(currentDialog.animationState, 0, 0.0f);    
 
-    for (int i = 0; i < speech.Length; i++)
+    for (int i = 0; i < currentDialog.speech.Length; i++)
     {
-      dialogSpeechText.text += speech[i];
+      speechText.text += currentDialog.speech[i];
       yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
     }
-    dialogSpeechText.text = speech;
+    speechText.text = currentDialog.speech;
   }
 }
