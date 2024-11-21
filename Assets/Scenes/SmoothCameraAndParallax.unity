@@ -689,6 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRb: {fileID: 0}
   backgroundRb: {fileID: 0}
+  backgroundSprite: {fileID: 0}
   parallaxAmount: 0.9
 --- !u!50 &912458446
 Rigidbody2D:
@@ -931,7 +932,7 @@ Transform:
   m_GameObject: {fileID: 1173248989}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.87, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1141,8 +1142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRb: {fileID: 0}
   targetCamera: {fileID: 0}
-  distanceX: 0
-  distanceY: 0
 --- !u!50 &1344901168
 Rigidbody2D:
   serializedVersion: 5

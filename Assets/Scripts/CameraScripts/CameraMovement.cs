@@ -4,8 +4,8 @@ public class CameraMovement : MonoBehaviour
 {
     public Rigidbody2D cameraRb;
     public GameObject targetCamera;
-    public float distanceX;
-    public float distanceY;
+    private float _distanceX;
+    private float _distanceY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,11 +17,11 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceX = targetCamera.transform.position.x - transform.position.x;
-        distanceY = targetCamera.transform.position.y - transform.position.y;
+        _distanceX = targetCamera.transform.position.x - transform.position.x;
+        _distanceY = targetCamera.transform.position.y - transform.position.y;
 
-        cameraRb.linearVelocityX = 3*distanceX;
-        cameraRb.linearVelocityY = 3*distanceY;
+        cameraRb.linearVelocityX = 3*_distanceX;
+        cameraRb.linearVelocityY = 3*_distanceY;
         
     }
 }
