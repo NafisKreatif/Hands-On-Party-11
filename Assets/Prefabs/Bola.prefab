@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1131ba4a28ca14e5cb4dffa4f3e0e787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 7
+  maxVelocity: 12
 --- !u!114 &6373651284392584789
 MonoBehaviour:
   m_ObjectHideFlags: 0

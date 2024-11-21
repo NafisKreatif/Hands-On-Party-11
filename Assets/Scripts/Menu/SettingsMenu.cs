@@ -4,62 +4,56 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public TransitionController transitionController;
-    //Bagian Audio
-    [SerializeField] private AudioMixer myMixer; // Mixer audio untuk mengatur volume musik
-    [SerializeField] private Slider musicSlider; // Slider untuk mengatur volume musik
-
-    // Fungsi untuk mengatur volume musik berdasarkan slider
-    public void SetMusicVloume()
-    {
-        float volume = musicSlider.value; // Mengambil nilai dari slider
-        myMixer.SetFloat("music", Mathf.Log10(volume) * 20); // Mengubah nilai slider menjadi decibel dan mengatur volume musik
-    }
-
-    //Bagian Gyroscope
-    private Gyroscope gyro; // Objek untuk mengakses gyroscope
-    private bool isGyroEnabled = false; // Menandai apakah gyroscope sedang aktif
-
-    // Fungsi untuk mengaktifkan atau menonaktifkan gyroscope menggunakan toggle
-    public void ToggleGyroscope(bool isOn)
-    {
-        if (gyro == null) // Mengecek apakah perangkat mendukung gyroscope
+    void Start() {
+        // Periksa apakah SettingsManager sudah ada di scene
+        if (SettingsManager.Instance == null)
         {
-            Debug.LogWarning("Gyroscope is not supported, cannot toggle.");
-
-            // Gyroscope tidak didukung, tapi tidak ada elemen status untuk diperbarui
-            return;
+            Debug.Log("SettingsManager not found. Instantiating from prefab.");
+            Instantiate(settingsManagerPrefab); // Buat SettingsManager dari prefab
         }
-
-        if (isOn)
+        // Sinkronkan slider volume
+        if (musicSlider != null && myMixer != null)
         {
-            EnableGyroscope(); // Mengaktifkan gyroscope
+            musicSlider.value = SettingsManager.Instance.MusicVolume;
+            myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
+
+            musicSlider.onValueChanged.AddListener(delegate { SetMusicVolume(); });
+            Debug.Log($"PauseMenu initialized with volume: {SettingsManager.Instance.MusicVolume}");
         }
         else
         {
-            DisableGyroscope(); // Menonaktifkan gyroscope
+            Debug.LogError("MusicSlider or AudioMixer is not assigned in the Inspector!");
+        }
+
+        // Sinkronkan toggle gyroscope
+        if (gyroToggle != null)
+        {
+            gyroToggle.isOn = SettingsManager.Instance.IsGyroEnabled;
+            gyroToggle.onValueChanged.AddListener(delegate { ToggleGyroscope(gyroToggle.isOn); });
+        }
+    }
+    // Bagian Audio
+    [SerializeField] private AudioMixer myMixer; // Mixer audio untuk mengatur volume
+    [SerializeField] private Slider musicSlider; // Slider untuk mengatur volume musik
+
+    // Fungsi untuk mengatur volume musik berdasarkan slider
+    public void SetMusicVolume()
+    {
+        if (musicSlider != null && myMixer != null)
+        {
+            SettingsManager.Instance.MusicVolume = musicSlider.value;
+            myMixer.SetFloat("music", Mathf.Log10(musicSlider.value) * 20);
+            Debug.Log($"PauseMenu: Music volume updated to {SettingsManager.Instance.MusicVolume}");
         }
     }
 
-    // Fungsi untuk mengaktifkan gyroscope
-    private void EnableGyroscope()
+    // Bagian Gyro
+    [SerializeField] private Toggle gyroToggle; // Toggle untuk mengatur gyroscope
+    public void ToggleGyroscope(bool isOn)
     {
-        if (!isGyroEnabled) // Mengecek apakah gyroscope belum aktif
-        {
-            gyro.enabled = true; // Mengaktifkan gyroscope
-            isGyroEnabled = true; // Menandai bahwa gyroscope aktif
-                                  // Tidak ada teks untuk diperbarui
-        }
+        SettingsManager.Instance.IsGyroEnabled = isOn;
+        Debug.Log($"PauseMenu: Gyroscope enabled: {isOn}");
     }
-
-    // Fungsi untuk menonaktifkan gyroscope
-    private void DisableGyroscope()
-    {
-        if (isGyroEnabled) // Mengecek apakah gyroscope sedang aktif
-        {
-            gyro.enabled = false; // Menonaktifkan gyroscope
-            isGyroEnabled = false; // Menandai bahwa gyroscope tidak aktif
-                                   // Tidak ada teks untuk diperbarui
-        }
-    }
+    //Bagian Singleton
+    [SerializeField] private GameObject settingsManagerPrefab;
 }

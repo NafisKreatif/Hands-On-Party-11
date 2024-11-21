@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public TransitionController transitionController;
     // Bagian Pause Menu
     // Variabel untuk melacak apakah permainan sedang pause
-    public static bool paused = false; 
+    public static bool paused = false;
     // Objek Canvas untuk menampilkan menu pause
     public GameObject PauseMenuCanvas;
 
@@ -22,24 +26,24 @@ public class PauseMenu : MonoBehaviour
         {
             if (paused)
             {
-                ResumeGame(); // Melanjutkan permainan jika sedang pause
+                Play(); // Melanjutkan permainan jika sedang pause
             }
             else
             {
-                PauseGame(); // Mem-pause permainan jika tidak sedang pause
+                Stop(); // Mem-pause permainan jika tidak sedang pause
             }
         }
     }
 
     // Fungsi untuk mem-pause permainan
-    public void PauseGame()
+    public void Stop()
     {
         PauseMenuCanvas.SetActive(true); // Menampilkan Canvas menu pause
         Time.timeScale = 0f; // Menghentikan waktu dalam game
         paused = true; // Menandai bahwa permainan sedang pause
     }
 
-    public void ResumeGame() 
+    public void Play()
     {
         PauseMenuCanvas.SetActive(false); // Menyembunyikan Canvas menu pause
         Time.timeScale = 1f; // Melanjutkan waktu dalam game
@@ -54,4 +58,3 @@ public class PauseMenu : MonoBehaviour
         transitionController.GoToSceneByIndex(0);
     }
 }
-
