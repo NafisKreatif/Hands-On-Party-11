@@ -5,13 +5,17 @@ public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager Instance { get; private set; }
 
-    // Default volume penuh
-    public float MusicVolume { get; private set; } = 1.0f;
-    // Default gyroscope tidak aktif
-    public bool IsGyroEnabled { get; private set; } = false;
+    // UnityEvents untuk abstraksi setiap tipe variabel
+    public UnityEvent<string, float> OnFloatPropertyChanged;
+    public UnityEvent<string, bool> OnBoolPropertyChanged;
 
-    // UnityEvent untuk mendeteksi perubahan pengaturan
-    public UnityEvent OnSettingsChanged;
+    // Properti Volume Musik
+    [field: SerializeField] // Tampil di Inspector dan tetap private untuk akses
+    public float MusicVolume { get; private set; } = 1.0f;
+
+    // Properti Gyroscope
+    [field: SerializeField]
+    public bool IsGyroEnabled { get; private set; } = false;
 
     private void Awake()
     {
@@ -26,10 +30,8 @@ public class SettingsManager : MonoBehaviour
         Debug.Log("SettingsManager initialized.");
 
         // Inisialisasi UnityEvent jika null
-        if (OnSettingsChanged == null)
-        {
-            OnSettingsChanged = new UnityEvent();
-        }
+        OnFloatPropertyChanged ??= new UnityEvent<string, float>();
+        OnBoolPropertyChanged ??= new UnityEvent<string, bool>();
 
         // Muat pengaturan dari PlayerPrefs
         LoadSettings();
@@ -56,22 +58,24 @@ public class SettingsManager : MonoBehaviour
     // Metode untuk memperbarui volume musik
     public void UpdateMusicVolume(float newVolume)
     {
+        if (Mathf.Approximately(MusicVolume, newVolume)) return; // Hindari update jika nilai sama
         MusicVolume = newVolume;
         SaveSettings(); // Simpan ke PlayerPrefs
         Debug.Log($"MusicVolume updated to {MusicVolume}");
 
-        // Panggil event jika ada listener
-        OnSettingsChanged?.Invoke();
+        // Panggil UnityEvent
+        OnFloatPropertyChanged?.Invoke("MusicVolume", MusicVolume);
     }
 
     // Metode untuk memperbarui state gyroscope
     public void UpdateGyroState(bool newState)
     {
+        if (IsGyroEnabled == newState) return; // Hindari update jika nilai sama
         IsGyroEnabled = newState;
         SaveSettings(); // Simpan ke PlayerPrefs
         Debug.Log($"IsGyroEnabled updated to {IsGyroEnabled}");
 
-        // Panggil event jika ada listener
-        OnSettingsChanged?.Invoke();
+        // Panggil UnityEvent
+        OnBoolPropertyChanged?.Invoke("IsGyroEnabled", IsGyroEnabled);
     }
 }
