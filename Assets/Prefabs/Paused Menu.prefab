@@ -203,7 +203,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 316579072203482211}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: SetMusicVloume
+        m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1558,6 +1558,8 @@ MonoBehaviour:
   transitionController: {fileID: 0}
   myMixer: {fileID: 24100000, guid: 4b00438cb001b624f938bcd88e4bd15c, type: 2}
   musicSlider: {fileID: 7174721241168516488}
+  gyroToggle: {fileID: 1089347155811618783}
+  settingsManagerPrefab: {fileID: 8348790238437186255, guid: d5aa9e74e6e3ae14ab71974d2d46da51, type: 3}
 --- !u!1 &5417381163705775610
 GameObject:
   m_ObjectHideFlags: 0

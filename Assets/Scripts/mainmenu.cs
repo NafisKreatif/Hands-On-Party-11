@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class mainmenu : MonoBehaviour
 {
+
     // Bagian Main menu
     public void play() // Fungsi mengatur tombol play
     {
@@ -15,61 +16,49 @@ public class mainmenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Player Has quit the game");
     }
-    //Bagian Audio
-    [SerializeField] private AudioMixer myMixer; // Mixer audio untuk mengatur volume musik
-    [SerializeField] private Slider musicSlider; // Slider untuk mengatur volume musik
-
-    // Fungsi untuk mengatur volume musik berdasarkan slider
-    public void SetMusicVloume()
+    void Start()
+{
+        if (SettingsManager.Instance == null)
     {
-        float volume = musicSlider.value; // Mengambil nilai dari slider
-        myMixer.SetFloat("music", Mathf.Log10(volume)*20); // Mengubah nilai slider menjadi decibel dan mengatur volume musik
+        Debug.Log("SettingsManager not found. Instantiating from prefab.");
+        Instantiate(settingsManagerPrefab); // Buat SettingsManager dari prefab
+    }
+    // Sinkronisasi slider dengan SettingsManager
+    if (musicSlider != null)
+    {
+        musicSlider.value = SettingsManager.Instance.MusicVolume;
+        myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
+        musicSlider.onValueChanged.AddListener(delegate { SetMusicVolume(); });
     }
 
-    //Bagian Gyroscope
-    private Gyroscope gyro; // Objek untuk mengakses gyroscope
-    private bool isGyroEnabled = false; // Menandai apakah gyroscope sedang aktif
-
-    // Fungsi untuk mengaktifkan atau menonaktifkan gyroscope menggunakan toggle
-    public void ToggleGyroscope(bool isOn)
+    // Sinkronisasi toggle gyroscope dengan SettingsManager
+    if (gyroToggle != null)
     {
-        if (gyro == null) // Mengecek apakah perangkat mendukung gyroscope
-        {
-            Debug.LogWarning("Gyroscope is not supported, cannot toggle.");
-
-            // Gyroscope tidak didukung, tapi tidak ada elemen status untuk diperbarui
-            return;
-        }
-
-        if (isOn)
-        {
-            EnableGyroscope(); // Mengaktifkan gyroscope
-        }
-        else
-        {
-            DisableGyroscope(); // Menonaktifkan gyroscope
-        }
-    }
-
-    // Fungsi untuk mengaktifkan gyroscope
-    private void EnableGyroscope()
-    {
-        if (!isGyroEnabled) // Mengecek apakah gyroscope belum aktif
-        {
-            gyro.enabled = true; // Mengaktifkan gyroscope
-            isGyroEnabled = true; // Menandai bahwa gyroscope aktif
-                                  // Tidak ada teks untuk diperbarui
-        }
-    }
-
-    // Fungsi untuk menonaktifkan gyroscope
-    private void DisableGyroscope()
-    {
-        if (isGyroEnabled) // Mengecek apakah gyroscope sedang aktif
-        {
-            gyro.enabled = false; // Menonaktifkan gyroscope
-            isGyroEnabled = false; // Menandai bahwa gyroscope tidak aktif
-                                   // Tidak ada teks untuk diperbarui
-        }
+        gyroToggle.isOn = SettingsManager.Instance.IsGyroEnabled;
+        gyroToggle.onValueChanged.AddListener(delegate { ToggleGyroscope(gyroToggle.isOn); });
     }
 }
+
+
+    // Bagian Audio
+    [SerializeField] private AudioMixer myMixer; // Audio Mixer untuk volume
+    [SerializeField] private Slider musicSlider; // Slider volume musik
+public void SetMusicVolume()
+{
+    if (musicSlider != null)
+    {
+        SettingsManager.Instance.MusicVolume = musicSlider.value;
+        myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
+    }
+}
+    //Bagian Gyro
+    [SerializeField] private Toggle gyroToggle; // Tambahkan toggle gyroscope di Main Menu
+    public void ToggleGyroscope(bool isOn)
+{
+    SettingsManager.Instance.IsGyroEnabled = isOn;
+}
+//Bagiansingleton
+[SerializeField] private GameObject settingsManagerPrefab;
+
+}
+
