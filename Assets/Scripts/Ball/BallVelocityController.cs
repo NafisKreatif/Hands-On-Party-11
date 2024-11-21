@@ -18,7 +18,7 @@ public class BallVelocityController : MonoBehaviour
         // Kalau besar vektor kecepatan terlalu besar, maka dipendekin menjadi besar maksimal
         if (magnitude > maxVelocity)
         {
-            _thisBody.linearVelocity = velocity.normalized * magnitude;
+            _thisBody.linearVelocity = velocity.normalized * maxVelocity;
         }
     }
 }

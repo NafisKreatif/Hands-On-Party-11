@@ -21,17 +21,13 @@ public class BallDieController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            Die();
-        }
         if (_isDying)
         {
             // Kalo lagi mati, bolanya membesar
             _bolaTransform.localScale = new Vector3(_bolaTransform.localScale.x + scaleSpeed * Time.deltaTime, _bolaTransform.localScale.y + scaleSpeed * Time.deltaTime, _bolaTransform.localScale.z);
         }
     }
-    void Die()
+    public void Die()
     {
         _isDying = true;
         dieParticle.Play();
