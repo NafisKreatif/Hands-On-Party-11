@@ -1162,10 +1162,6 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3583196527953255562, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
-      propertyPath: angleDamping
-      value: 400
-      objectReference: {fileID: 0}
     - target: {fileID: 6373651284392584789, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: transitionController
       value: 
