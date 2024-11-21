@@ -336,7 +336,15 @@ PrefabInstance:
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: animatorController
       value: 
-      objectReference: {fileID: 9100000, guid: 50f7946cf2c91874ea28942057e816ad, type: 2}
+      objectReference: {fileID: 9100000, guid: a3731762f4bc2a8449fa5ad60025b1e4, type: 2}
+    - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      propertyPath: sceneActionScripts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      propertyPath: 'sceneActionScripts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1415322421}
     - target: {fileID: 8298100641614926592, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.81
@@ -380,7 +388,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1415322421}
   m_SourcePrefab: {fileID: 100100000, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
 --- !u!1 &842105565
 GameObject:
@@ -553,6 +564,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1415322417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+  m_PrefabInstance: {fileID: 715004477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1415322421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415322417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d9162af4bc33a4d8741812e5092ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogId: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

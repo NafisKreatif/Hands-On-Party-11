@@ -260,10 +260,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogSpeed: 1
-  dialogObject: {fileID: 4427301006885530748}
+  dialogObject: {fileID: 2773134220757503830}
   speakerText: {fileID: 6905360824466622048}
   speechText: {fileID: 3425694255129696938}
   speakerProfileAnimator: {fileID: 7542128852189861517}
+  StartDialogEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4966003211685880809
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,8 +571,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -588,7 +591,7 @@ Animator:
   m_GameObject: {fileID: 7955153660373054103}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3731762f4bc2a8449fa5ad60025b1e4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
