@@ -54,7 +54,7 @@ public class DialogManager : MonoBehaviour
       {
         _dialogQueue.Dequeue();
         if (_dialogQueue.Count == 0)
-        {
+        {          
           dialogObject.SetActive(false);
           speakerText.text = "";
           speechText.text = "";
@@ -86,14 +86,12 @@ public class DialogManager : MonoBehaviour
   // Coroutine for dialog animation
   private IEnumerator StartDialog()
   {
-    if (!dialogObject.activeSelf) yield return null;
+    // if (!dialogObject.activeSelf) yield return null;
 
     DialogLineResource currentDialog = _dialogQueue.Peek();
     speakerText.text = currentDialog.speaker;
-    speechText.text = "";
-    speakerProfileAnimator.runtimeAnimatorController = currentDialog.animatorController;        
-    speakerProfileAnimator.Rebind();
-    speakerProfileAnimator.Play(currentDialog.animationState, 0, 0.0f);    
+    speechText.text = "";  
+    speakerProfileAnimator.Play(currentDialog.animationState, 0);    
 
     for (int i = 0; i < currentDialog.speech.Length; i++)
     {

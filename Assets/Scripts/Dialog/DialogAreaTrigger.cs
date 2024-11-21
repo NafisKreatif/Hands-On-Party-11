@@ -11,7 +11,7 @@ public class DialogAreaTrigger : MonoBehaviour
     void Start()
     {        
         // Parse dialogResource whic is a CSV file using '|' as delimiter
-        string[] lines = dialogResource.text.Split('\n');        
+        string[] lines = dialogResource.text.Split("\r\n");        
         _dialogLines = new DialogManager.DialogLineResource[lines.Length];
         for (int i = 0; i < lines.Length; i++)
         {
