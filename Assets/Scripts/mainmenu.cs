@@ -16,49 +16,62 @@ public class mainmenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Player Has quit the game");
     }
+
     void Start()
-{
+    {
         if (SettingsManager.Instance == null)
-    {
-        Debug.Log("SettingsManager not found. Instantiating from prefab.");
-        Instantiate(settingsManagerPrefab); // Buat SettingsManager dari prefab
-    }
-    // Sinkronisasi slider dengan SettingsManager
-    if (musicSlider != null)
-    {
-        musicSlider.value = SettingsManager.Instance.MusicVolume;
-        myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
-        musicSlider.onValueChanged.AddListener(delegate { SetMusicVolume(); });
-    }
+        {
+            Debug.Log("SettingsManager not found. Instantiating from prefab.");
+            Instantiate(settingsManagerPrefab); // Buat SettingsManager dari prefab
+        }
 
-    // Sinkronisasi toggle gyroscope dengan SettingsManager
-    if (gyroToggle != null)
-    {
-        gyroToggle.isOn = SettingsManager.Instance.IsGyroEnabled;
-        gyroToggle.onValueChanged.AddListener(delegate { ToggleGyroscope(gyroToggle.isOn); });
-    }
-}
+        // Sinkronisasi slider dengan SettingsManager
+        if (musicSlider != null)
+        {
+            musicSlider.value = SettingsManager.Instance.MusicVolume;
+            myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
+            musicSlider.onValueChanged.AddListener((value) => UpdateMusicVolume(value));
+        }
 
+        // Sinkronisasi toggle gyroscope dengan SettingsManager
+        if (gyroToggle != null)
+        {
+            gyroToggle.isOn = SettingsManager.Instance.IsGyroEnabled;
+            gyroToggle.onValueChanged.AddListener((value) => UpdateGyroState(value));
+        }
+    }
 
     // Bagian Audio
     [SerializeField] private AudioMixer myMixer; // Audio Mixer untuk volume
     [SerializeField] private Slider musicSlider; // Slider volume musik
-public void SetMusicVolume()
-{
-    if (musicSlider != null)
+    public void SetMusicVolume()
     {
-        SettingsManager.Instance.MusicVolume = musicSlider.value;
-        myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
+        if (musicSlider != null)
+        {
+            UpdateMusicVolume(musicSlider.value); // Gunakan metode UpdateMusicVolume untuk menyimpan perubahan
+        }
     }
-}
-    //Bagian Gyro
+
+    private void UpdateMusicVolume(float value)
+    {
+        SettingsManager.Instance.UpdateMusicVolume(value); // Gunakan metode di SettingsManager
+        myMixer.SetFloat("music", Mathf.Log10(value) * 20);
+        Debug.Log($"Music volume updated to: {value}");
+    }
+
+    // Bagian Gyro
     [SerializeField] private Toggle gyroToggle; // Tambahkan toggle gyroscope di Main Menu
     public void ToggleGyroscope(bool isOn)
-{
-    SettingsManager.Instance.IsGyroEnabled = isOn;
-}
-//Bagiansingleton
-[SerializeField] private GameObject settingsManagerPrefab;
+    {
+        UpdateGyroState(isOn); // Gunakan metode UpdateGyroState untuk menyimpan perubahan
+    }
 
-}
+    private void UpdateGyroState(bool value)
+    {
+        SettingsManager.Instance.UpdateGyroState(value); // Gunakan metode di SettingsManager
+        Debug.Log($"Gyroscope state updated to: {value}");
+    }
 
+    // Bagian singleton
+    [SerializeField] private GameObject settingsManagerPrefab;
+}
