@@ -11,8 +11,6 @@ public class CameraMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("CameraTarget");
-        cameraPos = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -21,8 +19,8 @@ public class CameraMovement : MonoBehaviour
         distanceX = target.transform.position.x - cameraPos.transform.position.x;
         distanceY = target.transform.position.y - cameraPos.transform.position.y;
 
-        rb.linearVelocityX = 3*distanceX;
-        rb.linearVelocityY = 3*distanceY;
-        
+        rb.linearVelocityX = 3 * distanceX;
+        rb.linearVelocityY = 3 * distanceY;
+
     }
 }
