@@ -1944,7 +1944,7 @@ GameObject:
   - component: {fileID: 4338334168754654531}
   - component: {fileID: 1967976231585582448}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

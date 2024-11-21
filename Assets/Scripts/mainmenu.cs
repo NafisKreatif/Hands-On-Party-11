@@ -23,7 +23,7 @@ public class mainmenu : MonoBehaviour
     public void SetMusicVloume()
     {
         float volume = musicSlider.value; // Mengambil nilai dari slider
-        myMixer.SetFloat("music", Mathf.Log10(volume) * 20); // Mengubah nilai slider menjadi decibel dan mengatur volume musik
+        myMixer.SetFloat("music", Mathf.Log10(volume)*20); // Mengubah nilai slider menjadi decibel dan mengatur volume musik
     }
 
     //Bagian Gyroscope
