@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     // Variabel untuk melacak apakah permainan sedang pause
     public static bool paused = false;
     // Objek Canvas untuk menampilkan menu pause
-    public GameObject PauseMenuCanvas;
+    public Canvas PauseMenuCanvas;
 
     // Fungsi yang dipanggil sekali saat game dimulai
     void Start()
@@ -38,14 +38,14 @@ public class PauseMenu : MonoBehaviour
     // Fungsi untuk mem-pause permainan
     public void Stop()
     {
-        PauseMenuCanvas.SetActive(true); // Menampilkan Canvas menu pause
+        PauseMenuCanvas.enabled = true; // Menampilkan Canvas menu pause
         Time.timeScale = 0f; // Menghentikan waktu dalam game
         paused = true; // Menandai bahwa permainan sedang pause
     }
 
     public void Play()
     {
-        PauseMenuCanvas.SetActive(false); // Menyembunyikan Canvas menu pause
+        PauseMenuCanvas.enabled = false; // Menyembunyikan Canvas menu pause
         Time.timeScale = 1f; // Melanjutkan waktu dalam game
         paused = false; // Menandai bahwa permainan tidak lagi pause
         // Debug.Log("Game resumed"); // Log untuk debugging
