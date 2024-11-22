@@ -1,79 +1,90 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager Instance { get; private set; }
+    [Header("UI Elements")]
+    public Slider[] sliders;
+    public Toggle[] toggles;
 
-    public UnityEvent<string, float> OnFloatPropertyChanged;
-    public UnityEvent<string, bool> OnBoolPropertyChanged;
+    [Header("Events")]
+    public UnityEvent<string, float> FloatPropertyChangeEvent;
+    public UnityEvent<string, int> IntPropertyChangeEvent;
+    public UnityEvent<string, bool> BoolPropertyChangeEvent;
 
-    [SerializeField] 
-    public float MusicVolume { get; private set; } = 1.0f;
-
-    
-    [SerializeField]
-    public bool IsGyroEnabled { get; private set; } = false;
+    public readonly Dictionary<string, float> FloatSettings = new() {
+        { "Master Volume", 1.0f },
+    };
+    public readonly Dictionary<string, int> Intsettings = new();
+    public readonly Dictionary<string, bool> BoolSettings = new() {
+        { "Use Gyro", true },
+    };
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); 
-        
+        DontDestroyOnLoad(gameObject);
 
-        
-        OnFloatPropertyChanged ??= new UnityEvent<string, float>();
-        OnBoolPropertyChanged ??= new UnityEvent<string, bool>();
+        // Initialize events
+        FloatPropertyChangeEvent ??= new UnityEvent<string, float>();
+        IntPropertyChangeEvent ??= new UnityEvent<string, int>();
+        BoolPropertyChangeEvent ??= new UnityEvent<string, bool>();
 
-        
-        LoadSettings();
+        // Subscribe to property change events
+        FloatPropertyChangeEvent.AddListener(OnFloatPropertyChanged);
+        IntPropertyChangeEvent.AddListener(OnIntPropertyChanged);
+        BoolPropertyChangeEvent.AddListener(OnBoolPropertyChanged);
+
+        // Load settings   
+        foreach (var setting in FloatSettings.ToList()) if (PlayerPrefs.HasKey(setting.Key)) FloatSettings[setting.Key] = PlayerPrefs.GetFloat(setting.Key);
+        foreach (var setting in Intsettings.ToList()) if (PlayerPrefs.HasKey(setting.Key)) Intsettings[setting.Key] = PlayerPrefs.GetInt(setting.Key);
+        foreach (var setting in BoolSettings.ToList()) if (PlayerPrefs.HasKey(setting.Key)) BoolSettings[setting.Key] = PlayerPrefs.GetInt(setting.Key) == 1;
     }
 
-    
-    private void LoadSettings()
-    {
-        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); 
-        IsGyroEnabled = PlayerPrefs.GetInt("IsGyroEnabled", 0) == 1; 
+    private void Start() {
+        foreach (var slider in sliders) {
+            if (slider != null) {
+                slider.value = FloatSettings[slider.name];
+                slider.onValueChanged.AddListener((value) => FloatPropertyChangeEvent.Invoke(slider.name, value));
+            }
+        }
 
-        
+        foreach (var toggle in toggles) {
+            if (toggle != null) {
+                toggle.isOn = BoolSettings[toggle.name];
+                toggle.onValueChanged.AddListener((value) => BoolPropertyChangeEvent.Invoke(toggle.name, value));
+            }
+        }
     }
 
-    
-    private void SaveSettings()
+    private void OnFloatPropertyChanged(string key, float value)
     {
-        PlayerPrefs.SetFloat("MusicVolume", MusicVolume);
-        PlayerPrefs.SetInt("IsGyroEnabled", IsGyroEnabled ? 1 : 0);
+        FloatSettings[key] = value;
+        PlayerPrefs.SetFloat(key, value);
         PlayerPrefs.Save();
-        Debug.Log("Settings saved.");
     }
 
-    
-    public void UpdateMusicVolume(float newVolume)
+    private void OnIntPropertyChanged(string key, int value)
     {
-        if (Mathf.Approximately(MusicVolume, newVolume)) return; 
-        MusicVolume = newVolume;
-        SaveSettings(); 
-        Debug.Log($"MusicVolume updated to {MusicVolume}");
-
-        
-        OnFloatPropertyChanged?.Invoke("MusicVolume", MusicVolume);
+        Intsettings[key] = value;
+        PlayerPrefs.SetInt(key, value);
+        PlayerPrefs.Save();
     }
 
-    
-    public void UpdateGyroState(bool newState)
+    private void OnBoolPropertyChanged(string key, bool value)
     {
-        if (IsGyroEnabled == newState) return; 
-        IsGyroEnabled = newState;
-        SaveSettings(); 
-        Debug.Log($"IsGyroEnabled updated to {IsGyroEnabled}");
-
-        
-        OnBoolPropertyChanged?.Invoke("IsGyroEnabled", IsGyroEnabled);
+        BoolSettings[key] = value;
+        PlayerPrefs.SetInt(key, value ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }
