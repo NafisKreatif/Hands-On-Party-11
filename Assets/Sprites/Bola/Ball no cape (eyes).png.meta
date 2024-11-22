@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ball no cape (eyes)_0: 6165144948497449588
+      Ball no cape (eyes)_1: -6164835111017336890
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
