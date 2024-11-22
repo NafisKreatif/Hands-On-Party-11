@@ -7,6 +7,7 @@ public class BallDieController : MonoBehaviour
 {
     public TransitionController transitionController;
     public ParticleSystem dieParticle;
+    public AudioSource[] dieSound;
     public SpriteShapeRenderer shapeRenderer;
     public TrailRenderer trailRenderer;
     public float scaleSpeed = -0.2f; // Seberapa cepat bolanya membesar ketika mati
@@ -24,13 +25,16 @@ public class BallDieController : MonoBehaviour
         if (_isDying)
         {
             // Kalo lagi mati, bolanya membesar
-            _bolaTransform.localScale = new Vector3(_bolaTransform.localScale.x + scaleSpeed * Time.deltaTime, _bolaTransform.localScale.y + scaleSpeed * Time.deltaTime, _bolaTransform.localScale.z);
+            shapeRenderer.enabled = false; // Hilangkan bola dari kamera
+            //_bolaTransform.localScale = new Vector3(_bolaTransform.localScale.x + scaleSpeed * Time.deltaTime, _bolaTransform.localScale.y + scaleSpeed * Time.deltaTime, _bolaTransform.localScale.z);
         }
     }
     public void Die()
     {
+        if (_isDying) return;
         _isDying = true;
         dieParticle.Play();
+        dieSound[Random.Range(0, dieSound.Length)].Play();
         StartCoroutine(DeadIn(transitionController.transitionTime * 0.5f)); // Menghentikan pembesaran bola
         StartCoroutine(ResetSceneIn(transitionController.transitionTime * 1.5f)); // Reset Scene
     }
@@ -39,7 +43,6 @@ public class BallDieController : MonoBehaviour
     IEnumerator DeadIn(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        _isDying = false; // Menghentikan pembesaran bola
         // Hanya particle system yang masih kelihatan, renderer sisanya di-disable
         shapeRenderer.enabled = false; // Hilangkan bola dari kamera
         trailRenderer.enabled = false; // Hilangkan trailnya juga dari kamera

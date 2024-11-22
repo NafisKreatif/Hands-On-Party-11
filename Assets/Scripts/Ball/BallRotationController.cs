@@ -12,7 +12,7 @@ public class BallRotationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float angleMomentum = 0;
         foreach (var vertex in ballVertices)
@@ -20,7 +20,6 @@ public class BallRotationController : MonoBehaviour
             angleMomentum += vertex.angularVelocity * angleSpeedRatio;
         }
         angleMomentum /= ballVertices.Length; // Jadiin rata-rata
-        angleMomentum *= Time.timeScale; // Jaga-jaga kalo lagi pause
-        _bolaTransform.rotation = Quaternion.Euler(0, 0, _bolaTransform.eulerAngles.z + angleMomentum * Time.deltaTime);
+        _bolaTransform.rotation = Quaternion.Euler(0, 0, _bolaTransform.eulerAngles.z + angleMomentum * Time.fixedDeltaTime);
     }
 }
