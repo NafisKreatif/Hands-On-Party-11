@@ -35,7 +35,7 @@ public class GravityRotationController : MonoBehaviour
   // On non-mobile platforms, it uses mouse input to determine the rotation.  
   // With Gyro, the rotation is based on the axis where the device is facing (supposedly).
   // With Cursor, the rotation is calculated from the angle change between a single cursor (mouse or touch input) to the center of the screen or between two cursors.  
-  private void Update()
+  private void FixedUpdate()
   {
     // Gyro rotation
     if (SystemInfo.supportsGyroscope && useGyro && _originAngle == null)
