@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WinController : MonoBehaviour
 {
+    public static WinController Instance;
     public GameObject levelCompletedMenu;
     public Camera gameCamera;
     public ParticleSystem winParticle;
@@ -11,13 +13,27 @@ public class WinController : MonoBehaviour
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
     public float zoomSpeed = 1f;
+    public UnityEvent WinEvent;
     private bool _isZooming = false;
     private float _initialSize;
     private Transform _thisTransform;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;        
+    }
     void Start()
     {
         _initialSize = gameCamera.orthographicSize;
         _thisTransform = GetComponent<Transform>();
+
+        WinEvent ??= new UnityEvent();
     }
     void Update()
     {
@@ -38,6 +54,7 @@ public class WinController : MonoBehaviour
     }
     public void Win()
     {
+        WinEvent.Invoke();
         if (winParticle != null)
         {
             winParticle.Play();

@@ -1,12 +1,10 @@
-using System;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GravityRotationController : MonoBehaviour
 {
   public Transform cameraTransform;
   public bool useGyro = true;
+  public float controlFactor = 1.0f; // Control factor for the rotation speed.
 
   private float _initialGravity; // Initial gravity magnitude.
   private float _startAngle; // Angle before rotation gesture starts in degrees.
@@ -28,6 +26,8 @@ public class GravityRotationController : MonoBehaviour
     _screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
 
     if (SystemInfo.supportsGyroscope) Input.gyro.enabled = true;
+
+    WinController.Instance.WinEvent.AddListener(OnWin);
   }
 
   // Updates the rotation of the camera and the direction of gravity based on user input.  
@@ -103,7 +103,11 @@ public class GravityRotationController : MonoBehaviour
   {
     _currentAngle = _offsetAngle + _gyroAngle;
     _currentAngleRad = _currentAngle * Mathf.Deg2Rad;
-    cameraTransform.rotation = Quaternion.AngleAxis(_currentAngle, Vector3.forward);
+    cameraTransform.rotation = Quaternion.Lerp(cameraTransform.rotation, Quaternion.AngleAxis(_currentAngle, Vector3.forward), controlFactor);
     Physics2D.gravity = new Vector2(Mathf.Cos(_currentAngleRad - Mathf.PI / 2), Mathf.Sin(_currentAngleRad - Mathf.PI / 2)) * _initialGravity;
+  }
+
+  private void OnWin() {
+    enabled = false;
   }
 }
