@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bola
       objectReference: {fileID: 0}
+    - target: {fileID: 7191140273593758944, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_ShapeTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: d6b6f605de9f649b5a8642bac73888e5, type: 3}
     - target: {fileID: 7861752847538887860, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.99
@@ -6497,6 +6501,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2094088610093363299, guid: aa7aaf48adaad46d0aec31c17bd25d09, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094088610093363299, guid: aa7aaf48adaad46d0aec31c17bd25d09, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094088610093363299, guid: aa7aaf48adaad46d0aec31c17bd25d09, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: cc1429e89454442e58c82ba30b7fad70, type: 3}
+    - target: {fileID: 2094088610093363299, guid: aa7aaf48adaad46d0aec31c17bd25d09, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cc1429e89454442e58c82ba30b7fad70, type: 3}
     - target: {fileID: 2778290870383239087, guid: aa7aaf48adaad46d0aec31c17bd25d09, type: 3}
       propertyPath: mainCamera
       value: 
