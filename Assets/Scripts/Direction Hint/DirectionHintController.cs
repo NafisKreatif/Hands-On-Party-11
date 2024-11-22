@@ -35,9 +35,9 @@ public class DirectionHintController : MonoBehaviour
 
             // Harus dirotate dengan kamera vektornya
             float angle = mainCamera.transform.eulerAngles.z / 180 * Mathf.PI;
-            Vector3 rotatedScale = _initialScale;
-            rotatedScale.x = Mathf.Cos(angle) * _initialScale.x - Mathf.Sin(angle) * _initialScale.y;
-            rotatedScale.y = Mathf.Sin(angle) * _initialScale.x + Mathf.Cos(angle) * _initialScale.y;
+            Vector3 rotatedScale = _thisTranform.lossyScale;
+            rotatedScale.x = Mathf.Cos(angle) * _thisTranform.lossyScale.x - Mathf.Sin(angle) * _thisTranform.lossyScale.y;
+            rotatedScale.y = Mathf.Sin(angle) * _thisTranform.lossyScale.x + Mathf.Cos(angle) * _thisTranform.lossyScale.y;
 
             // Offset posisi di kamera
             Vector2 scaleOnViewport = mainCamera.WorldToViewportPoint(rotatedScale + mainCamera.transform.position);

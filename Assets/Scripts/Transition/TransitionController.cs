@@ -15,7 +15,8 @@ public class TransitionController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (transitionOnStart) {
+        if (transitionOnStart)
+        {
             TransitionIn();
         }
     }
@@ -23,23 +24,34 @@ public class TransitionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isInTransition) {
+        if (_isInTransition)
+        {
             // Biar kalo kameranya gerak-gerak dan berotasi masih menutupi
             Vector3 position = new(cameraTransform.position.x, cameraTransform.position.y, -9);
             Quaternion rotation = cameraTransform.rotation;
             blackScreen.SetPositionAndRotation(position, rotation);
             maskTransform.SetPositionAndRotation(position, rotation);
             // Update scale dari masknya
-            maskTransform.localScale += new Vector3(_transitionSpeed * Time.unscaledDeltaTime, _transitionSpeed * Time.unscaledDeltaTime, 0);
+            if (Time.timeScale == 0) // Lagi pause pake unscaleDeltaTime biar tidak terpengaruh
+            {
+                maskTransform.localScale += new Vector3(_transitionSpeed * Time.unscaledDeltaTime, _transitionSpeed * Time.unscaledDeltaTime, 0);
+            }
+            else // Nggak lagi pause, pake deltaTime biar kalo ganti scene bener transisinya
+            {
+                maskTransform.localScale += new Vector3(_transitionSpeed * Time.deltaTime, _transitionSpeed * Time.deltaTime, 0);
+            }
         }
     }
-    IEnumerator FinishTransitionIn(float seconds, Vector3 maskScaleTarget) {
+    IEnumerator FinishTransitionIn(float seconds, Vector3 maskScaleTarget)
+    {
         yield return new WaitForSecondsRealtime(seconds);
         _isInTransition = false; // Anggap sudah selesai
         maskTransform.localScale = maskScaleTarget; // Pas kan dengan hasil akhir yang diinginkan
     }
-    public void TransitionIn() {
-        if (_isInTransition) { // Jangan transisi lagi kalo lagi transisi
+    public void TransitionIn()
+    {
+        if (_isInTransition)
+        { // Jangan transisi lagi kalo lagi transisi
             Debug.Log("Can't set another transition!");
             return;
         }
@@ -49,8 +61,10 @@ public class TransitionController : MonoBehaviour
         _transitionSpeed = scale / transitionTime; // Scale membesar
         StartCoroutine(FinishTransitionIn(transitionTime, new Vector3(scale, scale, maskTransform.localScale.z)));
     }
-    public void TransitionOut() {
-        if (_isInTransition) { // Jangan transisi lagi kalo lagi transisi
+    public void TransitionOut()
+    {
+        if (_isInTransition)
+        { // Jangan transisi lagi kalo lagi transisi
             Debug.Log("Can't set another transition!");
             return;
         }
@@ -60,19 +74,23 @@ public class TransitionController : MonoBehaviour
         _transitionSpeed = -scale / transitionTime; // Scale mengecil
         StartCoroutine(FinishTransitionIn(transitionTime, new Vector3(0, 0, maskTransform.localScale.z)));
     }
-    public void GoToSceneByName(string name) {
+    public void GoToSceneByName(string name)
+    {
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadSceneByName(name, transitionTime)); // Baru load scene baru
     }
-    public void GoToSceneByIndex(int index) {
+    public void GoToSceneByIndex(int index)
+    {
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadSceneByIndex(index, transitionTime)); // Baru load scene baru
     }
-    IEnumerator LoadSceneByName(string name, float timeInSeconds) {
+    IEnumerator LoadSceneByName(string name, float timeInSeconds)
+    {
         yield return new WaitForSecondsRealtime(timeInSeconds);
         SceneManager.LoadScene(name);
     }
-    IEnumerator LoadSceneByIndex(int index, float timeInSeconds) {
+    IEnumerator LoadSceneByIndex(int index, float timeInSeconds)
+    {
         yield return new WaitForSecondsRealtime(timeInSeconds);
         SceneManager.LoadScene(index);
     }

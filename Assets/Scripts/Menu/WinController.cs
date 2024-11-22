@@ -7,7 +7,7 @@ public class WinController : MonoBehaviour
     public Camera gameCamera;
     public ParticleSystem winParticle;
     public AudioSource winSound;
-
+    public LevelCompletedMenu winMenu;
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
     public float zoomSpeed = 1f;
@@ -46,6 +46,7 @@ public class WinController : MonoBehaviour
         {
             winSound.Play();
         }
+        winMenu.SetWinTime(Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f));
         Time.timeScale = slowMotionTimeScale; // Slow motion saat menang waktu dalam game
         Time.fixedDeltaTime = 0.02f * Time.timeScale; // Biar nggak choppy
         _isZooming = true;
