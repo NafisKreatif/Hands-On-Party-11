@@ -45,10 +45,12 @@ public class DialogManager : MonoBehaviour
 
   [Tooltip("Event to be called when the dialog is started, parameter is dialog id.")]
   public UnityEvent<string> StartDialogEvent; // Event to be called when the dialog is started, parameter is dialog id.
+  public UnityEvent<string> DialogDoneEvent; // Event to be called when the dialog is done, parameter is dialog id.
+
+  public Dictionary<string, bool> dialogDoneState = new(); // Dictionary of dialog done state for each dialog line
 
   private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
-  private Dictionary<string, bool> _dialogDoneState = new(); // Dictionary of dialog done state for each dialog line
   private GravityRotationController _gravityRotationController;
 
   private void Awake()
@@ -65,6 +67,7 @@ public class DialogManager : MonoBehaviour
 
     // Initialize dialog queue and dialog done state
     StartDialogEvent ??= new UnityEvent<string>();
+    DialogDoneEvent ??= new UnityEvent<string>();
   }
 
   private void Start()
@@ -80,7 +83,7 @@ public class DialogManager : MonoBehaviour
     if (_dialogQueue.Count != 0 && (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1")))
     {
       // Check if dialog text is fully displayed, if it is then continue to the next dialog.
-      if (_dialogDoneState[_dialogQueue.Peek().id])
+      if (dialogDoneState[_dialogQueue.Peek().id])
       {
         NextDialog();
       }
@@ -89,10 +92,9 @@ public class DialogManager : MonoBehaviour
       {
         if (_dialogQueue.Peek().type == DialogLineResource.DialogLineType.speech)
         {
-          Debug.LogWarning("Skip");
           if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
           speechText.text = _dialogQueue.Peek().speech;
-          _dialogDoneState[_dialogQueue.Peek().id] = true;
+          dialogDoneState[_dialogQueue.Peek().id] = true;
         }
       }
     }
@@ -112,7 +114,7 @@ public class DialogManager : MonoBehaviour
       dialogObject.SetActive(false);
       speakerText.text = "";
       speechText.text = "";
-      _dialogDoneState = new Dictionary<string, bool>();
+      dialogDoneState = new Dictionary<string, bool>();
       if (_gravityRotationController) _gravityRotationController.enabled = true;
     }
     else
@@ -132,7 +134,7 @@ public class DialogManager : MonoBehaviour
     {
       dialogObject.SetActive(true);
 
-      _dialogDoneState[currentDialog.id] = false;
+      dialogDoneState[currentDialog.id] = false;
       speakerText.text = currentDialog.speaker;
       speechText.text = "";
       speakerProfileAnimator.runtimeAnimatorController = currentDialog.animatorController;
@@ -144,7 +146,7 @@ public class DialogManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
       }
       speechText.text = currentDialog.speech;
-      _dialogDoneState[currentDialog.id] = true;
+      dialogDoneState[currentDialog.id] = true;
     }
     else
     {
@@ -153,14 +155,15 @@ public class DialogManager : MonoBehaviour
       speechText.text = "";
       currentDialog.sceneAction.Execute(currentDialog.id);
       if (currentDialog.isSceneAsync) NextDialog();
-      else _dialogDoneState[currentDialog.id] = false;
+      else dialogDoneState[currentDialog.id] = false;
     }
   }
 
   // Notify the dialog manager that the dialog line has finished executing.
   public void DialogDone(string id)
   {
-    _dialogDoneState[id] = true;
+    dialogDoneState[id] = true;
+    DialogDoneEvent.Invoke(id);
     if (_dialogQueue.Peek().id == id) NextDialog();
   }
 

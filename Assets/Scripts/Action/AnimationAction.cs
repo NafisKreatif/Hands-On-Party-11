@@ -8,7 +8,7 @@ public class AnimationAction : SceneAction
 
   public Animator animator;
   public AnimationActionType animationActionType;  
-  [Tooltip("when animationActionType set to Play, name of the animation to be played, else than Play, the name of the parameter")]
+  [Tooltip("When animationActionType set to Play, name of the animation to be played, else than Play, the name of the parameter")]
   public string stringValue;
   [Tooltip("Value of the bool to be set. Only used when animationActionType is Bool")]
   public bool boolValue;

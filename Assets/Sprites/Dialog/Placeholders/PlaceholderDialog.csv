@@ -1,9 +1,8 @@
 speech|Speaker 1|Hi|DialogSpeakerProfilePlaceholder
 speech|Speaker 2|Hello!|DialogSpeakerProfilePlaceholder2
-action|CameraPeekAction|sync
+action|CompositeAction|sync
 speech|Speaker 1|Bye!|DialogSpeakerProfilePlaceholder
 speech|Speaker 2|Bye bye!|DialogSpeakerProfilePlaceholder2
-action|TransformAction0|async
 speech|Speaker 1|Bye!|DialogSpeakerProfilePlaceholder
 speech|Speaker 2|Bye bye!|DialogSpeakerProfilePlaceholder2
 speech|Speaker 1|Bye!|DialogSpeakerProfilePlaceholder
