@@ -11,14 +11,14 @@ public class BallVelocityController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 velocity = _thisBody.linearVelocity;
         float magnitude = velocity.magnitude;
         // Kalau besar vektor kecepatan terlalu besar, maka dipendekin menjadi besar maksimal
         if (magnitude > maxVelocity)
         {
-            _thisBody.linearVelocity = velocity.normalized * magnitude;
+            _thisBody.linearVelocity = velocity.normalized * maxVelocity;
         }
     }
 }
