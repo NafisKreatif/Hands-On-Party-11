@@ -11,7 +11,7 @@ public class DialogAreaTrigger : MonoBehaviour
 
     [Header("Resources")]
 
-    [Tooltip("A CSV file with dialoglines in which eahc line has two types: speech and action. a dialog line with type speech consists of `speech|<speaker>|<speech>|<animationState>`. While DialogLine with type action consists of `action|<actionName>|<isAsync>`.")]
+    [Tooltip("A CSV file with dialoglines in which eahc line has two types: speech and action. a dialog line with type speech consists of `speech|<speaker>|<speech>|<animationState>`. While DialogLine with type action consists of `action|<actionName+actionId>|<isAsync>`.")]
     public TextAsset dialogResource; // CSV file with dialog lines each containing (<type>, <speaker|actionName>, <speech|isAsync>, <animationState|null>).
     [Tooltip("List of scene actions to be executed. Only scenes from this list can be executed by the dialogResource.")]
     public List<SceneAction> sceneActionScripts; // List of scene actions to be executed.
@@ -63,7 +63,7 @@ public class DialogAreaTrigger : MonoBehaviour
                         break;
                     }
                     _dialogLines[i].type = DialogManager.DialogLineResource.DialogLineType.action;
-                    _dialogLines[i].sceneAction = sceneActionScripts.Find(v => v.ActionName == fields[1]);
+                    _dialogLines[i].sceneAction = sceneActionScripts.Find(v => (v.ActionName + v.actionId) == fields[1]);
                     if (_dialogLines[i].sceneAction == null) Debug.LogError("Scene action not found: " + fields[1]);
                     _dialogLines[i].isSceneAsync = fields[2] == "async";
                     break;

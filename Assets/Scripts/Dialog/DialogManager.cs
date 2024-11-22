@@ -1,11 +1,8 @@
 using UnityEngine;
 using TMPro;
-using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEditor.Animations;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine.Events;
 
 public class DialogManager : MonoBehaviour
@@ -13,7 +10,7 @@ public class DialogManager : MonoBehaviour
   /* 
     DialogLine has two types: speech and action
     In the dialog CSV file, DialogLine with type speech consists of `speech|<speaker>|<speech>|<animationState>`.
-    While DialogLine with type action consists of `action|<actionName>|<isAsync>`.
+    While DialogLine with type action consists of `action|<actionName+actionId>|<isAsync>`.
   */
   public struct DialogLineResource
   {
@@ -52,6 +49,7 @@ public class DialogManager : MonoBehaviour
   private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
   private Dictionary<string, bool> _dialogDoneState = new(); // Dictionary of dialog done state for each dialog line
+  private GravityRotationController _gravityRotationController;
 
   private void Awake()
   {
@@ -72,12 +70,14 @@ public class DialogManager : MonoBehaviour
   private void Start()
   {
     dialogObject.SetActive(false);
+
+    _gravityRotationController = FindFirstObjectByType<GravityRotationController>();
   }
 
   private void Update()
   {
     // Check if dialog is active and player press space or left mouse button / touch screen.
-    if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
+    if (_dialogQueue.Count != 0 && (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1")))
     {
       // Check if dialog text is fully displayed, if it is then continue to the next dialog.
       if (_dialogDoneState[_dialogQueue.Peek().id])
@@ -113,6 +113,7 @@ public class DialogManager : MonoBehaviour
       speakerText.text = "";
       speechText.text = "";
       _dialogDoneState = new Dictionary<string, bool>();
+      if (_gravityRotationController) _gravityRotationController.enabled = true;
     }
     else
     {
@@ -125,6 +126,7 @@ public class DialogManager : MonoBehaviour
   {
     DialogLineResource currentDialog = _dialogQueue.Peek();
     StartDialogEvent.Invoke(currentDialog.id);
+    if (_gravityRotationController) _gravityRotationController.enabled = false;
 
     if (currentDialog.type == DialogLineResource.DialogLineType.speech)
     {
@@ -151,7 +153,7 @@ public class DialogManager : MonoBehaviour
       speechText.text = "";
       currentDialog.sceneAction.Execute(currentDialog.id);
       if (currentDialog.isSceneAsync) NextDialog();
-      else _dialogDoneState[currentDialog.id] = false;      
+      else _dialogDoneState[currentDialog.id] = false;
     }
   }
 

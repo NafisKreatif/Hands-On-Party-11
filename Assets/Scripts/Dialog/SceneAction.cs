@@ -1,9 +1,9 @@
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public abstract class SceneAction : MonoBehaviour
 {
-  public abstract string ActionName { get; }    
+  public string actionId = "";
+  public abstract string ActionName { get; }
   [HideInInspector]
   public string dialogId;
 
