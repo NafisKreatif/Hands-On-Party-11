@@ -7,132 +7,132 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     // Bagian Pause Menu
-    public static bool paused = false; // Melacak apakah permainan sedang pause
-    public GameObject PauseMenuCanvas; // Objek Canvas untuk menampilkan menu pause
+    public static bool paused = false; 
+    public GameObject PauseMenuCanvas; 
 
     void Start()
     {
-        Time.timeScale = 1f; // Mengatur waktu menjadi normal saat game dimulai
+        Time.timeScale = 1f; 
 
-        // Periksa apakah SettingsManager sudah ada di scene
+        
         if (SettingsManager.Instance == null)
         {
             Debug.Log("SettingsManager not found. Instantiating from prefab.");
-            Instantiate(settingsManagerPrefab); // Buat SettingsManager dari prefab
+            Instantiate(settingsManagerPrefab); 
         }
 
-        // Sinkronkan slider volume
+        
         if (musicSlider != null && myMixer != null)
         {
             musicSlider.value = SettingsManager.Instance.MusicVolume;
             myMixer.SetFloat("music", Mathf.Log10(SettingsManager.Instance.MusicVolume) * 20);
 
-            // Tambahkan listener untuk sinkronisasi perubahan
-            musicSlider.onValueChanged.AddListener((value) => UpdateMusicVolume(value));
+            
+            musicSlider.onValueChanged.AddListener(UpdateMusicVolume);
         }
 
-        // Sinkronkan toggle gyroscope
+        
         if (gyroToggle != null)
         {
             gyroToggle.isOn = SettingsManager.Instance.IsGyroEnabled;
 
-            // Tambahkan listener untuk sinkronisasi perubahan
-            gyroToggle.onValueChanged.AddListener((value) => UpdateGyroState(value));
+            
+            gyroToggle.onValueChanged.AddListener(UpdateGyroState);
         }
 
-        // Daftarkan listener untuk UnityEvent di SettingsManager
+        
         SettingsManager.Instance.OnFloatPropertyChanged.AddListener(OnFloatPropertyChanged);
         SettingsManager.Instance.OnBoolPropertyChanged.AddListener(OnBoolPropertyChanged);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // Mengecek apakah tombol Escape ditekan
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             if (paused)
             {
-                Play(); // Melanjutkan permainan jika sedang pause
+                Play(); 
             }
             else
             {
-                Stop(); // Mem-pause permainan jika tidak sedang pause
+                Stop(); 
             }
         }
     }
 
     public void Stop()
     {
-        PauseMenuCanvas.SetActive(true); // Menampilkan Canvas menu pause
-        Time.timeScale = 0f; // Menghentikan waktu dalam game
-        paused = true; // Menandai bahwa permainan sedang pause
+        PauseMenuCanvas.SetActive(true); 
+        Time.timeScale = 0f; 
+        paused = true; 
     }
 
     public void Play()
     {
-        PauseMenuCanvas.SetActive(false); // Menyembunyikan Canvas menu pause
-        Time.timeScale = 1f; // Melanjutkan waktu dalam game
-        paused = false; // Menandai bahwa permainan tidak lagi pause
+        PauseMenuCanvas.SetActive(false); 
+        Time.timeScale = 1f; 
+        paused = false; 
     }
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); // Memuat scene sebelumnya (main menu)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); 
     }
 
     // Bagian Audio
-    [SerializeField] private AudioMixer myMixer; // Mixer audio untuk mengatur volume
-    [SerializeField] private Slider musicSlider; // Slider volume musik
+    [SerializeField] public AudioMixer myMixer; 
+    [SerializeField] public Slider musicSlider; 
 
     public void SetMusicVolume()
     {
         if (musicSlider != null)
         {
-            UpdateMusicVolume(musicSlider.value); // Gunakan metode UpdateMusicVolume
+            UpdateMusicVolume(musicSlider.value); 
         }
     }
 
     private void UpdateMusicVolume(float value)
     {
-        SettingsManager.Instance.UpdateMusicVolume(value); // Gunakan metode di SettingsManager
+        SettingsManager.Instance.UpdateMusicVolume(value); 
         myMixer.SetFloat("music", Mathf.Log10(value) * 20);
-        Debug.Log($"PauseMenu: Music volume updated to {value}");
+        
     }
 
-    // Bagian Gyro
-    [SerializeField] private Toggle gyroToggle; // Toggle untuk mengatur gyroscope
+    
+    [SerializeField] public Toggle gyroToggle; 
 
     public void ToggleGyroscope(bool isOn)
     {
-        UpdateGyroState(isOn); // Gunakan metode UpdateGyroState
+        UpdateGyroState(isOn); 
     }
 
     private void UpdateGyroState(bool value)
     {
-        SettingsManager.Instance.UpdateGyroState(value); // Gunakan metode di SettingsManager
-        Debug.Log($"PauseMenu: Gyroscope state updated to {value}");
+        SettingsManager.Instance.UpdateGyroState(value); 
+
     }
 
-    // Listener untuk UnityEvent (float)
+    
     private void OnFloatPropertyChanged(string propertyName, float value)
     {
         if (propertyName == "MusicVolume" && musicSlider != null)
         {
             musicSlider.value = value;
             myMixer.SetFloat("music", Mathf.Log10(value) * 20);
-            Debug.Log($"MusicVolume synced to slider: {value}");
+            
         }
     }
 
-    // Listener untuk UnityEvent (bool)
+    
     private void OnBoolPropertyChanged(string propertyName, bool value)
     {
         if (propertyName == "IsGyroEnabled" && gyroToggle != null)
         {
             gyroToggle.isOn = value;
-            Debug.Log($"IsGyroEnabled synced to toggle: {value}");
+            
         }
     }
 
-    // Bagian Singleton
-    [SerializeField] private GameObject settingsManagerPrefab;
+    
+    [SerializeField] public GameObject settingsManagerPrefab;
 }
