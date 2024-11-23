@@ -52,6 +52,7 @@ public class DialogManager : MonoBehaviour
   private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
   private GravityRotationController _gravityRotationController;
+  private AudioClip _dialogAudioClip;
 
   private void Awake()
   {
