@@ -466,12 +466,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: a3731762f4bc2a8449fa5ad60025b1e4, type: 2}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: sceneActionScripts.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[0]'
       value: 
-      objectReference: {fileID: 1415322425}
+      objectReference: {fileID: 1415322427}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[1]'
       value: 
@@ -535,6 +535,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1415322426}
+    - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1415322427}
+    - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1415322430}
   m_SourcePrefab: {fileID: 100100000, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
 --- !u!1 &842105565
 GameObject:
@@ -723,7 +729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 1157844760}
-  rotationInput: 0
+  useGyro: 1
+  controlFactor: 1
   _currentAngle: 0
 --- !u!114 &1157844762
 MonoBehaviour:
@@ -737,11 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47efa4700538bb54eb3c9e0e305c966d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1157844763}
-  cameraPos: {fileID: 1157844757}
   target: {fileID: 1487315927}
-  distanceX: 0
-  distanceY: 0
 --- !u!50 &1157844763
 Rigidbody2D:
   serializedVersion: 5
@@ -825,6 +828,7 @@ MonoBehaviour:
   actionId: 
   dialogId: 
   duration: 4
+  zoomFactor: 0.5
   targetObject: {fileID: 418448799}
 --- !u!114 &1415322426
 MonoBehaviour:
@@ -847,6 +851,41 @@ MonoBehaviour:
   - {fileID: 158820507}
   - {fileID: 305991775}
   targetObject: {fileID: 1999963193}
+--- !u!114 &1415322427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415322417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f003768270ef345817ad6d2ba6d9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionId: 
+  dialogId: 
+  actions:
+  - {fileID: 1415322425}
+  - {fileID: 1415322426}
+  - {fileID: 1415322430}
+--- !u!114 &1415322430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415322417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b51a22e50a078146a3449314683ec31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionId: 
+  dialogId: 
+  duration: 2
+  magnitude: 0.25
+  dampingSpeed: 1
 --- !u!1 &1487315927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7127435965089795443, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
