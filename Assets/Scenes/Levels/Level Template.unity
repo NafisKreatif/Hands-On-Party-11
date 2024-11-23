@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraRb: {fileID: 831178123}
-  parallaxAmount: 0.001
+  parallaxAmount: 0.9
 --- !u!212 &758587833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43159,6 +43159,14 @@ PrefabInstance:
       propertyPath: transitionController
       value: 
       objectReference: {fileID: 1284389958}
+    - target: {fileID: 6420815462253318357, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: f196b60032a374991a6977984f0af836, type: 3}
+    - target: {fileID: 6420815462253318357, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f196b60032a374991a6977984f0af836, type: 3}
     - target: {fileID: 7100514374720059108, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.16072713
