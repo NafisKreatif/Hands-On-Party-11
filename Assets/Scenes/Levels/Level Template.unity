@@ -293,6 +293,14 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key0.r
       value: 0.69803923
       objectReference: {fileID: 0}
+    - target: {fileID: 2270950466272583527, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1222229189, guid: c1102314930b046de865c29c7bca99c1, type: 3}
+    - target: {fileID: 2270950466272583527, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2910787456242689308, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
       propertyPath: m_Radius
       value: 1.8
@@ -584,6 +592,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2270950466272583527, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1222229189, guid: c1102314930b046de865c29c7bca99c1, type: 3}
+    - target: {fileID: 2270950466272583527, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5652676238747788632, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
       propertyPath: m_Name
       value: Collectible
@@ -43809,6 +43825,14 @@ PrefabInstance:
     - target: {fileID: 180123915186886406, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
       value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270950466272583527, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1222229189, guid: c1102314930b046de865c29c7bca99c1, type: 3}
+    - target: {fileID: 2270950466272583527, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2910787456242689308, guid: 1ec18ddf047956547b4378a8c616aec0, type: 3}
       propertyPath: m_Radius

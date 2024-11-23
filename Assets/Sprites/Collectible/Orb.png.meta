@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f27b0dda2f3c4f9c94e6669e97c031f
+guid: c1102314930b046de865c29c7bca99c1
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 222
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,23 +122,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orbs (1)_0
+      name: Orb_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 200
+        width: 222
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8bdac0a158c955680800000000000000
-      internalID: -8766929004125180488
+      spriteID: eba85d389a192401a8b29cfd07e1a5af
+      internalID: 1222229189
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 345ce777d009f4e7e9387ccd9d1f9351
+    spriteID: 26f4edab02acd4572b7fd5088e5995c4
     internalID: 0
     vertices: []
     indices: 
@@ -157,7 +157,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Orbs (1)_0: -8766929004125180488
+      Orb_0: 1222229189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
