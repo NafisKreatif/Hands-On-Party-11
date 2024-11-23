@@ -9,13 +9,14 @@ public class Collectible : MonoBehaviour
     private bool _hasBeenCollected = false;
     void Start()
     {
+        collectibleCount = 0;
         _renderer = GetComponent<SpriteRenderer>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the player collected it
         if (other.CompareTag("Player") && !_hasBeenCollected)
-        {
+        {            
             collectibleCount++; // Increase count
             collectSound.Play(); // Play audio
             boom.Play();
