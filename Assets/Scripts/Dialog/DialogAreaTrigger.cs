@@ -69,6 +69,15 @@ public class DialogAreaTrigger : MonoBehaviour
                     if (_dialogLines[i].sceneAction == null) Debug.LogError("Scene action not found: " + fields[1]);
                     _dialogLines[i].isSceneAsync = fields[2] == "async";
                     break;
+                case "slideshow":
+                    if (fields.Length < 2)
+                    {
+                        Debug.LogError("Invalid dialog line: " + lines[i]);
+                        break;
+                    }
+                    _dialogLines[i].type = DialogManager.DialogLineResource.DialogLineType.slideshow;
+                    _dialogLines[i].speech = fields[1];
+                    break;
                 default:
                     Debug.LogError("Invalid dialog line type: " + fields[0]);
                     break;

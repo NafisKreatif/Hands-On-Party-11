@@ -463,7 +463,7 @@ PrefabInstance:
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: dialogResource
       value: 
-      objectReference: {fileID: 4900000, guid: c76e9f04a9b8fac41acd57417c2d66e6, type: 3}
+      objectReference: {fileID: 4900000, guid: 734738bd452e16c419421113e4c70c16, type: 3}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: animatorController
       value: 

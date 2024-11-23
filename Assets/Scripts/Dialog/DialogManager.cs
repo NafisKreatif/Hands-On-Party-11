@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class DialogManager : MonoBehaviour
     {
       speech,
       action,
+      slideshow,
     }
 
     public string id;
@@ -40,6 +42,8 @@ public class DialogManager : MonoBehaviour
   public TextMeshProUGUI speakerText;
   public TextMeshProUGUI speechText;
   public Animator speakerProfileAnimator;
+  public GameObject slideshowObject;
+  public TextMeshProUGUI slideshowText;
 
   [Header("Events")]
 
@@ -77,6 +81,7 @@ public class DialogManager : MonoBehaviour
   private void Start()
   {
     dialogObject.SetActive(false);
+    slideshowObject.SetActive(false);
 
     _gravityRotationController = FindFirstObjectByType<GravityRotationController>();
   }
@@ -99,6 +104,13 @@ public class DialogManager : MonoBehaviour
           if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
           _dialogAudioSource.loop = false;
           speechText.text = _dialogQueue.Peek().speech;
+          dialogDoneState[_dialogQueue.Peek().id] = true;
+        }
+        else if (_dialogQueue.Peek().type == DialogLineResource.DialogLineType.slideshow)
+        {
+          if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
+          _dialogAudioSource.loop = false;
+          slideshowText.text = _dialogQueue.Peek().speech;
           dialogDoneState[_dialogQueue.Peek().id] = true;
         }
       }
@@ -147,11 +159,43 @@ public class DialogManager : MonoBehaviour
 
       for (int i = 0; i < currentDialog.speech.Length; i++)
       {
+        // Skip the text enclosed in '<' and '>'
+        if (currentDialog.speech[i] == '<')
+        {
+          int j = i + 1;
+          while (currentDialog.speech[j] != '>') j++;
+          i = j + 1;
+        }
         speechText.text += currentDialog.speech[i];
         yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
       }
       _dialogAudioSource.loop = false;
       speechText.text = currentDialog.speech;
+      dialogDoneState[currentDialog.id] = true;
+    }
+    else if (currentDialog.type == DialogLineResource.DialogLineType.slideshow)
+    {
+      slideshowObject.SetActive(true);
+      _dialogAudioSource.Play();
+      _dialogAudioSource.loop = true;
+
+      dialogDoneState[currentDialog.id] = false;
+      slideshowText.text = "";
+
+      for (int i = 0; i < currentDialog.speech.Length; i++)
+      {
+        // Skip the text enclosed in '<' and '>'
+        if (currentDialog.speech[i] == '<')
+        {
+          int j = i + 1;
+          while (currentDialog.speech[j] != '>') j++;
+          i = j + 1;
+        }
+        slideshowText.text += currentDialog.speech[i];
+        yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
+      }
+      _dialogAudioSource.loop = false;
+      slideshowText.text = currentDialog.speech;
       dialogDoneState[currentDialog.id] = true;
     }
     else
@@ -184,18 +228,26 @@ public class DialogManager : MonoBehaviour
     dialogObject.SetActive(false);
     speakerText.text = "";
     speechText.text = "";
+
+    if (slideshowObject.activeSelf) StartCoroutine(FadeOutSlideshow());
   }
 
-  // private IEnumerator FadeOutAudio()
-  // {
-  //   float time = 0;
-  //   while (time <= _dialogAudioFadeOutDuration)
-  //   {
-  //     _dialogAudioSource.volume = Mathf.Lerp(1, 0, time / _dialogAudioFadeOutDuration);
-  //     time += Time.deltaTime;
-  //     yield return null;
-  //   }
-  //   _dialogAudioSource.Stop();
-  //   _dialogAudioSource.volume = 1;
-  // }
+  private IEnumerator FadeOutSlideshow()
+  {
+    Image slideshowImage = slideshowObject.GetComponent<Image>();
+
+    float time = 0;
+    while (time <= 2.0f)
+    {
+      slideshowImage.color = new Color(slideshowImage.color.r, slideshowImage.color.g, slideshowImage.color.b, 1 - time / 2.0f);
+      slideshowText.color = new Color(slideshowText.color.r, slideshowText.color.g, slideshowText.color.b, 1 - time / 2.0f);
+      time += Time.deltaTime;
+      yield return null;
+    }
+
+    slideshowObject.SetActive(false);
+    slideshowText.text = "";
+    slideshowImage.color = new Color(slideshowImage.color.r, slideshowImage.color.g, slideshowImage.color.b, 1);
+    slideshowText.color = new Color(slideshowText.color.r, slideshowText.color.g, slideshowText.color.b, 1);
+  }
 }
