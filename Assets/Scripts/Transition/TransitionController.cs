@@ -32,7 +32,7 @@ public class TransitionController : MonoBehaviour
             blackScreen.SetPositionAndRotation(position, rotation);
             maskTransform.SetPositionAndRotation(position, rotation);
             // Update scale dari masknya
-            if (Time.timeScale == 0) // Lagi pause pake unscaleDeltaTime biar tidak terpengaruh
+            if (Time.timeScale != 1) // Lagi pause pake unscaleDeltaTime biar tidak terpengaruh
             {
                 maskTransform.localScale += new Vector3(_transitionSpeed * Time.unscaledDeltaTime, _transitionSpeed * Time.unscaledDeltaTime, 0);
             }
@@ -44,7 +44,8 @@ public class TransitionController : MonoBehaviour
     }
     IEnumerator FinishTransitionIn(float seconds, Vector3 maskScaleTarget)
     {
-        yield return new WaitForSecondsRealtime(seconds);
+        if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(seconds);
+        else yield return new WaitForSeconds(seconds);
         _isInTransition = false; // Anggap sudah selesai
         maskTransform.localScale = maskScaleTarget; // Pas kan dengan hasil akhir yang diinginkan
     }
@@ -86,12 +87,14 @@ public class TransitionController : MonoBehaviour
     }
     IEnumerator LoadSceneByName(string name, float timeInSeconds)
     {
-        yield return new WaitForSecondsRealtime(timeInSeconds);
+        if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);
+        else yield return new WaitForSeconds(timeInSeconds);
         SceneManager.LoadScene(name);
     }
     IEnumerator LoadSceneByIndex(int index, float timeInSeconds)
     {
-        yield return new WaitForSecondsRealtime(timeInSeconds);
+        if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);
+        else yield return new WaitForSeconds(timeInSeconds);
         SceneManager.LoadScene(index);
     }
 }

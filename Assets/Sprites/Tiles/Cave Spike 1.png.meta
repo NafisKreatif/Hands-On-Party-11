@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 151290a02e5cdfe459175d2ffed8d1a4
+guid: 82ce31a277a9b4fa6b12eb74bd30e2ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7181563291360700585
-    second: dead-star-1_0
+      213: -875139957050434495
+    second: Untitled236_20241122154429_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 750
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,27 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dead-star-1_0
+      name: Cave Spike_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1600
-        height: 900
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 243
+        y: 205
+        width: 797
+        height: 833
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 398.5, y: -416.5}
+        - {x: 398.5, y: 35.5}
+        - {x: -398.5, y: 37.5}
+        - {x: -398.5, y: -416.5}
+      tessellationDetail: 0
       bones: []
-      spriteID: 9a82a8193c90aa360800000000000000
-      internalID: 7181563291360700585
+      spriteID: 921ad2cb7b65e47edafe14b6588969d2
+      internalID: -1881358290
       vertices: []
       indices: 
       edges: []
@@ -138,7 +142,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +152,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dead-star-1_0: 7181563291360700585
+      Cave Spike_0: -1881358290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

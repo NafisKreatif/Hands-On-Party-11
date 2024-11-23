@@ -1,8 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
-using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,6 +13,8 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f; // Mengatur waktu menjadi normal saat game dimulai
+        PauseMenuCanvas.worldCamera = Camera.main;
+        WinController.Instance.WinningEvent.AddListener(OnWin);
     }
 
     // Fungsi yang dipanggil setiap frame
@@ -56,5 +54,9 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f; // Supaya transisinya bisa jalan
         transitionController.GoToSceneByIndex(0);
+    }
+    // Kalau sudah menang tidak bisa pause
+    void OnWin() {
+        enabled = false;
     }
 }

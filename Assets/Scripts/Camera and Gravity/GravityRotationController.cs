@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GravityRotationController : MonoBehaviour
@@ -27,7 +28,8 @@ public class GravityRotationController : MonoBehaviour
 
     if (SystemInfo.supportsGyroscope) Input.gyro.enabled = true;
 
-    WinController.Instance.WinEvent.AddListener(OnWin);
+    WinController.Instance.WinningEvent.AddListener(OnWin);
+    WinController.Instance.HasWonEvent.AddListener(HasWon);
   }
 
   // Updates the rotation of the camera and the direction of gravity based on user input.  
@@ -35,7 +37,7 @@ public class GravityRotationController : MonoBehaviour
   // On non-mobile platforms, it uses mouse input to determine the rotation.  
   // With Gyro, the rotation is based on the axis where the device is facing (supposedly).
   // With Cursor, the rotation is calculated from the angle change between a single cursor (mouse or touch input) to the center of the screen or between two cursors.  
-  private void FixedUpdate()
+  private void Update()
   {
     // Gyro rotation
     if (SystemInfo.supportsGyroscope && useGyro && _originAngle == null)
@@ -43,7 +45,7 @@ public class GravityRotationController : MonoBehaviour
       _deviceRotation = new Quaternion(0, 0, Input.gyro.attitude.z, -Input.gyro.attitude.w);
       _gyroAngle = _deviceRotation.eulerAngles.z;
     }
-    
+
     // Cursor rotation
     if (Input.touchCount >= 2)
     {
@@ -82,12 +84,15 @@ public class GravityRotationController : MonoBehaviour
         _offsetAngle = _startAngle - (Mathf.Atan2(Input.mousePosition.y - _screenCenter.y, Input.mousePosition.x - _screenCenter.x) * Mathf.Rad2Deg - _originAngle.Value);
       }
     }
-
+  }
+  void FixedUpdate()
+  {
     UpdateRotation();
   }
 
   // Updates the center of the screen when the screen size changes.
-  private void OnRectTransformDimensionsChange() {
+  private void OnRectTransformDimensionsChange()
+  {
     _screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
   }
 
@@ -107,7 +112,12 @@ public class GravityRotationController : MonoBehaviour
     Physics2D.gravity = new Vector2(Mathf.Cos(_currentAngleRad - Mathf.PI / 2), Mathf.Sin(_currentAngleRad - Mathf.PI / 2)) * _initialGravity;
   }
 
-  private void OnWin() {
+  private void OnWin()
+  {
+    controlFactor = 0.01f;
+  }
+  private void HasWon()
+  {
     enabled = false;
   }
 }

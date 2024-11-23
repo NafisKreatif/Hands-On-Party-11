@@ -2,25 +2,26 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public GameObject cameraPos;
     public GameObject target;
-    public float distanceX;
-    public float distanceY;
+    private Transform _cameraTransform;
+    private Rigidbody2D _cameraRb;
+    private float _distanceX;
+    private float _distanceY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _cameraTransform = GetComponent<Transform>();
+        _cameraRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceX = target.transform.position.x - cameraPos.transform.position.x;
-        distanceY = target.transform.position.y - cameraPos.transform.position.y;
+        _distanceX = target.transform.position.x - _cameraTransform.position.x;
+        _distanceY = target.transform.position.y - _cameraTransform.position.y;
 
-        rb.linearVelocityX = 3 * distanceX;
-        rb.linearVelocityY = 3 * distanceY;
-
+        _cameraRb.linearVelocityX = 3 * _distanceX;
+        _cameraRb.linearVelocityY = 3 * _distanceY;
     }
 }

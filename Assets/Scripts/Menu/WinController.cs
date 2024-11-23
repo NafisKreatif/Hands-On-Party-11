@@ -13,11 +13,12 @@ public class WinController : MonoBehaviour
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
     public float zoomSpeed = 1f;
-    public UnityEvent WinEvent;
+    public UnityEvent WinningEvent;
+    public UnityEvent HasWonEvent;
     private bool _isZooming = false;
     private float _initialSize;
     private Transform _thisTransform;
-
+    private GameObject _player;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,14 +27,15 @@ public class WinController : MonoBehaviour
             return;
         }
 
-        Instance = this;        
+        Instance = this;
     }
     void Start()
     {
         _initialSize = gameCamera.orthographicSize;
         _thisTransform = GetComponent<Transform>();
 
-        WinEvent ??= new UnityEvent();
+        WinningEvent ??= new UnityEvent();
+        HasWonEvent ??= new UnityEvent();
     }
     void Update()
     {
@@ -49,12 +51,13 @@ public class WinController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _player = other.gameObject;
             Win();
         }
     }
     public void Win()
     {
-        WinEvent.Invoke();
+        WinningEvent.Invoke();
         if (winParticle != null)
         {
             winParticle.Play();
@@ -72,6 +75,8 @@ public class WinController : MonoBehaviour
     IEnumerator Delay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        HasWonEvent.Invoke();
+        _player.SetActive(false);
         levelCompletedMenu.SetActive(true);
         _isZooming = false;
         Time.timeScale = 0; // Berhentikan waktu

@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: a4d113f4aae226240bc9aa5aa4a61bfa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BallTestingGround.unity
     guid: d2a047ab9a515453ea238c7cab1565d9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SmoothCameraAndParallax.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level Template.unity
+    guid: 27f039c39b87a4f14830fd1361a328b9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
