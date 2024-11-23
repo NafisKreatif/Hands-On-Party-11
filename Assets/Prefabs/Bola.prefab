@@ -137,7 +137,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999992
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &3560188229318572902
@@ -158,7 +158,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.1607271
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &570932450508246916
@@ -179,7 +179,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &2049327829357244526
@@ -484,7 +484,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.21000004
+  m_Distance: 0.21000002
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &2623086429253957229
@@ -505,7 +505,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &7810614107085718857
@@ -526,7 +526,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.1607271
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &9087591732970252856
@@ -702,7 +702,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.21000004
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &6299423127197780458
@@ -723,7 +723,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &5495283378375781596
@@ -744,7 +744,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &4302904725892398537
@@ -941,7 +941,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &4085284779554092265
@@ -962,7 +962,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &5144357867618804216
@@ -5915,8 +5915,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 4b00438cb001b624f938bcd88e4bd15c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f95931f1144c14f51954b1a74b69b820, type: 3}
-  m_Resource: {fileID: 8300000, guid: f95931f1144c14f51954b1a74b69b820, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f196b60032a374991a6977984f0af836, type: 3}
+  m_Resource: {fileID: 8300000, guid: f196b60032a374991a6977984f0af836, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6139,7 +6139,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999987
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &8202384762538585492
@@ -6160,7 +6160,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &5695451263642089765
@@ -6181,7 +6181,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &5234542461471775983
@@ -6357,7 +6357,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999987
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &371412863507774165
@@ -6378,7 +6378,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &7100514374720059108
@@ -6399,7 +6399,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &1878180667285672024
@@ -6575,7 +6575,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999992
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &6128963673020954924
@@ -6596,7 +6596,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &1313672993395769554
@@ -6617,7 +6617,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &4347682219886963150
@@ -7478,7 +7478,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &2504341454725254713
@@ -7499,7 +7499,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &6193142416902125445
@@ -7689,6 +7689,7 @@ MonoBehaviour:
   shapeRenderer: {fileID: 7191140273593758944}
   trailRenderer: {fileID: 5444397759255119875}
   scaleSpeed: -0.2
+  isDying: 0
 --- !u!114 &4935004252321140807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12700,7 +12701,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 610796032394298424}
   m_Father: {fileID: 7861752847538887860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1971053207 &7191140273593758944
@@ -12935,3 +12937,90 @@ MonoBehaviour:
   - {fileID: 3991393964873933803}
   - {fileID: 3130178814041663750}
   angleSpeedRatio: 1.25
+--- !u!1 &8844069064929206086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610796032394298424}
+  - component: {fileID: 4917488513161547793}
+  m_Layer: 0
+  m_Name: Mata
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610796032394298424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844069064929206086}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 14, y: 14, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5681684583388251635}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4917488513161547793
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844069064929206086}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: cb51c7ac6bd2340e084636fdf5fca79b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
