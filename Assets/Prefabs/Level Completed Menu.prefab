@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 6516190100063117462}
   - component: {fileID: 2455407275451944628}
   - component: {fileID: 5422050535309282973}
-  - component: {fileID: 4010271319827659882}
+  - component: {fileID: 6257387735662775094}
   m_Layer: 5
   m_Name: Level Completed Menu
   m_TagString: Untagged
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4010271319827659882
+--- !u!114 &6257387735662775094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -812,9 +812,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2486628266144258421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fdc7dc09833483f95d17670bcd1082, type: 3}
+  m_Script: {fileID: 11500000, guid: ee2316a7173694b6b9a39ba2d3ef18dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionController: {fileID: 0}
+  timeText: {fileID: 1134094768928912769}
 --- !u!1 &2535665818830912317
 GameObject:
   m_ObjectHideFlags: 0
