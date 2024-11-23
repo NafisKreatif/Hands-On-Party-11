@@ -11,7 +11,8 @@ public class Collectible : MonoBehaviour
         {
             collectibleCount++; // Increase count
             collectSound.Play(); // Play audio
-            Destroy(gameObject,0.2f); // Remove collectible
+            transform.position = new Vector3(10000f, 10000f); // Jauhkan biar ga keambil lagi
+            Destroy(gameObject, collectSound.clip.length); // Remove collectible
         }
     }
 }
