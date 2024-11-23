@@ -459,7 +459,7 @@ PrefabInstance:
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: dialogResource
       value: 
-      objectReference: {fileID: 4900000, guid: 315b3fad83c888e4d8a0f21c05607fc2, type: 3}
+      objectReference: {fileID: 4900000, guid: c76e9f04a9b8fac41acd57417c2d66e6, type: 3}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: animatorController
       value: 
@@ -469,6 +469,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      propertyPath: animatorControllers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[0]'
       value: 
       objectReference: {fileID: 1415322427}
@@ -476,6 +480,14 @@ PrefabInstance:
       propertyPath: 'sceneActionScripts.Array.data[1]'
       value: 
       objectReference: {fileID: 1415322426}
+    - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      propertyPath: 'animatorControllers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9100000, guid: a3731762f4bc2a8449fa5ad60025b1e4, type: 2}
+    - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
+      propertyPath: 'animatorControllers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 9100000, guid: 21b3d0541531f254398478d034b7e495, type: 2}
     - target: {fileID: 8298100641614926592, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.81
