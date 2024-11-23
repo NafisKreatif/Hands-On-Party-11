@@ -2,6 +2,7 @@ speech|Wim|I just need to go to that cave and find the waterfall, and then… I'
 speech|Wim|Can I, though…|Wim_Profile|Wim_Scared
 speech|Wim|Uuh, how can a small stone like me go that deep, I’ll be crushed before I can even see the waterfall myself.|Wim_Profile|Wim_Sad
 speech|Wim|It’s now or never, Wim. Now or never.|Wim_Profile|Wim_Normal
+action|CompositeAction|sync
 speech|Wim|Eep-!|Wim_Profile|Wim_Scared
 speech|Wim|...|Wim_Profile|Wim_Scared
 speech|Wim| or not.|Wim_Profile|Wim_Tired

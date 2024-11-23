@@ -1,6 +1,6 @@
 speech|Speaker 1|Hi|Speaker Profile Image|DialogSpeakerProfilePlaceholder
 speech|Speaker 2|Hello!|Speaker Profile Image|DialogSpeakerProfilePlaceholder2
-action|CompositeAction|Speaker Profile Image|sync
+action|CompositeAction|sync
 speech|Speaker 1|Bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
 speech|Speaker 2|Bye bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder2
 speech|Speaker 1|Bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
