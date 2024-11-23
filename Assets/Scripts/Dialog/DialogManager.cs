@@ -52,7 +52,8 @@ public class DialogManager : MonoBehaviour
   private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
   private GravityRotationController _gravityRotationController;
-  private AudioClip _dialogAudioClip;
+  private AudioSource _dialogAudioSource;
+  private readonly float _dialogAudioFadeOutDuration = 0.2f;
 
   private void Awake()
   {
@@ -69,6 +70,8 @@ public class DialogManager : MonoBehaviour
     // Initialize dialog queue and dialog done state
     StartDialogEvent ??= new UnityEvent<string>();
     DialogDoneEvent ??= new UnityEvent<string>();
+
+    _dialogAudioSource = GetComponent<AudioSource>();
   }
 
   private void Start()
@@ -94,6 +97,7 @@ public class DialogManager : MonoBehaviour
         if (_dialogQueue.Peek().type == DialogLineResource.DialogLineType.speech)
         {
           if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
+          _dialogAudioSource.loop = false;
           speechText.text = _dialogQueue.Peek().speech;
           dialogDoneState[_dialogQueue.Peek().id] = true;
         }
@@ -112,9 +116,7 @@ public class DialogManager : MonoBehaviour
     _dialogQueue.Dequeue();
     if (_dialogQueue.Count == 0)
     {
-      dialogObject.SetActive(false);
-      speakerText.text = "";
-      speechText.text = "";
+      DisableDialogBox();
       dialogDoneState = new Dictionary<string, bool>();
       if (_gravityRotationController) _gravityRotationController.enabled = true;
     }
@@ -134,6 +136,8 @@ public class DialogManager : MonoBehaviour
     if (currentDialog.type == DialogLineResource.DialogLineType.speech)
     {
       dialogObject.SetActive(true);
+      _dialogAudioSource.Play();
+      _dialogAudioSource.loop = true;
 
       dialogDoneState[currentDialog.id] = false;
       speakerText.text = currentDialog.speaker;
@@ -146,14 +150,13 @@ public class DialogManager : MonoBehaviour
         speechText.text += currentDialog.speech[i];
         yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
       }
+      _dialogAudioSource.loop = false;
       speechText.text = currentDialog.speech;
       dialogDoneState[currentDialog.id] = true;
     }
     else
     {
-      dialogObject.SetActive(false);
-      speakerText.text = "";
-      speechText.text = "";
+      DisableDialogBox();
       currentDialog.sceneAction.Execute(currentDialog.id);
       if (currentDialog.isSceneAsync) NextDialog();
       else dialogDoneState[currentDialog.id] = false;
@@ -175,4 +178,24 @@ public class DialogManager : MonoBehaviour
       trigger.Reset();
     }
   }
+
+  private void DisableDialogBox()
+  {
+    dialogObject.SetActive(false);
+    speakerText.text = "";
+    speechText.text = "";
+  }
+
+  // private IEnumerator FadeOutAudio()
+  // {
+  //   float time = 0;
+  //   while (time <= _dialogAudioFadeOutDuration)
+  //   {
+  //     _dialogAudioSource.volume = Mathf.Lerp(1, 0, time / _dialogAudioFadeOutDuration);
+  //     time += Time.deltaTime;
+  //     yield return null;
+  //   }
+  //   _dialogAudioSource.Stop();
+  //   _dialogAudioSource.volume = 1;
+  // }
 }

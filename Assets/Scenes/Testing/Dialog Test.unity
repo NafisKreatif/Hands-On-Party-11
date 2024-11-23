@@ -908,7 +908,7 @@ MonoBehaviour:
   actionId: 
   dialogId: 
   duration: 1
-  magnitude: 0.25
+  magnitude: 0.1
   dampingSpeed: 1
 --- !u!114 &1415322431
 MonoBehaviour:
