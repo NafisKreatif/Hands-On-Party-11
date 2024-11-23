@@ -267,6 +267,9 @@ MonoBehaviour:
   StartDialogEvent:
     m_PersistentCalls:
       m_Calls: []
+  DialogDoneEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4966003211685880809
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +594,7 @@ Animator:
   m_GameObject: {fileID: 7955153660373054103}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a3731762f4bc2a8449fa5ad60025b1e4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 21b3d0541531f254398478d034b7e495, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
