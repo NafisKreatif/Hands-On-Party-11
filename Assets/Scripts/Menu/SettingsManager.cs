@@ -23,7 +23,6 @@ public class SettingsManager : MonoBehaviour
     public readonly Dictionary<string, bool> BoolSettings = new() {
         { "Use Gyro", true },
     };
-    public Canvas canvasToBackTo;
 
     private void Awake()
     {

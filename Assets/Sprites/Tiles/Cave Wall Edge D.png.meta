@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: cb51c7ac6bd2340e084636fdf5fca79b
+guid: d95a5b0974bf38b4c9ef68be158b91aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6165144948497449588
-    second: Ball no cape (eyes)_0
-  - first:
-      213: -6164835111017336890
-    second: Ball no cape (eyes)_1
+      213: -2519045378237411291
+    second: Cave Wall Edge D_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.325}
-  spritePixelsToUnits: 316
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 242
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -116,45 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ball no cape (eyes)_0
+      name: Cave Wall Edge D_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 108
-        width: 80
-        height: 94
+        x: 0
+        y: 0
+        width: 242
+        height: 242
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4720cf39aaefe8550800000000000000
-      internalID: 6165144948497449588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ball no cape (eyes)_1
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 119
-        width: 70
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6cfa4f4112b127aa0800000000000000
-      internalID: -6164835111017336890
+      spriteID: 520d111339d8a0dd0800000000000000
+      internalID: -2519045378237411291
       vertices: []
       indices: 
       edges: []
@@ -163,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -173,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ball no cape (eyes)_0: 6165144948497449588
-      Ball no cape (eyes)_1: -6164835111017336890
+      Cave Wall Edge D_0: -2519045378237411291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

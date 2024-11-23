@@ -8,19 +8,20 @@ public class PauseMenu : MonoBehaviour
     public static bool paused = false;
     // Objek Canvas untuk menampilkan menu pause
     public Canvas PauseMenuCanvas;
-
+    private BallDieController _player;
     // Fungsi yang dipanggil sekali saat game dimulai
     void Start()
     {
         Time.timeScale = 1f; // Mengatur waktu menjadi normal saat game dimulai
         PauseMenuCanvas.worldCamera = Camera.main;
         WinController.Instance.WinningEvent.AddListener(OnWin);
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<BallDieController>();
     }
 
     // Fungsi yang dipanggil setiap frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // Mengecek apakah tombol Escape ditekan
+        if (Input.GetKeyDown(KeyCode.Escape) && !_player.isDying) // Mengecek apakah tombol Escape ditekan
         {
             if (paused)
             {
