@@ -6,7 +6,8 @@ public class GravityRotationController : MonoBehaviour
   public Transform cameraTransform;
   public bool useGyro = true;
   public float controlFactor = 1.0f; // Control factor for the rotation speed.
-
+  public float maxAngle = 360.0f;
+  public float minAngle = 0.0f;
   private float _initialGravity; // Initial gravity magnitude.
   private float _startAngle; // Angle before rotation gesture starts in degrees.
   private float? _originAngle; // Angle of the mouse position relative to the center of the screen before rotation gesture starts in degrees.    
@@ -107,6 +108,20 @@ public class GravityRotationController : MonoBehaviour
   private void UpdateRotation()
   {
     _currentAngle = _offsetAngle + _gyroAngle;
+    if (_currentAngle < minAngle)
+    {
+      _currentAngle = minAngle;
+      _offsetAngle = _currentAngle - _gyroAngle;
+    }
+    else if (_currentAngle > maxAngle)
+    {
+      _currentAngle = maxAngle;
+      _offsetAngle = _currentAngle - _gyroAngle;
+    }
+
+    if (_currentAngle < 0) _currentAngle += 360;
+    else if (_currentAngle >= 360) _currentAngle -= 360;
+
     _currentAngleRad = _currentAngle * Mathf.Deg2Rad;
     cameraTransform.rotation = Quaternion.Lerp(cameraTransform.rotation, Quaternion.AngleAxis(_currentAngle, Vector3.forward), controlFactor);
     Physics2D.gravity = new Vector2(Mathf.Cos(_currentAngleRad - Mathf.PI / 2), Mathf.Sin(_currentAngleRad - Mathf.PI / 2)) * _initialGravity;
