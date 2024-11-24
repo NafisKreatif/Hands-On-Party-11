@@ -267,6 +267,9 @@ MonoBehaviour:
   StartDialogEvent:
     m_PersistentCalls:
       m_Calls: []
+  DialogDoneEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4966003211685880809
 GameObject:
   m_ObjectHideFlags: 0

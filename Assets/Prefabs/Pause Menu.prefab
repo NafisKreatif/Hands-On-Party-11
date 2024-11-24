@@ -384,7 +384,7 @@ MonoBehaviour:
   _thisButton: {fileID: 0}
   _backButton: {fileID: 0}
   _settingsCanvas: {fileID: 0}
-  _enabledCanvas: {fileID: 0}
+  _backToThisCanvas: {fileID: 0}
 --- !u!1 &4631940555928294083
 GameObject:
   m_ObjectHideFlags: 0

@@ -723,7 +723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 1157844760}
-  rotationInput: 0
+  useGyro: 1
+  controlFactor: 1
   _currentAngle: 0
 --- !u!114 &1157844762
 MonoBehaviour:
@@ -737,11 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47efa4700538bb54eb3c9e0e305c966d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1157844763}
-  cameraPos: {fileID: 1157844757}
   target: {fileID: 1487315927}
-  distanceX: 0
-  distanceY: 0
 --- !u!50 &1157844763
 Rigidbody2D:
   serializedVersion: 5
@@ -897,7 +894,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
