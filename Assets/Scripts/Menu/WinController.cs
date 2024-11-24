@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class WinController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class WinController : MonoBehaviour
     public LevelCompletedMenu winMenu;
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
-    public float zoomSpeed = 1f;
+    public float zoomSpeed = 1f;        
     public UnityEvent WinningEvent;
     public UnityEvent HasWonEvent;
     private bool _isZooming = false;
@@ -35,7 +36,7 @@ public class WinController : MonoBehaviour
         _thisTransform = GetComponent<Transform>();
 
         WinningEvent ??= new UnityEvent();
-        HasWonEvent ??= new UnityEvent();
+        HasWonEvent ??= new UnityEvent();        
     }
     void Update()
     {
@@ -69,11 +70,18 @@ public class WinController : MonoBehaviour
         {
             winSound.Play();
         }
-        winMenu.SetWinTime(Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f));
+        int timeInMiliseconds = Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f);
+        winMenu.SetWinTime(timeInMiliseconds);
         Time.timeScale = slowMotionTimeScale; // Slow motion saat menang waktu dalam game
         Time.fixedDeltaTime = 0.02f * Time.timeScale; // Biar nggak choppy
         _isZooming = true;
         StartCoroutine(Delay(winDelay * slowMotionTimeScale));
+
+        int levelIndex = SceneManager.GetActiveScene().buildIndex;
+        int lastBestTime = PlayerPrefs.GetInt("Level" + levelIndex + "BestTime", -1);
+        if (timeInMiliseconds < lastBestTime) LevelInfoManager.Instance?.UpdateBestTime.Invoke(levelIndex, timeInMiliseconds);
+        int bestCollectible = PlayerPrefs.GetInt("Level" + levelIndex + "CollectibleCount", 0);
+        if (Collectible.collectibleCount > bestCollectible) LevelInfoManager.Instance?.UpdateCollectibleCount.Invoke(levelIndex, Collectible.collectibleCount);
     }
     IEnumerator Delay(float seconds)
     {
