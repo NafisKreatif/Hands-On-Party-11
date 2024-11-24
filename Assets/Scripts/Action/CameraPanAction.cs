@@ -33,7 +33,7 @@ public class CameraPanAction : SceneAction
         while (time <= duration)
         {
             _cameraTransform.position = Vector3.Lerp(originalPosition, targetTransform.position, time / duration);
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime;
             yield return null;
         }
 

@@ -15,7 +15,7 @@ public class AudioAction : SceneAction
   private IEnumerator PlayAudio()
   {
     audioSource.Play();
-    yield return new WaitForSeconds(audioSource.clip.length);
+    yield return new WaitForSecondsRealtime(audioSource.clip.length);
     DialogManager.Instance.DialogDone(dialogId);
   }
 }

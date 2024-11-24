@@ -1,0 +1,9 @@
+action|TimescaleAction0|sync
+speech|Wim|OBAMA?!|Wim_Profile|Wim_Normal
+action|CompositeAction0|sync
+speech|Obamaball|Obamaball|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Wim|OBAMABALL?!|Wim_Profile|Wim_Normal
+action|CompositeAction1|sync
+speech|Obamaball|Goodbye|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+action|TransformAction|async
+action|TimescaleAction1|sync

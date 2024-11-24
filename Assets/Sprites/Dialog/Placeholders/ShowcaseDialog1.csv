@@ -1,0 +1,7 @@
+slideshow|Woah there is a black screen dialog?!!!
+slideshow|<color=red><b>I can't believe it!
+action|ScreenShakeAction0|sync
+speech|Wim|Did the screen just shake?|Wim_Profile|Wim_Normal
+action|ScreenShakeAction1|async
+speech|Wim|It's shaking while I'm talking?!?!|Wim_Profile|Wim_Scared
+action|CameraPeekAction|sync

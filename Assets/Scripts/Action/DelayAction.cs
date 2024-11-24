@@ -15,7 +15,7 @@ public class DelayAction : SceneAction
   private IEnumerator Delay()
   {
     Debug.LogWarning("Action start");
-    yield return new WaitForSeconds(delay);
+    yield return new WaitForSecondsRealtime(delay);
     Debug.LogWarning("Action done");
 
     DialogManager.Instance.DialogDone(dialogId);

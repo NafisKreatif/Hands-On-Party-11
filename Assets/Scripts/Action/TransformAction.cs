@@ -28,6 +28,7 @@ public class TransformAction : SceneAction
     for (int i = 0; i < transformStates.Length; i++)
     {
       Transform target = transformStates[i];
+      Debug.Log("Transforming to " + target.name);
       yield return StartCoroutine(TransformTo(target, easingFunctions[i]));
     }
     if (targetObjectPrefab != null) Destroy(targetObject);
@@ -52,7 +53,7 @@ public class TransformAction : SceneAction
       targetObject.transform.position = Vector3Lerp(startPosition, endPosition, time / partialDuration, easingFunction);
       targetObject.transform.rotation = QuaternionLerp(startRotation, endRotation, time / partialDuration, easingFunction);
       targetObject.transform.localScale = Vector3Lerp(startScale, endScale, time / partialDuration, easingFunction);
-      time += Time.deltaTime;
+      time += Time.unscaledDeltaTime;
       yield return null;
     }
 

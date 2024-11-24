@@ -56,8 +56,7 @@ public class DialogManager : MonoBehaviour
   private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
   private GravityRotationController _gravityRotationController;
-  private AudioSource _dialogAudioSource;
-  private readonly float _dialogAudioFadeOutDuration = 0.2f;
+  private AudioSource _dialogAudioSource;  
 
   private void Awake()
   {
@@ -126,7 +125,7 @@ public class DialogManager : MonoBehaviour
 
   private void NextDialog()
   {
-    _dialogQueue.Dequeue();
+    if (_dialogQueue.Count != 0) _dialogQueue.Dequeue();
     if (_dialogQueue.Count == 0)
     {
       DisableDialogBox();
@@ -135,6 +134,7 @@ public class DialogManager : MonoBehaviour
     }
     else
     {
+      if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
       _dialogCoroutine = StartCoroutine(StartDialog());
     }
   }
@@ -142,6 +142,7 @@ public class DialogManager : MonoBehaviour
   // Coroutine for dialog animation
   private IEnumerator StartDialog()
   {
+    if (_dialogQueue.Count == 0) yield break;
     DialogLineResource currentDialog = _dialogQueue.Peek();
     StartDialogEvent.Invoke(currentDialog.id);
     if (_gravityRotationController) _gravityRotationController.enabled = false;
@@ -165,9 +166,14 @@ public class DialogManager : MonoBehaviour
         {
           int j = i + 1;
           while (currentDialog.speech[j] != '>') j++;
+          speechText.text += currentDialog.speech.Substring(i, j - i + 1);
           i = j + 1;
+          if (currentDialog.speech[i] == '<') {
+            i--;
+            continue;
+          }
         }
-        speechText.text += currentDialog.speech[i];
+        if (speechText.text.Length < currentDialog.speech.Length) speechText.text += currentDialog.speech[i];
         yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
       }
       _dialogAudioSource.loop = false;
@@ -190,9 +196,14 @@ public class DialogManager : MonoBehaviour
         {
           int j = i + 1;
           while (currentDialog.speech[j] != '>') j++;
+          slideshowText.text += currentDialog.speech.Substring(i, j - i + 1);
           i = j + 1;
+          if (currentDialog.speech[i] == '<') {
+            i--;
+            continue;
+          }
         }
-        slideshowText.text += currentDialog.speech[i];
+        if (slideshowText.text.Length < currentDialog.speech.Length) slideshowText.text += currentDialog.speech[i];
         yield return new WaitForSecondsRealtime(0.025f / dialogSpeed);
       }
       _dialogAudioSource.loop = false;
@@ -202,9 +213,9 @@ public class DialogManager : MonoBehaviour
     else
     {
       DisableDialogBox();
+      dialogDoneState[currentDialog.id] = false;
       currentDialog.sceneAction.Execute(currentDialog.id);
-      if (currentDialog.isSceneAsync) NextDialog();
-      else dialogDoneState[currentDialog.id] = false;
+      if (currentDialog.isSceneAsync) DialogDone(currentDialog.id);
     }
   }
 
@@ -213,7 +224,7 @@ public class DialogManager : MonoBehaviour
   {
     dialogDoneState[id] = true;
     DialogDoneEvent.Invoke(id);
-    if (_dialogQueue.Peek().id == id) NextDialog();
+    if (_dialogQueue.Count != 0 && _dialogQueue.Peek().id == id) NextDialog();
   }
 
   public void ResetAllTriggers()

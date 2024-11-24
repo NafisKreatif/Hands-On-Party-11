@@ -27,7 +27,7 @@ public class ScreenShakeAction : SceneAction
         float time = 0.0f;
         while (time <= duration) {
             _cameraTransform.localPosition += Random.insideUnitSphere * magnitude;
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime;
             yield return null;
         }
         transform.localPosition = _initialPos;

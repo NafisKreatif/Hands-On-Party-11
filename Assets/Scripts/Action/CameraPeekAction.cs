@@ -28,28 +28,30 @@ public class CameraPeekAction : SceneAction
 
   private IEnumerator Peek()
   {
-    GameObject tempTarget = _cameraMovement.target;
-    _cameraMovement.target = targetObject;
+    _cameraMovement.enabled = false;
+    Vector3 originalPosition = _camera.transform.position;
+    Vector3 targetPosition = new(targetObject.transform.position.x, targetObject.transform.position.y, originalPosition.z);
     float originalOrthographicSize = _camera.orthographicSize;
     float time = 0;
     while (time <= duration / 2)
     {
       _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, originalOrthographicSize * zoomFactor, time / (duration / 2));      
-      time += Time.deltaTime;
+      _camera.transform.position = Vector3.Lerp(_camera.transform.position, targetPosition, time / (duration / 2));
+      time += Time.unscaledDeltaTime;
       yield return null;
     }
-
-    _cameraMovement.target = tempTarget;
-    time = 0;
+    
+    time = 0;    
     while (time <= duration / 2)
     {
       _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, originalOrthographicSize, time / (duration / 2));
-      time += Time.deltaTime;
+      _camera.transform.position = Vector3.Lerp(_camera.transform.position, originalPosition, time / (duration / 2));
+      time += Time.unscaledDeltaTime;
       yield return null;
     }
 
-
-    yield return new WaitForSeconds(duration / 2);
+    _cameraMovement.enabled = true;
+    yield return new WaitForSecondsRealtime(duration / 2);
     DialogManager.Instance.DialogDone(dialogId);
   }
 }

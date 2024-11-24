@@ -13,7 +13,7 @@ public class OneSecDelay : SceneAction
   private IEnumerator Delay()
   {
     Debug.LogWarning("Action start");
-    yield return new WaitForSeconds(1);
+    yield return new WaitForSecondsRealtime(1);
     Debug.LogWarning("Action done");
 
     //* REQUIRED!!!!
