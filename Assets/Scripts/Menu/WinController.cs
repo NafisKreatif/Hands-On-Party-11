@@ -52,7 +52,10 @@ public class WinController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _player = other.gameObject;
-            Win();
+            if (_player.GetComponent<BallDieController>().isDying == false)
+            {
+                Win();
+            }
         }
     }
     public void Win()

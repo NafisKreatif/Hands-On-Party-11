@@ -12,7 +12,7 @@ public class BallDieController : MonoBehaviour
     public TrailRenderer trailRenderer;
     public float scaleSpeed = -0.2f; // Seberapa cepat bolanya membesar ketika mati
     private Transform _bolaTransform;
-    private bool _isDying = false;
+    public bool isDying = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +22,7 @@ public class BallDieController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isDying)
+        if (isDying)
         {
             // Kalo lagi mati, bolanya membesar
             shapeRenderer.enabled = false; // Hilangkan bola dari kamera
@@ -31,8 +31,8 @@ public class BallDieController : MonoBehaviour
     }
     public void Die()
     {
-        if (_isDying) return;
-        _isDying = true;
+        if (isDying) return;
+        isDying = true;
         dieParticle.Play();
         dieSound[Random.Range(0, dieSound.Length)].Play();
         StartCoroutine(DeadIn(transitionController.transitionTime * 0.5f)); // Menghentikan pembesaran bola
