@@ -44,6 +44,7 @@ public class CameraPeekAction : SceneAction
     }
     
     time = 0;
+    _camera.orthographicSize = targetOrthographicSize;
     while (time <= stayDuration)
     {
       _camera.transform.position = targetPosition;
@@ -61,6 +62,7 @@ public class CameraPeekAction : SceneAction
     }
 
     _cameraMovement.enabled = true;    
+    _camera.orthographicSize = originalOrthographicSize;
     DialogManager.Instance.DialogDone(dialogId);
   }
 }
