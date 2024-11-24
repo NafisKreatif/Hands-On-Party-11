@@ -70,6 +70,7 @@ public class DialogManager : MonoBehaviour
     {
       Instance = this;
     }
+    DontDestroyOnLoad(gameObject);
 
     // Initialize dialog queue and dialog done state
     StartDialogEvent ??= new UnityEvent<string>();

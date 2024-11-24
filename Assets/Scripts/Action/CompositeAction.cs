@@ -37,4 +37,6 @@ public class CompositeAction : SceneAction
       }
     }
   }
+
+  private void OnDestroy() { DialogManager.Instance.DialogDoneEvent.RemoveListener(OnDialogDone); }
 }
