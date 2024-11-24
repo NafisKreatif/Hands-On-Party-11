@@ -6,7 +6,8 @@ public class CameraPeekAction : SceneAction
   public override string ActionName => "CameraPeekAction";
 
   [Tooltip("Duration of the peeking in seconds.")]
-  public float duration = 1.0f;
+  public float stayDuration = 1.0f;
+  public float travelDuration = 1.0f;
   public float zoomFactor = 1.0f;
   public GameObject targetObject;
 
@@ -30,28 +31,36 @@ public class CameraPeekAction : SceneAction
   {
     _cameraMovement.enabled = false;
     Vector3 originalPosition = _camera.transform.position;
-    Vector3 targetPosition = new(targetObject.transform.position.x, targetObject.transform.position.y, originalPosition.z);
+    Vector3 targetPosition = new(targetObject.transform.position.x, targetObject.transform.position.y, originalPosition.z);    
     float originalOrthographicSize = _camera.orthographicSize;
+    float targetOrthographicSize = originalOrthographicSize * zoomFactor;
     float time = 0;
-    while (time <= duration / 2)
+    while (time <= travelDuration)
     {
-      _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, originalOrthographicSize * zoomFactor, time / (duration / 2));      
-      _camera.transform.position = Vector3.Lerp(_camera.transform.position, targetPosition, time / (duration / 2));
+      _camera.orthographicSize = Mathf.Lerp(originalOrthographicSize, targetOrthographicSize, time * time / travelDuration);
+      _camera.transform.position = Vector3.Lerp(originalPosition, targetPosition, time * time / travelDuration);
       time += Time.unscaledDeltaTime;
       yield return null;
     }
     
-    time = 0;    
-    while (time <= duration / 2)
+    time = 0;
+    while (time <= stayDuration)
     {
-      _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, originalOrthographicSize, time / (duration / 2));
-      _camera.transform.position = Vector3.Lerp(_camera.transform.position, originalPosition, time / (duration / 2));
+      _camera.transform.position = targetPosition;
       time += Time.unscaledDeltaTime;
       yield return null;
     }
 
-    _cameraMovement.enabled = true;
-    yield return new WaitForSecondsRealtime(duration / 2);
+    time = 0;
+    while (time <= travelDuration)
+    {
+      _camera.orthographicSize = Mathf.Lerp(targetOrthographicSize, originalOrthographicSize, time * time / travelDuration);
+      _camera.transform.position = Vector3.Lerp(targetPosition, originalPosition, time * time / travelDuration);
+      time += Time.unscaledDeltaTime;
+      yield return null;
+    }
+
+    _cameraMovement.enabled = true;    
     DialogManager.Instance.DialogDone(dialogId);
   }
 }
