@@ -14,6 +14,7 @@ public class TransformAction : SceneAction
   [Tooltip("Transform states to be transformed to, in order. Please make the positions fixed")]
   public Transform[] transformStates;
   public GameObject targetObject;
+  public GameObject targetObjectPrefab;
 
   public override void Execute(string id)
   {
@@ -23,11 +24,13 @@ public class TransformAction : SceneAction
 
   private IEnumerator Transform()
   {
+    if (targetObjectPrefab != null) targetObject = Instantiate(targetObjectPrefab, transformStates[0].position, transformStates[0].rotation);
     for (int i = 0; i < transformStates.Length; i++)
     {
       Transform target = transformStates[i];
       yield return StartCoroutine(TransformTo(target, easingFunctions[i]));
     }
+    if (targetObjectPrefab != null) Destroy(targetObject);
 
     DialogManager.Instance.DialogDone(dialogId);
   }
