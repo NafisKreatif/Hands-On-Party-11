@@ -14,6 +14,7 @@ public class TransformAction : SceneAction
   [Tooltip("Transform states to be transformed to, in order. Please make the positions fixed")]
   public Transform[] transformStates;
   public GameObject targetObject;
+  public GameObject targetObjectPrefab;
 
   public override void Execute(string id)
   {
@@ -23,11 +24,18 @@ public class TransformAction : SceneAction
 
   private IEnumerator Transform()
   {
-    for (int i = 0; i < transformStates.Length; i++)
+    int i = 0;
+    if (targetObjectPrefab != null)
+    {
+      targetObject = Instantiate(targetObjectPrefab, transformStates[0].position, transformStates[0].rotation);
+      i++;
+    }
+    for (; i < transformStates.Length; i++)
     {
       Transform target = transformStates[i];
       yield return StartCoroutine(TransformTo(target, easingFunctions[i]));
     }
+    if (targetObjectPrefab != null) Destroy(targetObject);
 
     DialogManager.Instance.DialogDone(dialogId);
   }
@@ -49,7 +57,7 @@ public class TransformAction : SceneAction
       targetObject.transform.position = Vector3Lerp(startPosition, endPosition, time / partialDuration, easingFunction);
       targetObject.transform.rotation = QuaternionLerp(startRotation, endRotation, time / partialDuration, easingFunction);
       targetObject.transform.localScale = Vector3Lerp(startScale, endScale, time / partialDuration, easingFunction);
-      time += Time.deltaTime;
+      time += Time.unscaledDeltaTime;
       yield return null;
     }
 
@@ -60,35 +68,25 @@ public class TransformAction : SceneAction
 
   private Vector3 Vector3Lerp(Vector3 start, Vector3 end, float time, EasingFunction easingFunction = EasingFunction.Linear)
   {
-    switch (easingFunction)
+    return easingFunction switch
     {
-      case EasingFunction.Linear:
-        return Vector3.Lerp(start, end, time);
-      case EasingFunction.EaseIn:
-        return Vector3.Lerp(start, end, 1f - Mathf.Cos(time * Mathf.PI * 0.5f));
-      case EasingFunction.EaseOut:
-        return Vector3.Lerp(start, end, Mathf.Sin(time * Mathf.PI * 0.5f));
-      case EasingFunction.EaseInOut:
-        return Vector3.Lerp(start, end, time * time * time * (time * (6f * time - 15f) + 10f));
-      default:
-        return Vector3.zero;
-    }
+      EasingFunction.Linear => Vector3.Lerp(start, end, time),
+      EasingFunction.EaseIn => Vector3.Lerp(start, end, 1f - Mathf.Cos(time * Mathf.PI * 0.5f)),
+      EasingFunction.EaseOut => Vector3.Lerp(start, end, Mathf.Sin(time * Mathf.PI * 0.5f)),
+      EasingFunction.EaseInOut => Vector3.Lerp(start, end, time * time * time * (time * (6f * time - 15f) + 10f)),
+      _ => Vector3.zero,
+    };
   }
 
   private Quaternion QuaternionLerp(Quaternion start, Quaternion end, float time, EasingFunction easingFunction = EasingFunction.Linear)
   {
-    switch (easingFunction)
+    return easingFunction switch
     {
-      case EasingFunction.Linear:
-        return Quaternion.Lerp(start, end, time);
-      case EasingFunction.EaseIn:
-        return Quaternion.Lerp(start, end, 1f - Mathf.Cos(time * Mathf.PI * 0.5f));
-      case EasingFunction.EaseOut:
-        return Quaternion.Lerp(start, end, Mathf.Sin(time * Mathf.PI * 0.5f));
-      case EasingFunction.EaseInOut:
-        return Quaternion.Lerp(start, end, time * time * time * (time * (6f * time - 15f) + 10f));
-      default:
-        return Quaternion.identity;
-    }
+      EasingFunction.Linear => Quaternion.Lerp(start, end, time),
+      EasingFunction.EaseIn => Quaternion.Lerp(start, end, 1f - Mathf.Cos(time * Mathf.PI * 0.5f)),
+      EasingFunction.EaseOut => Quaternion.Lerp(start, end, Mathf.Sin(time * Mathf.PI * 0.5f)),
+      EasingFunction.EaseInOut => Quaternion.Lerp(start, end, time * time * time * (time * (6f * time - 15f) + 10f)),
+      _ => Quaternion.identity,
+    };
   }
 }

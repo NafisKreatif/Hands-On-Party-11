@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class OneSecDelay : SceneAction
+public class DelayAction : SceneAction
 {
-  public override string ActionName => "OneSecDelay";
+  public override string ActionName => "DelayAction";
+
+  public float delay = 1.0f;
   public override void Execute(string id)
   {
     dialogId = id;
@@ -13,10 +15,9 @@ public class OneSecDelay : SceneAction
   private IEnumerator Delay()
   {
     Debug.LogWarning("Action start");
-    yield return new WaitForSecondsRealtime(1);
+    yield return new WaitForSecondsRealtime(delay);
     Debug.LogWarning("Action done");
 
-    //* REQUIRED!!!!
     DialogManager.Instance.DialogDone(dialogId);
   }
 }

@@ -6,7 +6,9 @@ public class GravityRotationController : MonoBehaviour
   public Transform cameraTransform;
   public bool useGyro = true;
   public float controlFactor = 1.0f; // Control factor for the rotation speed.
-
+  public float maxAngle = 360.0f;
+  public float minAngle = 0.0f;
+  public float adjustmentSpeed = 20.0f;
   private float _initialGravity; // Initial gravity magnitude.
   private float _startAngle; // Angle before rotation gesture starts in degrees.
   private float? _originAngle; // Angle of the mouse position relative to the center of the screen before rotation gesture starts in degrees.    
@@ -15,6 +17,7 @@ public class GravityRotationController : MonoBehaviour
   [SerializeField]
   private float _currentAngle = 0; // Angle during rotation gesture in degrees.  
   private float _currentAngleRad; // Angle during rotation gesture in radians.
+  private float _deltaAngle; // Angle change during rotation gesture in degrees.
   private Vector2 _screenCenter; // Center of the screen.
   private Vector2? _mousePosStart; // Mouse position when rotation gesture starts.
   private Quaternion _deviceRotation; // Quaternion of the device rotation when gyroscope is enabled.
@@ -28,8 +31,8 @@ public class GravityRotationController : MonoBehaviour
 
     if (SystemInfo.supportsGyroscope) Input.gyro.enabled = true;
 
-    WinController.Instance.WinningEvent.AddListener(OnWin);
-    WinController.Instance.HasWonEvent.AddListener(HasWon);
+    WinController.Instance?.WinningEvent.AddListener(OnWin);
+    WinController.Instance?.HasWonEvent.AddListener(HasWon);
   }
 
   // Updates the rotation of the camera and the direction of gravity based on user input.  
@@ -59,7 +62,8 @@ public class GravityRotationController : MonoBehaviour
       }
       else if (_originAngle != null && (_touchA.phase == TouchPhase.Moved || _touchB.phase == TouchPhase.Moved))
       {
-        _offsetAngle = _startAngle - (Mathf.Atan2(_touchB.position.y - _touchA.position.y, _touchB.position.x - _touchA.position.x) * Mathf.Rad2Deg - _originAngle.Value);
+        _deltaAngle = -(Mathf.Atan2(_touchB.position.y - _touchA.position.y, _touchB.position.x - _touchA.position.x) * Mathf.Rad2Deg - _originAngle.Value);
+        if (_startAngle + _deltaAngle >= minAngle && _startAngle + _deltaAngle <= maxAngle) _offsetAngle = _startAngle + _deltaAngle;
       }
       else if (_touchA.phase == TouchPhase.Ended || _touchB.phase == TouchPhase.Ended || _touchA.phase == TouchPhase.Canceled || _touchB.phase == TouchPhase.Canceled)
       {
@@ -81,7 +85,8 @@ public class GravityRotationController : MonoBehaviour
       }
       else if (_mousePosStart != null && _originAngle != null)
       {
-        _offsetAngle = _startAngle - (Mathf.Atan2(Input.mousePosition.y - _screenCenter.y, Input.mousePosition.x - _screenCenter.x) * Mathf.Rad2Deg - _originAngle.Value);
+        _deltaAngle = -(Mathf.Atan2(Input.mousePosition.y - _screenCenter.y, Input.mousePosition.x - _screenCenter.x) * Mathf.Rad2Deg - _originAngle.Value);
+        if (_startAngle + _deltaAngle >= minAngle && _startAngle + _deltaAngle <= maxAngle) _offsetAngle = _startAngle + _deltaAngle;
       }
     }
   }
@@ -107,6 +112,20 @@ public class GravityRotationController : MonoBehaviour
   private void UpdateRotation()
   {
     _currentAngle = _offsetAngle + _gyroAngle;
+    if (_currentAngle < minAngle)
+    {
+      _currentAngle = Mathf.Min(minAngle, _currentAngle + adjustmentSpeed * Time.deltaTime);
+      _offsetAngle = _currentAngle - _gyroAngle;
+    }
+    else if (_currentAngle > maxAngle)
+    {
+      _currentAngle = Mathf.Max(maxAngle, _currentAngle - adjustmentSpeed * Time.deltaTime);
+      _offsetAngle = _currentAngle - _gyroAngle;
+    }
+
+    if (_currentAngle < 0) _currentAngle += 360;
+    else if (_currentAngle >= 360) _currentAngle -= 360;
+
     _currentAngleRad = _currentAngle * Mathf.Deg2Rad;
     cameraTransform.rotation = Quaternion.Lerp(cameraTransform.rotation, Quaternion.AngleAxis(_currentAngle, Vector3.forward), controlFactor);
     Physics2D.gravity = new Vector2(Mathf.Cos(_currentAngleRad - Mathf.PI / 2), Mathf.Sin(_currentAngleRad - Mathf.PI / 2)) * _initialGravity;
