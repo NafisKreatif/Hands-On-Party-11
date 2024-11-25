@@ -44175,7 +44175,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: f4253ba63376b6a4eaa8722ce495ec0d, type: 3}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: sceneActionScripts.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: animatorControllers.Array.size
@@ -44184,15 +44184,15 @@ PrefabInstance:
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[0]'
       value: 
-      objectReference: {fileID: 2085794286}
+      objectReference: {fileID: 2085794284}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[1]'
       value: 
-      objectReference: {fileID: 2085794285}
+      objectReference: {fileID: 2085794283}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[2]'
       value: 
-      objectReference: {fileID: 2085794284}
+      objectReference: {fileID: 2085794282}
     - target: {fileID: 5117600795250389089, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       propertyPath: 'sceneActionScripts.Array.data[3]'
       value: 
@@ -44264,12 +44264,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2085794286}
-    - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2085794285}
-    - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2085794284}
     - targetCorrespondingSourceObject: {fileID: 2152230176704170625, guid: 5d0f54ca9c3b44c4b88a6e5c331e9cb5, type: 3}
       insertIndex: -1
@@ -44302,7 +44296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionId: Hand
   dialogId: 
-  duration: 1
+  duration: 3
   easingFunctions: 0200000001000000
   transformStates:
   - {fileID: 65382164}
@@ -44323,7 +44317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionId: Cape
   dialogId: 
-  duration: 5
+  duration: 4
   easingFunctions: 0200000002000000
   transformStates:
   - {fileID: 1631840411}
@@ -44342,39 +44336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd4a03d94c3da2409bb2c8c007da747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 2
+  actionId: 
   dialogId: 
-  delay: 2
---- !u!114 &2085794285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085794280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3faeee401b4ee334b9da24329503f6e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionId: 1
-  dialogId: 
-  timeScale: 1
---- !u!114 &2085794286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085794280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3faeee401b4ee334b9da24329503f6e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionId: 0.5
-  dialogId: 
-  timeScale: 0.5
+  delay: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
