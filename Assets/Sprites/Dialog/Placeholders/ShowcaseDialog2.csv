@@ -7,3 +7,4 @@ action|CompositeAction1|sync
 speech|Obamaball|Goodbye|Speaker Profile Image|DialogSpeakerProfilePlaceholder
 action|TransformAction|async
 action|TimescaleAction1|sync
+action|EventAction|sync

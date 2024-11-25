@@ -24,8 +24,13 @@ public class TransformAction : SceneAction
 
   private IEnumerator Transform()
   {
-    if (targetObjectPrefab != null) targetObject = Instantiate(targetObjectPrefab, transformStates[0].position, transformStates[0].rotation);
-    for (int i = 0; i < transformStates.Length; i++)
+    int i = 0;
+    if (targetObjectPrefab != null)
+    {
+      targetObject = Instantiate(targetObjectPrefab, transformStates[0].position, transformStates[0].rotation);
+      i++;
+    }
+    for (; i < transformStates.Length; i++)
     {
       Transform target = transformStates[i];
       yield return StartCoroutine(TransformTo(target, easingFunctions[i]));
