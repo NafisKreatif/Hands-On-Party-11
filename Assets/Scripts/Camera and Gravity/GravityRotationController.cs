@@ -27,6 +27,7 @@ public class GravityRotationController : MonoBehaviour
     _screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
 
     if (SystemInfo.supportsGyroscope) Input.gyro.enabled = true;
+    useGyro = PlayerPrefs.GetInt("Use Gyro") == 1;
 
     WinController.Instance.WinningEvent.AddListener(OnWin);
     WinController.Instance.HasWonEvent.AddListener(HasWon);
