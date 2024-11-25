@@ -89,12 +89,14 @@ public class TransitionController : MonoBehaviour
     {
         if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);
         else yield return new WaitForSeconds(timeInSeconds);
+        Time.timeScale = 1;
         SceneManager.LoadScene(name);
     }
     IEnumerator LoadSceneByIndex(int index, float timeInSeconds)
     {
         if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);
         else yield return new WaitForSeconds(timeInSeconds);
+        Time.timeScale = 1;
         SceneManager.LoadScene(index);
     }
 }

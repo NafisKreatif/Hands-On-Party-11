@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class SettingsButtonSetter : MonoBehaviour
 {
-    [SerializeField] private Button _thisButton;
-    [SerializeField] private Button _backButton;
-    [SerializeField] private Canvas _settingsCanvas;
-    [SerializeField] public Canvas _backToThisCanvas;
+    private Button _thisButton;
+    private Button _backButton;
+    private Canvas _settingsCanvas;
+    public Canvas _backToThisCanvas;
     void Start()
     {
         _thisButton = GetComponent<Button>();
