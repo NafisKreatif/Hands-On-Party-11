@@ -1,7 +1,5 @@
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
@@ -18,14 +16,9 @@ public class LevelButton : MonoBehaviour
         for (int i = levelInfo.collectibleCount; i < 3; i++) orbImages[i].enabled = false;
     }
 
-    void Update()
-    {
-
-    }
-
     private string FormatBestTime(int timeInMiliseconds)
     {
-        if (timeInMiliseconds == -1) return "--:--:--";
+        if (timeInMiliseconds == -1) return "--:--:---";
         string minutes = (timeInMiliseconds / 60000).ToString();
         string seconds = (timeInMiliseconds / 1000).ToString();
         string miliseconds = (timeInMiliseconds % 1000).ToString();

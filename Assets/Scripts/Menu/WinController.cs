@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class WinController : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class WinController : MonoBehaviour
     public ParticleSystem winParticle;
     public AudioSource winSound;
     public LevelCompletedMenu winMenu;
+    public TMP_Text bestText;
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
     public float zoomSpeed = 1f;        
@@ -77,11 +80,28 @@ public class WinController : MonoBehaviour
         _isZooming = true;
         StartCoroutine(Delay(winDelay * slowMotionTimeScale));
 
+        // Update best time and collectible count
         int levelIndex = SceneManager.GetActiveScene().buildIndex;
         int lastBestTime = PlayerPrefs.GetInt("Level" + levelIndex + "BestTime", -1);
-        if (timeInMiliseconds < lastBestTime) LevelInfoManager.Instance?.UpdateBestTime.Invoke(levelIndex, timeInMiliseconds);
+        if (timeInMiliseconds < lastBestTime || lastBestTime == -1) {
+            bestText.text = "Best!";
+            LevelInfoManager.Instance?.UpdateBestTime.Invoke(levelIndex, timeInMiliseconds);
+        }
+        else {
+            bestText.text = "";
+        }
         int bestCollectible = PlayerPrefs.GetInt("Level" + levelIndex + "CollectibleCount", 0);
-        if (Collectible.collectibleCount > bestCollectible) LevelInfoManager.Instance?.UpdateCollectibleCount.Invoke(levelIndex, Collectible.collectibleCount);
+        if (Collectible.collectibleCount > bestCollectible) {
+            LevelInfoManager.Instance?.UpdateCollectibleCount.Invoke(levelIndex, Collectible.collectibleCount);
+        }
+
+        // Display how many orb was collected
+        LevelInfoManager.LevelInfo levelInfo = LevelInfoManager.Instance.GetLevelInfo(levelIndex);
+        var orbImages = levelCompletedMenu.GetComponentsInChildren<RawImage>();
+        Debug.Log(orbImages.Length);
+        for (int i = levelInfo.collectibleCount; i < 3; i++) {
+            orbImages[i].color = Color.white;
+        }
     }
     IEnumerator Delay(float seconds)
     {
