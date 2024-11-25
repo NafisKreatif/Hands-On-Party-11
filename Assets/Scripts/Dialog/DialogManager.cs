@@ -152,6 +152,7 @@ public class DialogManager : MonoBehaviour
       dialogObject.SetActive(true);
       _dialogAudioSource.Play();
       _dialogAudioSource.loop = true;
+      if (slideshowObject.activeSelf) StartCoroutine(FadeOutSlideshow());
 
       dialogDoneState[currentDialog.id] = false;
       speakerText.text = currentDialog.speaker;
