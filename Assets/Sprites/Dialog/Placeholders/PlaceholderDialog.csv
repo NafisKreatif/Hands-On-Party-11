@@ -1,9 +1,9 @@
-speech|Speaker 1|Hi|DialogSpeakerProfilePlaceholder
-speech|Speaker 2|Hello!|DialogSpeakerProfilePlaceholder2
+speech|Speaker 1|Hi|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Speaker 2|Hello!|Speaker Profile Image|DialogSpeakerProfilePlaceholder2
 action|CompositeAction|sync
-speech|Speaker 1|Bye!|DialogSpeakerProfilePlaceholder
-speech|Speaker 2|Bye bye!|DialogSpeakerProfilePlaceholder2
-speech|Speaker 1|Bye!|DialogSpeakerProfilePlaceholder
-speech|Speaker 2|Bye bye!|DialogSpeakerProfilePlaceholder2
-speech|Speaker 1|Bye!|DialogSpeakerProfilePlaceholder
-speech|Speaker 2|Bye bye!|DialogSpeakerProfilePlaceholder2
+speech|Speaker 1|Bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Speaker 2|Bye bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder2
+speech|Speaker 1|Bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Speaker 2|Bye bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder2
+speech|Speaker 1|Bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Speaker 2|Bye bye!|Speaker Profile Image|DialogSpeakerProfilePlaceholder2

@@ -8,11 +8,14 @@ public class CompositeAction : SceneAction
   private readonly Dictionary<string, bool> _actionDoneState = new();
   private int _actionDoneCounter = 0;
 
+  private void Start() {
+    DialogManager.Instance.DialogDoneEvent.AddListener(OnDialogDone);
+  }
+
   public override void Execute(string id)
   {
+    _actionDoneCounter = 0;
     dialogId = id;
-
-    DialogManager.Instance.DialogDoneEvent.AddListener(OnDialogDone);
 
     for (int i = 0; i < actions.Length; i++)
     {
@@ -37,4 +40,6 @@ public class CompositeAction : SceneAction
       }
     }
   }
+
+  private void OnDestroy() { DialogManager.Instance.DialogDoneEvent.RemoveListener(OnDialogDone); }
 }
