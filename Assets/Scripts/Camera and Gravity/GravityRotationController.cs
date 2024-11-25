@@ -7,7 +7,7 @@ public class GravityRotationController : MonoBehaviour
   public bool useGyro = true;
   public float controlFactor = 1.0f; // Control factor for the rotation speed.
   public float maxAngle = 360.0f;
-  public float minAngle = 0.0f;
+  public float minAngle = -360.0f;
   public float adjustmentSpeed = 20.0f;
   private float _initialGravity; // Initial gravity magnitude.
   private float _startAngle; // Angle before rotation gesture starts in degrees.
