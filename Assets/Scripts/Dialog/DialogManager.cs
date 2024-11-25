@@ -56,7 +56,7 @@ public class DialogManager : MonoBehaviour
   private Queue<DialogLineResource> _dialogQueue = new(); // Queue of dialogs, each dialog is a tuple of speaker and speech.
   private Coroutine _dialogCoroutine; // Coroutine for dialog animation
   private GravityRotationController _gravityRotationController;
-  private AudioSource _dialogAudioSource;  
+  private AudioSource _dialogAudioSource;
 
   private void Awake()
   {
@@ -168,7 +168,8 @@ public class DialogManager : MonoBehaviour
           while (currentDialog.speech[j] != '>') j++;
           speechText.text += currentDialog.speech.Substring(i, j - i + 1);
           i = j + 1;
-          if (currentDialog.speech[i] == '<') {
+          if (currentDialog.speech[i] == '<')
+          {
             i--;
             continue;
           }
@@ -196,9 +197,27 @@ public class DialogManager : MonoBehaviour
         {
           int j = i + 1;
           while (currentDialog.speech[j] != '>') j++;
-          slideshowText.text += currentDialog.speech.Substring(i, j - i + 1);
+
+          // Delay the text for a certain amount of time.
+          if (currentDialog.speech.Substring(i + 1, j - i - 1).Contains("link="))
+          {
+            Debug.Log(currentDialog.speech.Substring(i + 1, j - i - 1).Split('=')[1]);
+            float delay = float.Parse(currentDialog.speech.Substring(i + 1, j - i - 1).Split('=')[1]);
+
+            _dialogAudioSource.loop = false;
+            yield return new WaitForSecondsRealtime(delay);
+            _dialogAudioSource.loop = true;
+            _dialogAudioSource.Play();
+          }
+          else
+          {
+            slideshowText.text += currentDialog.speech.Substring(i, j - i + 1);
+          }
+
+          // Skip the next text enclosed in '<' and '>'.
           i = j + 1;
-          if (currentDialog.speech[i] == '<') {
+          if (currentDialog.speech[i] == '<')
+          {
             i--;
             continue;
           }
