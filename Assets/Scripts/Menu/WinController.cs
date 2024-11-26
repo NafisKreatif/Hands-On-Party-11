@@ -23,6 +23,7 @@ public class WinController : MonoBehaviour
     private float _initialSize;
     private Transform _thisTransform;
     private GameObject _player;
+    public int timeInMiliseconds;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -73,7 +74,7 @@ public class WinController : MonoBehaviour
         {
             winSound.Play();
         }
-        int timeInMiliseconds = Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f);
+        timeInMiliseconds = Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f);
         winMenu.SetWinTime(timeInMiliseconds);
         Time.timeScale = slowMotionTimeScale; // Slow motion saat menang waktu dalam game
         Time.fixedDeltaTime = 0.02f * Time.timeScale; // Biar nggak choppy
