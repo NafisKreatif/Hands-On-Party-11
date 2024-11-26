@@ -516,6 +516,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be57eb85fbd94d8fb77e166d7e30fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &453092243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7718477416952963027, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+  m_PrefabInstance: {fileID: 4734139372336983943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &453092247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453092243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &474796064
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +774,67 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1026178268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026178258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1635211000}
+          m_TargetAssemblyTypeName: ImageColorController, Assembly-CSharp
+          m_MethodName: SetColor
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 10245588
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1635211000}
+          m_TargetAssemblyTypeName: ImageColorController, Assembly-CSharp
+          m_MethodName: SetColor
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 102455FF
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1635211000}
+          m_TargetAssemblyTypeName: ImageColorController, Assembly-CSharp
+          m_MethodName: SetColor
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 10245588
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1116678446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -881,6 +959,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 896529376}
+    - target: {fileID: 7168603400808049756, guid: 499b38c5a407d4f46ac5997a945ec2ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -961,6 +1043,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354344562}
   m_CullTransparentMesh: 1
+--- !u!1 &1635210995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3587395831082856651, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+  m_PrefabInstance: {fileID: 4734139372336983943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635211000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635210995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1692888867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4774325187844942568, guid: 3f5f23806b3584bc2b3ad74d3cfc5100, type: 3}
@@ -2341,7 +2440,7 @@ PrefabInstance:
       objectReference: {fileID: 896529376}
     - target: {fileID: 4948930538661823895, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.5647059
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4948930538661823895, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2351,6 +2450,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1945612050}
+    - target: {fileID: 5235334723554945077, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6157353544322539360, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 450
@@ -2389,6 +2492,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5159151687378664018, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1026178263}
+    - targetCorrespondingSourceObject: {fileID: 5159151687378664018, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026178268}
+    - targetCorrespondingSourceObject: {fileID: 7718477416952963027, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 453092247}
+    - targetCorrespondingSourceObject: {fileID: 3587395831082856651, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1635211000}
     - targetCorrespondingSourceObject: {fileID: 4596036005755474542, guid: 7bf5a587440bce74ea3357f10b7d2169, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1726803328}
