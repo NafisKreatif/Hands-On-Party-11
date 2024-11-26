@@ -44604,8 +44604,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 296945748679088647, guid: 8007b24186478468e86ab371f310c913, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 296945748679088647, guid: 8007b24186478468e86ab371f310c913, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.006
       objectReference: {fileID: 0}
     - target: {fileID: 296945748679088647, guid: 8007b24186478468e86ab371f310c913, type: 3}
       propertyPath: m_LocalScale.z
@@ -44624,12 +44628,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551328553305973938, guid: 8007b24186478468e86ab371f310c913, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 551328553305973938, guid: 8007b24186478468e86ab371f310c913, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 551328553305973938, guid: 8007b24186478468e86ab371f310c913, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 551328553305973938, guid: 8007b24186478468e86ab371f310c913, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551328553305973938, guid: 8007b24186478468e86ab371f310c913, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 451
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134094768928912769, guid: 8007b24186478468e86ab371f310c913, type: 3}
+      propertyPath: m_text
+      value: 'Time: 02:11:145'
       objectReference: {fileID: 0}
     - target: {fileID: 1134094768928912769, guid: 8007b24186478468e86ab371f310c913, type: 3}
       propertyPath: m_margin.z
@@ -44853,10 +44873,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2486628266144258421, guid: 8007b24186478468e86ab371f310c913, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1569095735}
-    - targetCorrespondingSourceObject: {fileID: 2486628266144258421, guid: 8007b24186478468e86ab371f310c913, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1569095740}
+      addedObject: {fileID: 1569095745}
     - targetCorrespondingSourceObject: {fileID: 5379465264386574555, guid: 8007b24186478468e86ab371f310c913, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2048930223}
@@ -44877,40 +44894,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2316a7173694b6b9a39ba2d3ef18dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1569095735
-MonoBehaviour:
+--- !u!95 &1569095745
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569095724}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7f93f967159964d93df939226ddcbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  bestText: {fileID: 0}
-  orb1: {fileID: 0}
-  orb2: {fileID: 0}
-  orb3: {fileID: 0}
---- !u!111 &1569095740
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569095724}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: e531e33cee13a434bac9df780ecc93b8, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: e531e33cee13a434bac9df780ecc93b8, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbb6de683bf9fca40b06e3a57dd0c3cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_UpdateMode: 1
-  m_CullingType: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1631840409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44997,13 +45002,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048930215}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6be21417f1acffa419abeab6867f4eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winMenu: {fileID: 0}
+  winMenu: {fileID: 1569095733}
   timeCompleted: 0
+  growAmount: 1
+  timeCountUp: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
