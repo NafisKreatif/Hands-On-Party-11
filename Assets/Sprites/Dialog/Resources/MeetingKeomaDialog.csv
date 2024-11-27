@@ -1,21 +1,21 @@
-speech|Keoma|A stone!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|A stone!|Keoma_Profile|Keoma_Ecsatic
 speech|Wim|Yes..? I’m a flickerstone.|Wim_Profile|Wim_Normal
-speech|Keoma|A stone falling from the sky!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|A stone falling from the sky!|Keoma_Profile|Keoma_Happy
 speech|Wim|We don’t even have a sky here, this is a cave?!|Wim_Profile|Wim_Huh
-speech|Keoma|Right… Hi, stone! I’m Keoma! What’re you doing here, stone?|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|Right… Hi, stone! I’m Keoma! What’re you doing here, stone?|Keoma_Profile|Keoma_Normal
 speech|Wim|My name’s Wim… I was in the middle of finding a glowing waterfall. Have you heard of it?|Wim_Profile|Wim_Normal
-speech|Keoma|A glowing waterfall?|Speaker Profile Image|DialogSpeakerProfilePlaceholder
-speech|Keoma|That waterfall that has a rumor that can make any stuff into a beautiful crystal?|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|A glowing waterfall?|Keoma_Profile|Keoma_Confused
+speech|Keoma|That waterfall that has a rumor that can make any stuff into a beautiful crystal?|Keoma_Profile|Keoma_Confused
 speech|Wim|Yes! That one!|Wim_Profile|Wim_Normal
-speech|Keoma|That also in the same lair as the Ursa monster?|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|That also in the same lair as the Ursa monster?|Keoma_Profile|Keoma_Confused
 speech|Wim|It’s in the lair of the Ursa?! Oh but he’s sleeping right, you won’t get any trouble if you don't wake him up.|Wim_Profile|Wim_Scared
-speech|Keoma|That too, but… My, my!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|That too, but… My, my!|Keoma_Profile|Keoma_Normal
 speech|Wim|...?|Wim_Profile|Wim_Tired
-speech|Keoma|The shining waterfall has lost its glow ages ago! Haha, I don't think it'll help you in any way!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|The shining waterfall has lost its glow ages ago! Haha, I don't think it'll help you in any way!|Keoma_Profile|Keoma_Happy
 speech|Wim|!!|Wim_Profile|Wim_Normal
 speech|Wim|There’s no way it did, I need to see it for myself!|Wim_Profile|Wim_Annoyed
-speech|Keoma|Hmm… I see you’re not giving up. Well, in that case, let this mere dull gem help you gain your goal!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
-speech|Keoma|We’ll meet again, rocky one!|Speaker Profile Image|DialogSpeakerProfilePlaceholder
+speech|Keoma|Hmm… I see you’re not giving up. Well, in that case, let this mere dull gem help you gain your goal!|Keoma_Profile|Keoma_Mock
+speech|Keoma|We’ll meet again, rocky one!|Keoma_Profile|Keoma_Ecsatic
 action|TransformAction|sync
 action|EventActionKeoma|sync
 speech|Wim|Dull..? Is that how he’s being humble… He’s bad at it.|Wim_Profile|Wim_Annoyed

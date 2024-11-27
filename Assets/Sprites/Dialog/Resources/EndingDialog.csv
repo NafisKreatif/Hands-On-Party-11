@@ -1,0 +1,20 @@
+speech|Wim|Am I…? But, what happened?|Wim_Profile|Wim_Huh
+action|TransformActionKeomaEnter|sync
+speech|Keoma|Wow! Would you look at that! I thought the color would be a bit of a yellow, but I guess blue is fine.|Keoma_Profile|Keoma_Ecsatic
+speech|Keoma|The claws of the Ursa are truly formidable! You’re as smooth as ever!|Keoma_Profile|Keoma_Mock
+speech|Wim|You... you know the Ursa has awoken??|Wim_Profile|Wim_Annoyed
+speech|Keoma|Firstly, the Ursa's screech reverberates through the entire cave.|Keoma_Profile|Keoma_Normal
+speech|Keoma|And secondly, I had already been there before you.|Keoma_Profile|Keoma_Normal
+speech|Wim|Y- you did this to me?!|Wim_Profile|Wim_Tired
+speech|Keoma|Is that your way to say thank you?|Keoma_Profile|Keoma_Disgust
+speech|Keoma|Then, you’re very welcome!|Keoma_Profile|Keoma_Happy
+speech|Wim|(He’s not listening at all. I was a stone but I wasn’t this stone-headed…)|Wim_Profile|Wim_Annoyed
+speech|Wim|I could've been crushed into fragments! The Ursa even said he’ll use my gravel as a decoration, his voice hasn’t even gone from my head.|Wim_Profile|Wim_Annoyed
+speech|Keoma|Eh, but you didn’t?|Keoma_Profile|Keoma_Confused
+speech|Wim|We should use gem-headed as a real term from now on.|Wim_Profile|Wim_Annoyed
+speech|Keoma|Anyway, Kudos to you, my guy!|Keoma_Profile|Keoma_Happy
+speech|Wim|Don’t ‘my guy’ me.|Wim_Profile|Wim_Annoyed
+speech|Keoma|Mr. newly-born-into-crystal! You pulled it off!|Keoma_Profile|Keoma_Mock
+action|AnimationAction|sync
+action|TransformActionKeomaExit|sync
+action|EventAction|sync
