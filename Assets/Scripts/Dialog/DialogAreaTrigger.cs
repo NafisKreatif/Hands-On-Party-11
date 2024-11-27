@@ -9,6 +9,9 @@ public class DialogAreaTrigger : MonoBehaviour
     [Header("States")]
 
     public bool hasPlayed = false;
+    public bool playOnlyOnce = false;
+    public string id;
+    private static Dictionary<string, bool> HasPlayedDictionary = new();
 
     [Header("Resources")]
 
@@ -88,6 +91,8 @@ public class DialogAreaTrigger : MonoBehaviour
         EnterEvent ??= new UnityEvent();
         ResetEvent ??= new UnityEvent();
         ResetEvent.AddListener(OnReset);
+
+        if (!HasPlayedDictionary.ContainsKey(id)) HasPlayedDictionary[id] = false;
     }
 
 
@@ -98,10 +103,11 @@ public class DialogAreaTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !hasPlayed)
+        if (other.CompareTag("Player") && !(playOnlyOnce ? HasPlayedDictionary[id] : hasPlayed))
         {
             DialogManager.Instance.EnqueueDialog(_dialogLines);
-            hasPlayed = true;
+            if (playOnlyOnce) HasPlayedDictionary[id] = true;
+            else hasPlayed = true;
             EnterEvent.Invoke();
         }
     }
