@@ -7858,7 +7858,7 @@ MonoBehaviour:
   - {fileID: 8918236073346184598}
   shapeRenderer: {fileID: 7191140273593758944}
   trailRenderer: {fileID: 5444397759255119875}
-  mataRenderer: {fileID: 0}
+  mataRenderer: {fileID: 4917488513161547793}
   scaleSpeed: -0.2
   isDying: 0
 --- !u!114 &4935004252321140807

@@ -28,7 +28,7 @@ public class SettingsManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(Instance);
+            Destroy(Instance.gameObject);
         }
 
         Instance = this;
@@ -45,21 +45,63 @@ public class SettingsManager : MonoBehaviour
         BoolPropertyChangeEvent.AddListener(OnBoolPropertyChanged);
 
         // Load settings   
-        foreach (var setting in FloatSettings.ToList()) if (PlayerPrefs.HasKey(setting.Key)) FloatSettings[setting.Key] = PlayerPrefs.GetFloat(setting.Key);
-        foreach (var setting in Intsettings.ToList()) if (PlayerPrefs.HasKey(setting.Key)) Intsettings[setting.Key] = PlayerPrefs.GetInt(setting.Key);
-        foreach (var setting in BoolSettings.ToList()) if (PlayerPrefs.HasKey(setting.Key)) BoolSettings[setting.Key] = PlayerPrefs.GetInt(setting.Key) == 1;
+        foreach (var setting in FloatSettings.ToList())
+        {
+            if (PlayerPrefs.HasKey(setting.Key))
+            {
+                FloatSettings[setting.Key] = PlayerPrefs.GetFloat(setting.Key);
+            }
+            else
+            {
+                PlayerPrefs.SetFloat(setting.Key, setting.Value);
+            }
+        }
+        foreach (var setting in Intsettings.ToList())
+        {
+            if (PlayerPrefs.HasKey(setting.Key))
+            {
+                Intsettings[setting.Key] = PlayerPrefs.GetInt(setting.Key);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(setting.Key, setting.Value);
+            }
+        }
+        foreach (var setting in BoolSettings.ToList())
+        {
+            if (PlayerPrefs.HasKey(setting.Key))
+            {
+                BoolSettings[setting.Key] = PlayerPrefs.GetInt(setting.Key) == 1;
+            }
+            else
+            {
+                if (setting.Value)
+                {
+                    PlayerPrefs.SetInt(setting.Key, 1);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt(setting.Key, 0);
+                }
+            }
+        }
     }
 
-    private void Start() {
-        foreach (var slider in sliders) {
-            if (slider != null) {
+    private void Start()
+    {
+        foreach (var slider in sliders)
+        {
+            if (slider != null)
+            {
                 slider.value = FloatSettings[slider.name];
                 slider.onValueChanged.AddListener((value) => FloatPropertyChangeEvent.Invoke(slider.name, value));
             }
         }
 
-        foreach (var toggle in toggles) {
-            if (toggle != null) {
+        foreach (var toggle in toggles)
+        {
+            if (toggle != null)
+            {
                 toggle.isOn = BoolSettings[toggle.name];
                 toggle.onValueChanged.AddListener((value) => BoolPropertyChangeEvent.Invoke(toggle.name, value));
             }
