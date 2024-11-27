@@ -20,7 +20,7 @@ public class CanvasTransitionController : MonoBehaviour
         {
             Debug.Log("Initial Position : " + _initialPosition.x + ", " + _initialPosition.y + ", " + _initialPosition.z);
             Debug.Log("Target Position : " + _targetPosition.x + ", " + _targetPosition.y + ", " + _targetPosition.z);
-            _time += Time.deltaTime / transitionTime;
+            _time += Time.unscaledDeltaTime / transitionTime;
             SmoothSlideStep();
         }
         else if (_time > transitionTime)

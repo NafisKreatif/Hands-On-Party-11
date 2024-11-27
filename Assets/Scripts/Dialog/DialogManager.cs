@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -84,6 +85,7 @@ public class DialogManager : MonoBehaviour
     slideshowObject.SetActive(false);
 
     _gravityRotationController = FindFirstObjectByType<GravityRotationController>();
+    SceneManager.sceneLoaded += OnSceneLoaded;
   }
 
   private void Update()
@@ -281,5 +283,9 @@ public class DialogManager : MonoBehaviour
     slideshowText.text = "";
     slideshowImage.color = new Color(slideshowImage.color.r, slideshowImage.color.g, slideshowImage.color.b, 1);
     slideshowText.color = new Color(slideshowText.color.r, slideshowText.color.g, slideshowText.color.b, 1);
+  }
+
+  private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+    _gravityRotationController = FindFirstObjectByType<GravityRotationController>();
   }
 }

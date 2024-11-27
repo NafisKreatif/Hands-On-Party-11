@@ -18,6 +18,7 @@ public class TimeCountUp : MonoBehaviour
     {
         _timeCountUp = 0;
         _timeCompleted = winController.timeInMiliseconds;
+        Debug.Log(_timeCompleted);
         _delay = countingDelay;
         _isEnabled = true;
     }
