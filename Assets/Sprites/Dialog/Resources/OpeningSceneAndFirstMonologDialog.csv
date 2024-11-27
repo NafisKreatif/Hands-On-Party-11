@@ -1,11 +1,11 @@
 action|AngleConstraintAction|sync
-slideshow|“A magical waterfall? Is it true?”
-slideshow|The figure being asked nodded, "You're just a flickerstone, aren't you? No, you're even less than that—you look exactly like a plain stone," they said. 
-slideshow|He wants it. The small creature nodded in excitement. “You sure I can be a prism just with a splash of water?”
-slideshow|“You don’t trust me? Even sand can be turned into glitter with only ‘a splash of water.’ ”
-slideshow|“Uhm…” The tiny stone hung their heads in dilema. 
-slideshow|“You could be more than that if you wanted to, <color=#2bd8ff>Wim</color>”
-slideshow|Then, a glowing scarf was handed over as a keepsake before they left, never to return.
+slideshow|“A magical waterfall?<link=1> Is it true?”
+slideshow|The figure being asked nodded,<link=0.5> "You're just a flickerstone,<link=0.5> aren't you?<link=1> No,<link=0.5> you're even less than that<link=0.5>—you look exactly like a plain stone,"<link=0.5> they said. 
+slideshow|He wants it.<link=1> The small creature nodded in excitement.<link=1> “You sure I can be a prism just with a splash of water?”
+slideshow|“You don’t trust me?<link=1> Even sand can be turned into glitter with only ‘a splash of water.’ ”
+slideshow|“Uhm…”<link=1> The tiny stone hung their heads in dilema. 
+slideshow|“You could be more than that if you wanted to,<link=1> <color=#2bd8ff>Wim</color>”
+slideshow|Then,<link=0.5> a glowing scarf was handed over as a keepsake before they left,<link=0.5> never to return.
 speech|Wim|I just need to go to that cave and find the waterfall, and then… I'll become a crystal ball?"|Wim_Profile|Wim_Normal
 speech|Wim|Can I, though…|Wim_Profile|Wim_Scared
 speech|Wim|Uuh, how can a small stone like me go that deep, I’ll be crushed before I can even see the waterfall myself.|Wim_Profile|Wim_Sad

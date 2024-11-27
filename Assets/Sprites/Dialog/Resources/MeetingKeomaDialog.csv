@@ -20,3 +20,4 @@ action|TransformAction|sync
 action|EventActionKeoma|sync
 speech|Wim|Dull..? Is that how he’s being humble… He’s bad at it.|Wim_Profile|Wim_Annoyed
 action|EventActionWall|sync
+action|AngleConstraintAction|sync

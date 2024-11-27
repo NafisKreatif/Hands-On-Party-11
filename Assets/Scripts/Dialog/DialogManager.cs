@@ -126,6 +126,7 @@ public class DialogManager : MonoBehaviour
   private void NextDialog()
   {
     if (_dialogQueue.Count != 0) _dialogQueue.Dequeue();
+    Debug.Log(_dialogQueue.Count);
     if (_dialogQueue.Count == 0)
     {
       DisableDialogBox();
@@ -146,6 +147,8 @@ public class DialogManager : MonoBehaviour
     DialogLineResource currentDialog = _dialogQueue.Peek();
     StartDialogEvent.Invoke(currentDialog.id);
     if (_gravityRotationController) _gravityRotationController.enabled = false;
+
+    Debug.Log(currentDialog.type);
 
     if (currentDialog.type == DialogLineResource.DialogLineType.speech)
     {
