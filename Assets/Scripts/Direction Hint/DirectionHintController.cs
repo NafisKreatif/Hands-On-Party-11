@@ -60,7 +60,8 @@ public class DirectionHintController : MonoBehaviour
             {
                 positionOnViewport.y = 1 - scaleOnViewport.y;
             }
-            _thisTranform.position = mainCamera.ViewportToWorldPoint(positionOnViewport);
+            Vector3 worldPointPos = mainCamera.ViewportToWorldPoint(positionOnViewport);
+            _thisTranform.position = new Vector3(worldPointPos.x, worldPointPos.y, _thisTranform.position.z);
             // Rotasikan petunjuk sesuai arah target
             Vector2 directionTowardTarget = target.position - _thisTranform.position;
             float targetAngle = Mathf.Atan2(directionTowardTarget.y, directionTowardTarget.x) / Mathf.PI * 180;
