@@ -85,6 +85,11 @@ public class TransitionController : MonoBehaviour
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadSceneByIndex(index, transitionTime)); // Baru load scene baru
     }
+    public void ReloadScene()
+    {
+        TransitionOut(); // Transisi dulu
+        StartCoroutine(LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex, transitionTime)); // Baru load scene baru
+    }
     IEnumerator LoadSceneByName(string name, float timeInSeconds)
     {
         if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);

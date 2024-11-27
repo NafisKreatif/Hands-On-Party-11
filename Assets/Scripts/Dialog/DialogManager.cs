@@ -2,9 +2,9 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class DialogManager : MonoBehaviour
 
     public string speech;
     public string animationState; // Animation state name played during the line from the animatorController
-    public AnimatorController animatorController; // Animator controller for the speaker profile, every Controller 
+    public RuntimeAnimatorController animatorController; // Animator controller for the speaker profile, every Controller 
     public SceneAction sceneAction; // Scene action to be executed after the line
     public bool isSceneAsync; // If true, the scene action will be executed asynchronously
   }
@@ -63,13 +63,13 @@ public class DialogManager : MonoBehaviour
     // Singleton pattern
     if (Instance != null && Instance != this)
     {
-      Destroy(this);
+      Destroy(gameObject);
     }
     else
     {
       Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
-    DontDestroyOnLoad(gameObject);
 
     // Initialize dialog queue and dialog done state
     StartDialogEvent ??= new UnityEvent<string>();
@@ -84,6 +84,7 @@ public class DialogManager : MonoBehaviour
     slideshowObject.SetActive(false);
 
     _gravityRotationController = FindFirstObjectByType<GravityRotationController>();
+    SceneManager.sceneLoaded += OnSceneLoaded;
   }
 
   private void Update()
@@ -104,13 +105,6 @@ public class DialogManager : MonoBehaviour
           if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
           _dialogAudioSource.loop = false;
           speechText.text = _dialogQueue.Peek().speech;
-          dialogDoneState[_dialogQueue.Peek().id] = true;
-        }
-        else if (_dialogQueue.Peek().type == DialogLineResource.DialogLineType.slideshow)
-        {
-          if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
-          _dialogAudioSource.loop = false;
-          slideshowText.text = _dialogQueue.Peek().speech;
           dialogDoneState[_dialogQueue.Peek().id] = true;
         }
       }
@@ -152,6 +146,7 @@ public class DialogManager : MonoBehaviour
       dialogObject.SetActive(true);
       _dialogAudioSource.Play();
       _dialogAudioSource.loop = true;
+      if (slideshowObject.activeSelf) StartCoroutine(FadeOutSlideshow());
 
       dialogDoneState[currentDialog.id] = false;
       speakerText.text = currentDialog.speaker;
@@ -166,7 +161,23 @@ public class DialogManager : MonoBehaviour
         {
           int j = i + 1;
           while (currentDialog.speech[j] != '>') j++;
-          speechText.text += currentDialog.speech.Substring(i, j - i + 1);
+
+          // Delay the text for a certain amount of time.
+          if (currentDialog.speech.Substring(i + 1, j - i - 1).Contains("link="))
+          {
+            Debug.Log(currentDialog.speech.Substring(i + 1, j - i - 1).Split('=')[1]);
+            float delay = float.Parse(currentDialog.speech.Substring(i + 1, j - i - 1).Split('=')[1]);
+
+            _dialogAudioSource.loop = false;
+            yield return new WaitForSecondsRealtime(delay);
+            _dialogAudioSource.loop = true;
+            _dialogAudioSource.Play();
+          }
+          else
+          {
+            slideshowText.text += currentDialog.speech.Substring(i, j - i + 1);
+          }
+
           i = j + 1;
           if (currentDialog.speech[i] == '<')
           {
@@ -280,5 +291,9 @@ public class DialogManager : MonoBehaviour
     slideshowText.text = "";
     slideshowImage.color = new Color(slideshowImage.color.r, slideshowImage.color.g, slideshowImage.color.b, 1);
     slideshowText.color = new Color(slideshowText.color.r, slideshowText.color.g, slideshowText.color.b, 1);
+  }
+
+  private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+    _gravityRotationController = FindFirstObjectByType<GravityRotationController>();
   }
 }

@@ -111,7 +111,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 178369873634015923}
   useGyro: 1
   controlFactor: 1
-  maxAngle: 360
+  maxAngle: 720
   minAngle: -360
   adjustmentSpeed: 20
   _currentAngle: 0

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class WinController : MonoBehaviour
 {
-    public static WinController Instance;
     public GameObject levelCompletedMenu;
     public Camera gameCamera;
     public ParticleSystem winParticle;
@@ -17,6 +16,7 @@ public class WinController : MonoBehaviour
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
     public float zoomSpeed = 1f;
+    public bool isCutsceneLevel = false;
     public UnityEvent WinningEvent;
     public UnityEvent HasWonEvent;
     private bool _isZooming = false;
@@ -24,16 +24,8 @@ public class WinController : MonoBehaviour
     private Transform _thisTransform;
     private GameObject _player;
     public int timeInMiliseconds;
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+    private TransitionController _transitionController;
 
-        Instance = this;
-    }
     void Start()
     {
         _initialSize = gameCamera.orthographicSize;
@@ -62,6 +54,7 @@ public class WinController : MonoBehaviour
             gameCamera.transform.position += Time.deltaTime / slowMotionTimeScale * positionChange; // Gerakkan kamera ke arah goal
             gameCamera.orthographicSize -= zoomSpeed * Time.deltaTime / slowMotionTimeScale; // Zoom kameranya
         }
+        _transitionController = FindFirstObjectByType<TransitionController>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -76,6 +69,11 @@ public class WinController : MonoBehaviour
     }
     public void Win()
     {
+        if (isCutsceneLevel)
+        {
+            _transitionController.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
+            return;
+        }
         WinningEvent.Invoke();
         if (winParticle != null)
         {

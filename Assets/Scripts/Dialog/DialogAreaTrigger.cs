@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +9,9 @@ public class DialogAreaTrigger : MonoBehaviour
     [Header("States")]
 
     public bool hasPlayed = false;
+    public bool playOnlyOnce = false;
+    public string id;
+    private static Dictionary<string, bool> HasPlayedDictionary = new();
 
     [Header("Resources")]
 
@@ -17,7 +20,7 @@ public class DialogAreaTrigger : MonoBehaviour
     [Tooltip("List of scene actions to be executed. Only scenes from this list can be executed by the dialogResource.")]
     public List<SceneAction> sceneActionScripts; // List of scene actions to be executed.
     [Tooltip("Animator controller for the speaker profile, every Controller has to have a state with the same name as the animationState in the dialogResource.")]
-    public AnimatorController[] animatorControllers;
+    public RuntimeAnimatorController[] animatorControllers;
 
     [Header("Events")]
     [Tooltip("Event to be called when the dialog area is entered.")]
@@ -29,7 +32,7 @@ public class DialogAreaTrigger : MonoBehaviour
     void Start()
     {
         // Parse dialogResource whic is a CSV file using '|' as delimiter
-        string[] lines = dialogResource.text.Split("\r\n");
+        string[] lines = dialogResource.text.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None);
         _dialogLines = new DialogManager.DialogLineResource[lines.Length];
         for (int i = 0; i < lines.Length; i++)
         {
@@ -88,6 +91,8 @@ public class DialogAreaTrigger : MonoBehaviour
         EnterEvent ??= new UnityEvent();
         ResetEvent ??= new UnityEvent();
         ResetEvent.AddListener(OnReset);
+
+        if (!HasPlayedDictionary.ContainsKey(id)) HasPlayedDictionary[id] = false;
     }
 
 
@@ -98,10 +103,11 @@ public class DialogAreaTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !hasPlayed)
+        if (other.CompareTag("Player") && !(playOnlyOnce ? HasPlayedDictionary[id] : hasPlayed))
         {
             DialogManager.Instance.EnqueueDialog(_dialogLines);
-            hasPlayed = true;
+            if (playOnlyOnce) HasPlayedDictionary[id] = true;
+            else hasPlayed = true;
             EnterEvent.Invoke();
         }
     }

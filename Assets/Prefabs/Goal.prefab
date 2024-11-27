@@ -291,15 +291,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158fb68338cdc401cb14b0509f24af01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCompletedMenu: {fileID: 0}
-  gameCamera: {fileID: 0}
+  levelCompletedMenu: {fileID: 2486628266144258421, guid: 8007b24186478468e86ab371f310c913, type: 3}
+  gameCamera: {fileID: 3521938229377857846, guid: 3f5f23806b3584bc2b3ad74d3cfc5100, type: 3}
   winParticle: {fileID: 4031779698787122964}
   winSound: {fileID: 2094088610093363299}
-  winMenu: {fileID: 0}
+  winMenu: {fileID: 6257387735662775094, guid: 8007b24186478468e86ab371f310c913, type: 3}
   bestText: {fileID: 0}
   winDelay: 3
   slowMotionTimeScale: 0.05
   zoomSpeed: 1
+  isCutsceneLevel: 0
   WinningEvent:
     m_PersistentCalls:
       m_Calls: []

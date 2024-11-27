@@ -32,8 +32,8 @@ public class GravityRotationController : MonoBehaviour
     if (SystemInfo.supportsGyroscope) Input.gyro.enabled = true;
     useGyro = PlayerPrefs.GetInt("Use Gyro") == 1;
 
-    WinController.Instance?.WinningEvent.AddListener(OnWin);
-    WinController.Instance?.HasWonEvent.AddListener(HasWon);
+    FindFirstObjectByType<WinController>().WinningEvent.AddListener(OnWin);
+    FindFirstObjectByType<WinController>().HasWonEvent.AddListener(HasWon);
   }
 
   // Updates the rotation of the camera and the direction of gravity based on user input.  
