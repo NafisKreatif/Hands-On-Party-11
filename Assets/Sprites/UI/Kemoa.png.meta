@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 151290a02e5cdfe459175d2ffed8d1a4
+guid: 9cc8598344a7947e4b3000555cad1a2f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7181563291360700585
-    second: dead-star-1_0
+      213: -5027966922192290910
+    second: Kemoa_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dead-star-1_0
+      name: Kemoa_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1600
-        height: 900
+        x: 166
+        y: 324
+        width: 160
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a82a8193c90aa360800000000000000
-      internalID: 7181563291360700585
+      spriteID: 2ab705c39b2193ab0800000000000000
+      internalID: -5027966922192290910
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e8c20082aa1ca4a08ac13b7da91c0803
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dead-star-1_0: 7181563291360700585
+      Kemoa_0: -5027966922192290910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

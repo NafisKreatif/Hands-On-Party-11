@@ -10,12 +10,6 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle gyroToggle; // Toggle untuk mengatur penggunaan gyro
     [SerializeField] private GravityRotationController gravityRotationController;
     void Start() {
-        // Periksa apakah SettingsManager sudah ada di scene
-        if (SettingsManager.Instance == null)
-        {
-            Debug.Log("SettingsManager not found. Instantiating from prefab.");
-            Instantiate(settingsManagerPrefab); // Buat SettingsManager dari prefab
-        }
         // Sinkronkan slider volume
         if (musicSlider != null && myMixer != null)
         {
@@ -45,7 +39,4 @@ public class SettingsMenu : MonoBehaviour
         bool useGyro = PlayerPrefs.GetInt("Use Gyro") == 1; // Mengambil nilai dari slider
         gravityRotationController.useGyro = useGyro; // Mengubah nilai useGyro sesuai dengan pengaturan
     }
-
-    //Bagian Singleton
-    [SerializeField] private GameObject settingsManagerPrefab;
 }
