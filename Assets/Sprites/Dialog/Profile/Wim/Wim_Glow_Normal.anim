@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Keoma_Ecsatic
+  m_Name: Wim_Glow_Normal
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 8843761502323089244, guid: 141086ad92be44263a470c3034e1190f, type: 3}
+      value: {fileID: -1457055307897495521, guid: 4515b86203f0440e9b1740d906d94ca6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 8843761502323089244, guid: 141086ad92be44263a470c3034e1190f, type: 3}
+    - {fileID: -1457055307897495521, guid: 4515b86203f0440e9b1740d906d94ca6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

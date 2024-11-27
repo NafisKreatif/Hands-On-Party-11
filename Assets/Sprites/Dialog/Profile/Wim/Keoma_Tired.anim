@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Keoma_Confused
+  m_Name: Keoma_Tired
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1203001337842350621, guid: 7b0c148bda9d14c259c698e4f35c22f1, type: 3}
+      value: {fileID: 1068755122752253697, guid: cedf287d0735d447dba7f964bf9fdd32, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1203001337842350621, guid: 7b0c148bda9d14c259c698e4f35c22f1, type: 3}
+    - {fileID: 1068755122752253697, guid: cedf287d0735d447dba7f964bf9fdd32, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

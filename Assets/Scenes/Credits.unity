@@ -307,6 +307,10 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 0.45000002
       objectReference: {fileID: 0}
+    - target: {fileID: 3485667908043458960, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3560188229318572902, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
       propertyPath: m_Distance
       value: 0.3444151
@@ -544,7 +548,16 @@ MonoBehaviour:
     Kak Tiwa
 
     Kak
-    Izzah'
+    Izzah
+
+
+
+
+    Other Resources:
+
+    bat vocalisations - haunting ringing chimes
+    - pitched down and stretched by Thalamus_Lab -- https://freesound.org/s/234077/
+    -- License: Attribution 3.0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ca421c285c664506838d3285fa1e1a6, type: 2}
   m_sharedMaterial: {fileID: -2627627856726059093, guid: 7ca421c285c664506838d3285fa1e1a6, type: 2}

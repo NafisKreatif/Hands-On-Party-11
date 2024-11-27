@@ -169,7 +169,23 @@ public class DialogManager : MonoBehaviour
         {
           int j = i + 1;
           while (currentDialog.speech[j] != '>') j++;
-          speechText.text += currentDialog.speech.Substring(i, j - i + 1);
+
+          // Delay the text for a certain amount of time.
+          if (currentDialog.speech.Substring(i + 1, j - i - 1).Contains("link="))
+          {
+            Debug.Log(currentDialog.speech.Substring(i + 1, j - i - 1).Split('=')[1]);
+            float delay = float.Parse(currentDialog.speech.Substring(i + 1, j - i - 1).Split('=')[1]);
+
+            _dialogAudioSource.loop = false;
+            yield return new WaitForSecondsRealtime(delay);
+            _dialogAudioSource.loop = true;
+            _dialogAudioSource.Play();
+          }
+          else
+          {
+            slideshowText.text += currentDialog.speech.Substring(i, j - i + 1);
+          }
+
           i = j + 1;
           if (currentDialog.speech[i] == '<')
           {

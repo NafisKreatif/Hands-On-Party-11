@@ -9,8 +9,47 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Main Menu.unity
     guid: 25c4888b079254f95b8fe86763ae50da
   - enabled: 1
-    path: Assets/Scenes/Levels/Level Template.unity
+    path: Assets/Scenes/Levels/Tutorial_1.unity
+    guid: 5a431403438dc5f48af0b61f278861a5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial_2.unity
+    guid: 23f0f047c199aee419fcf10607f95e26
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial_3.unity
+    guid: 7dab4f9b1ae90e34b905b45a47f55de7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial_4.unity
+    guid: 8a30b47ac9808ea4cb45f40f23d182cf
+  - enabled: 1
+    path: Assets/Scenes/Levels/Entry.unity
+    guid: e69bee5ef7fca4e8a96b0875bfd63355
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_1.unity
+    guid: bf0f316126231384aa4dec5916c51ec5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_2.unity
+    guid: 9254551f13ea7704a82cc48b389dceac
+  - enabled: 1
+    path: Assets/Scenes/Levels/Keoma.unity
+    guid: 0364464adda72f34b8e5f0aeea9864bf
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_3.unity
     guid: 27f039c39b87a4f14830fd1361a328b9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_Boss.unity
+    guid: d2e96f293640c0845b0797239959386e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Falling.unity
+    guid: f0539e16ebfec5d4e9ba4d8dd43238b6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Underwater_1.unity
+    guid: 198020145c85b4b4e9abd87ff1ddc638
+  - enabled: 1
+    path: Assets/Scenes/Levels/Ending.unity
+    guid: 46e5d6f3517d02740a743f184c3c39b3
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 9c08a4f58c7dc1d4989d1d7c792fb488
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

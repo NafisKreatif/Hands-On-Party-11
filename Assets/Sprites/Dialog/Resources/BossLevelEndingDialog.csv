@@ -1,6 +1,6 @@
 action|TransformActionCape|async
 action|DelayAction|sync
 action|TransformActionHand|sync
-speech|Wim|The waterfall… It's dark and gloomy. |Wim_Profile|Wim_Tired
-speech|Wim|Everything… is for nothing. My journey is pointless… and my cape… has finally gone.|Wim_Profile|Wim_Sad
+speech|Wim|The waterfall…<link=1> It's dark and gloomy. |Wim_Profile|Wim_Tired
+speech|Wim|Everything…<link=1> is for nothing.<link=1> My journey is pointless…<link=1> and my cape…<link=1> has finally gone.|Wim_Profile|Wim_Sad
 action|AngleConstraintAction|sync
