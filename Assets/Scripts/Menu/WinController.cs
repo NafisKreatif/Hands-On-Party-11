@@ -16,13 +16,14 @@ public class WinController : MonoBehaviour
     public TMP_Text bestText;
     public float winDelay = 1f;
     public float slowMotionTimeScale = 0.1f;
-    public float zoomSpeed = 1f;        
+    public float zoomSpeed = 1f;
     public UnityEvent WinningEvent;
     public UnityEvent HasWonEvent;
     private bool _isZooming = false;
     private float _initialSize;
     private Transform _thisTransform;
     private GameObject _player;
+    public int timeInMiliseconds;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,8 +39,19 @@ public class WinController : MonoBehaviour
         _initialSize = gameCamera.orthographicSize;
         _thisTransform = GetComponent<Transform>();
 
+        // Kalau levelnya tidak ada orb, jangan tampilin orb (bikin transparan)
+        if (!winMenu.hasOrb)
+        {
+            var orbImages = levelCompletedMenu.GetComponentsInChildren<RawImage>();
+            for (int i = 0; i < orbImages.Length; i++)
+            {
+                Debug.Log("Orb: " + orbImages[i].name);
+                orbImages[i].color = new Color(0, 0, 0, 0);
+            }
+        }
+
         WinningEvent ??= new UnityEvent();
-        HasWonEvent ??= new UnityEvent();        
+        HasWonEvent ??= new UnityEvent();
     }
     void Update()
     {
@@ -73,8 +85,7 @@ public class WinController : MonoBehaviour
         {
             winSound.Play();
         }
-        int timeInMiliseconds = Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f);
-        winMenu.SetWinTime(timeInMiliseconds);
+        timeInMiliseconds = Mathf.RoundToInt(Time.timeSinceLevelLoad * 1000f);
         Time.timeScale = slowMotionTimeScale; // Slow motion saat menang waktu dalam game
         Time.fixedDeltaTime = 0.02f * Time.timeScale; // Biar nggak choppy
         _isZooming = true;
@@ -83,25 +94,29 @@ public class WinController : MonoBehaviour
         // Update best time and collectible count
         int levelIndex = SceneManager.GetActiveScene().buildIndex;
         int lastBestTime = PlayerPrefs.GetInt("Level" + levelIndex + "BestTime", -1);
-        if (timeInMiliseconds < lastBestTime || lastBestTime == -1) {
+        if (timeInMiliseconds < lastBestTime || lastBestTime == -1)
+        {
             bestText.text = "Best!";
             LevelInfoManager.Instance?.UpdateBestTime.Invoke(levelIndex, timeInMiliseconds);
         }
-        else {
+        else
+        {
             bestText.text = "";
         }
         int bestCollectible = PlayerPrefs.GetInt("Level" + levelIndex + "CollectibleCount", 0);
-        if (Collectible.collectibleCount > bestCollectible) {
+        if (Collectible.collectibleCount > bestCollectible)
+        {
             LevelInfoManager.Instance?.UpdateCollectibleCount.Invoke(levelIndex, Collectible.collectibleCount);
         }
 
         // Display how many orb was collected
-        LevelInfoManager.LevelInfo levelInfo = LevelInfoManager.Instance.GetLevelInfo(levelIndex);
         var orbImages = levelCompletedMenu.GetComponentsInChildren<RawImage>();
-        Debug.Log(orbImages.Length);
-        for (int i = levelInfo.collectibleCount; i < 3; i++) {
+        for (int i = 0; i < Collectible.collectibleCount; i++)
+        {
+            Debug.Log("Orb: " + orbImages[i].name);
             orbImages[i].color = Color.white;
         }
+        winMenu.SetOrbSound(Collectible.collectibleCount);
     }
     IEnumerator Delay(float seconds)
     {

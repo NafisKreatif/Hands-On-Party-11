@@ -6,6 +6,8 @@ public class LevelCompletedMenu : MonoBehaviour
 {
     public TransitionController transitionController;
     public TMP_Text timeText; // Untuk menampilkan waktu penyelesaian
+    public bool hasOrb = true;
+    public AudioSource[] orbSounds;
     public void GoToNextLevel(int level)
     {
         transitionController.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
@@ -32,5 +34,20 @@ public class LevelCompletedMenu : MonoBehaviour
             miliseconds = "0" + miliseconds;
         }
         timeText.text = "Time: " + minutes + ":" + seconds + ":" + miliseconds;
+    }
+    public void SetOrbSound(int total)
+    {
+        Debug.Log("TOTAL: " + total);
+        for (int i = 0; i < orbSounds.Length; i++)
+        {
+            if (i < total)
+            {
+                orbSounds[i].playOnAwake = true;
+            }
+            else
+            {
+                orbSounds[i].playOnAwake = false;
+            }
+        }
     }
 }

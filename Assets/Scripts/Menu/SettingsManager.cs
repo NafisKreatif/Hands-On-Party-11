@@ -28,8 +28,7 @@ public class SettingsManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(Instance);
         }
 
         Instance = this;

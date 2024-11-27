@@ -36,6 +36,7 @@ public class CanvasTransitionController : MonoBehaviour
         _time = 0;
 
         _initialPosition.y += Camera.main.orthographicSize * 2;
+        Reveal();
     }
     public void TransitionInFromDown()
     {
@@ -44,6 +45,7 @@ public class CanvasTransitionController : MonoBehaviour
         _time = 0;
 
         _initialPosition.y -= Camera.main.orthographicSize * 2;
+        Reveal();
     }
     public void TransitionInFromRight()
     {
@@ -52,6 +54,7 @@ public class CanvasTransitionController : MonoBehaviour
         _time = 0;
 
         _initialPosition.x += Camera.main.orthographicSize * Camera.main.aspect * 2;
+        Reveal();
     }
     public void TransitionInFromLeft()
     {
@@ -60,6 +63,7 @@ public class CanvasTransitionController : MonoBehaviour
         _time = 0;
 
         _initialPosition.x -= Camera.main.orthographicSize * Camera.main.aspect * 2;
+        Reveal();
     }
 
     public void TransitionOutToUp()
@@ -101,5 +105,17 @@ public class CanvasTransitionController : MonoBehaviour
     private void SnapToPosition()
     {
         _thisTransform.position = _targetPosition;
+        if (_targetPosition != new Vector3(0, 0, _thisTransform.position.z))
+        {
+            Hide();
+        }
+    }
+    public void Reveal()
+    {
+        _thisTransform.localScale = new Vector3(1, 1, 1);
+    }
+    public void Hide()
+    {
+        _thisTransform.localScale = new Vector3(0, 0, 0);
     }
 }
