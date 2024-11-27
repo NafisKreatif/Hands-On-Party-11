@@ -107,13 +107,6 @@ public class DialogManager : MonoBehaviour
           speechText.text = _dialogQueue.Peek().speech;
           dialogDoneState[_dialogQueue.Peek().id] = true;
         }
-        else if (_dialogQueue.Peek().type == DialogLineResource.DialogLineType.slideshow)
-        {
-          if (_dialogCoroutine != null) StopCoroutine(_dialogCoroutine);
-          _dialogAudioSource.loop = false;
-          slideshowText.text = _dialogQueue.Peek().speech;
-          dialogDoneState[_dialogQueue.Peek().id] = true;
-        }
       }
     }
   }
