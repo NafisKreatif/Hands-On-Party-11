@@ -14,7 +14,8 @@ public class Boss_animation : MonoBehaviour
     public float HeadAngle;
     private float Rotation;
     private float ZRotation;
-    void Start(){
+    void Start()
+    {
         flapAngle = 24;
         flapSpeed = 0.8f;
         ZflapAngle = 8;
@@ -26,9 +27,11 @@ public class Boss_animation : MonoBehaviour
     {
         Rotation = Mathf.Sin(Time.time * flapSpeed) * flapAngle;
         ZRotation = Mathf.Sin(Time.time * flapSpeed) * ZflapAngle;
-        Head.localRotation= Quaternion.Euler(0,0,Mathf.Sin(Time.time*HeadRotationSpeed) * HeadAngle);
+        Head.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.time * HeadRotationSpeed) * HeadAngle);
         leftWing.localRotation = Quaternion.Euler(Rotation, 0, ZRotation);
         rightWing.localRotation = Quaternion.Euler(-Rotation, 0, -ZRotation);
-        transform.position += new Vector3(0,Boss_speed*Time.deltaTime,0);
+        transform.position += new Vector3(0, Boss_speed * Time.deltaTime, 0);
     }
+
+    public void SetSpeed(float newSpeed) { Boss_speed = newSpeed; }
 }
