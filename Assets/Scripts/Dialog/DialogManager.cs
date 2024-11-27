@@ -63,13 +63,13 @@ public class DialogManager : MonoBehaviour
     // Singleton pattern
     if (Instance != null && Instance != this)
     {
-      Destroy(this);
+      Destroy(gameObject);
     }
     else
     {
       Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
-    DontDestroyOnLoad(gameObject);
 
     // Initialize dialog queue and dialog done state
     StartDialogEvent ??= new UnityEvent<string>();
@@ -152,6 +152,7 @@ public class DialogManager : MonoBehaviour
       dialogObject.SetActive(true);
       _dialogAudioSource.Play();
       _dialogAudioSource.loop = true;
+      if (slideshowObject.activeSelf) StartCoroutine(FadeOutSlideshow());
 
       dialogDoneState[currentDialog.id] = false;
       speakerText.text = currentDialog.speaker;

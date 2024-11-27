@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Animations;
@@ -29,7 +30,7 @@ public class DialogAreaTrigger : MonoBehaviour
     void Start()
     {
         // Parse dialogResource whic is a CSV file using '|' as delimiter
-        string[] lines = dialogResource.text.Split("\r\n");
+        string[] lines = dialogResource.text.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None);
         _dialogLines = new DialogManager.DialogLineResource[lines.Length];
         for (int i = 0; i < lines.Length; i++)
         {
