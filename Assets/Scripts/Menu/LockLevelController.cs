@@ -4,13 +4,15 @@ using UnityEngine.UI;
 
 public class LockLevelController : MonoBehaviour
 {
-    public Button button;
-    public RawImage lockImage;
-    public int indexLevelSyaratUnlock = 0;
+    private Button _button;
+    public Image lockImage;
+    public Image overlay;
+    public int indexLevelSyaratUnlock = -2;
 
     void Start()
     {
-        if (LevelInfoManager.Instance.GetLevelInfo(indexLevelSyaratUnlock).bestTime != -1)
+        _button = GetComponent<Button>();
+        if (indexLevelSyaratUnlock == -2 || LevelInfoManager.Instance.GetLevelInfo(indexLevelSyaratUnlock).bestTime != -1)
         {
             Unlock();
         }
@@ -21,12 +23,16 @@ public class LockLevelController : MonoBehaviour
     }
     public void Unlock()
     {
-        lockImage.color = new Color(0, 0, 0, 0);
-        button.interactable = true;
+        Debug.Log("Level " + name + " is unlocked!");
+        overlay.color = new Color(0, 0, 0, 0f);
+        lockImage.color = new Color(lockImage.color.r, lockImage.color.g, lockImage.color.b, 0);
+        _button.interactable = true;
     }
     public void Lock()
     {
-        lockImage.color = new Color(1, 1, 1, 1);
-        button.interactable = false;
+        Debug.Log("Level " + name + " is locked!");
+        overlay.color = new Color(0, 0, 0, 0.5f);
+        lockImage.color = new Color(lockImage.color.r, lockImage.color.g, lockImage.color.b, 1);
+        _button.interactable = false;
     }
 }

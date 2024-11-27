@@ -92,7 +92,7 @@ public class WinController : MonoBehaviour
         // Update best time and collectible count
         int levelIndex = SceneManager.GetActiveScene().buildIndex;
         int lastBestTime = PlayerPrefs.GetInt("Level" + levelIndex + "BestTime", -1);
-        if (timeInMiliseconds < lastBestTime || lastBestTime == -1)
+        if (timeInMiliseconds < lastBestTime || lastBestTime < 0)
         {
             bestText.text = "Best!";
             LevelInfoManager.Instance?.UpdateBestTime.Invoke(levelIndex, timeInMiliseconds);

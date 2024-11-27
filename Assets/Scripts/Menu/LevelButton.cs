@@ -18,7 +18,7 @@ public class LevelButton : MonoBehaviour
 
     private string FormatBestTime(int timeInMiliseconds)
     {
-        if (timeInMiliseconds == -1) return "––:––:–––";
+        if (timeInMiliseconds < 0) return "––:––:–––";
         string minutes = (timeInMiliseconds / 60000).ToString();
         string seconds = (timeInMiliseconds / 1000).ToString();
         string miliseconds = (timeInMiliseconds % 1000).ToString();
