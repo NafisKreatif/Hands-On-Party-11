@@ -29,7 +29,7 @@ public class LevelCompletedMenu : MonoBehaviour
         {
             seconds = "0" + seconds;
         }
-        while (miliseconds.Length < 2)
+        while (miliseconds.Length < 3)
         {
             miliseconds = "0" + miliseconds;
         }

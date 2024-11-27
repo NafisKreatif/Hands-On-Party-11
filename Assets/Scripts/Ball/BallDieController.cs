@@ -10,6 +10,7 @@ public class BallDieController : MonoBehaviour
     public AudioSource[] dieSound;
     public SpriteShapeRenderer shapeRenderer;
     public TrailRenderer trailRenderer;
+    public SpriteRenderer mataRenderer;
     public float scaleSpeed = -0.2f; // Seberapa cepat bolanya membesar ketika mati
     private Transform _bolaTransform;
     public bool isDying = false;
@@ -46,6 +47,7 @@ public class BallDieController : MonoBehaviour
         // Hanya particle system yang masih kelihatan, renderer sisanya di-disable
         shapeRenderer.enabled = false; // Hilangkan bola dari kamera
         trailRenderer.enabled = false; // Hilangkan trailnya juga dari kamera
+        mataRenderer.enabled = false; // Hilangkan mata dari kamera
         transitionController.TransitionOut();
     }
     IEnumerator ResetSceneIn(float seconds)
