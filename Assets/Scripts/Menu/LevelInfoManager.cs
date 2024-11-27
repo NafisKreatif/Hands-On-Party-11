@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 // Information to be stored: Number of best collectibles and best time
 public class LevelInfoManager : MonoBehaviour
 {
     public struct LevelInfo
     {
-        public int collectibleCount;        
+        public int collectibleCount;
         public int bestTime;
     }
 
@@ -41,7 +42,7 @@ public class LevelInfoManager : MonoBehaviour
         int bestTime = PlayerPrefs.GetInt("Level" + levelIndex + "BestTime", -1);
         return new LevelInfo
         {
-            collectibleCount = collectibleCount,            
+            collectibleCount = collectibleCount,
             bestTime = bestTime
         };
     }
