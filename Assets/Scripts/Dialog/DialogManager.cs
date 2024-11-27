@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -29,7 +28,7 @@ public class DialogManager : MonoBehaviour
 
     public string speech;
     public string animationState; // Animation state name played during the line from the animatorController
-    public AnimatorController animatorController; // Animator controller for the speaker profile, every Controller 
+    public RuntimeAnimatorController animatorController; // Animator controller for the speaker profile, every Controller 
     public SceneAction sceneAction; // Scene action to be executed after the line
     public bool isSceneAsync; // If true, the scene action will be executed asynchronously
   }

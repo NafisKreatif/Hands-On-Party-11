@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,7 +17,7 @@ public class DialogAreaTrigger : MonoBehaviour
     [Tooltip("List of scene actions to be executed. Only scenes from this list can be executed by the dialogResource.")]
     public List<SceneAction> sceneActionScripts; // List of scene actions to be executed.
     [Tooltip("Animator controller for the speaker profile, every Controller has to have a state with the same name as the animationState in the dialogResource.")]
-    public AnimatorController[] animatorControllers;
+    public RuntimeAnimatorController[] animatorControllers;
 
     [Header("Events")]
     [Tooltip("Event to be called when the dialog area is entered.")]
