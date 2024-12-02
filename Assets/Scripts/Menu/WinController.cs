@@ -24,7 +24,7 @@ public class WinController : MonoBehaviour
     private Transform _thisTransform;
     private GameObject _player;
     public int timeInMiliseconds;
-    private TransitionController _transitionController;
+    private SceneTransitionController _transitionController;
 
     void Start()
     {
@@ -54,7 +54,7 @@ public class WinController : MonoBehaviour
             gameCamera.transform.position += Time.deltaTime / slowMotionTimeScale * positionChange; // Gerakkan kamera ke arah goal
             gameCamera.orthographicSize -= zoomSpeed * Time.deltaTime / slowMotionTimeScale; // Zoom kameranya
         }
-        _transitionController = FindFirstObjectByType<TransitionController>();
+        _transitionController = FindFirstObjectByType<SceneTransitionController>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -120,7 +120,7 @@ public class WinController : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         HasWonEvent.Invoke();
-        _player.SetActive(false);
+        //_player.SetActive(false);
         levelCompletedMenu.SetActive(true);
         _isZooming = false;
         Time.timeScale = 0; // Berhentikan waktu

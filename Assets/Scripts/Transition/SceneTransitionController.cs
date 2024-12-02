@@ -2,9 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TransitionController : MonoBehaviour
+public class SceneTransitionController : MonoBehaviour
 {
-    public Transform cameraTransform;
+    public static SceneTransitionController Instance;
+    private Transform _cameraTransform; // 
     public Transform blackScreen;
     public Transform maskTransform;
     public bool transitionOnStart = true; // Apakah perlu ada transisi saat masuk scene ini
@@ -12,9 +13,25 @@ public class TransitionController : MonoBehaviour
     public float transitionTime = 1f; // Dalam detik
     private float _transitionSpeed; // Kecepatan transisi
     private bool _isInTransition = false;
+
+    void Awake()
+    {
+        // Kalo udah ada transition manager
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // ga usah buat lagi, pake yang lama
+        }
+        else
+        {
+            // Set instance
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _cameraTransform = Camera.main.transform;
         if (transitionOnStart)
         {
             TransitionIn();
@@ -26,9 +43,9 @@ public class TransitionController : MonoBehaviour
     {
         if (_isInTransition)
         {
-            // Biar kalo kameranya gerak-gerak dan berotasi masih menutupi
-            Vector3 position = new(cameraTransform.position.x, cameraTransform.position.y, -9);
-            Quaternion rotation = cameraTransform.rotation;
+            // Biar kalo kameranya gerak-gerak dan berotasi masih menutupiwin
+            Vector3 position = new(_cameraTransform.position.x, _cameraTransform.position.y, -9);
+            Quaternion rotation = _cameraTransform.rotation;
             blackScreen.SetPositionAndRotation(position, rotation);
             maskTransform.SetPositionAndRotation(position, rotation);
             // Update scale dari masknya

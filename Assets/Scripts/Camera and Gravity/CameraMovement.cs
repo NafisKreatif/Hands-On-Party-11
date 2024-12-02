@@ -18,10 +18,13 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _distanceX = target.transform.position.x - _cameraTransform.position.x;
-        _distanceY = target.transform.position.y - _cameraTransform.position.y;
+        Vector3 pos = target.transform.position;
+        pos.z = _cameraTransform.position.z;
+        _cameraTransform.position = pos;
+        // _distanceX = target.transform.position.x - _cameraTransform.position.x;
+        // _distanceY = target.transform.position.y - _cameraTransform.position.y;
 
-        _cameraRb.linearVelocityX = 3 * _distanceX;
-        _cameraRb.linearVelocityY = 3 * _distanceY;
+        // _cameraRb.linearVelocityX = 3 * _distanceX;
+        // _cameraRb.linearVelocityY = 3 * _distanceY;
     }
 }

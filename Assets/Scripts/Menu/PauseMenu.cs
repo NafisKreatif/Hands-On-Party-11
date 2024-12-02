@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public TransitionController transitionController;
+    public SceneTransitionController transitionController;
     // Bagian Pause Menu
     // Variabel untuk melacak apakah permainan sedang pause
     public static bool paused = false;
@@ -57,7 +57,8 @@ public class PauseMenu : MonoBehaviour
         transitionController.GoToSceneByIndex(0);
     }
     // Kalau sudah menang tidak bisa pause
-    void OnWin() {
+    void OnWin()
+    {
         enabled = false;
     }
 }

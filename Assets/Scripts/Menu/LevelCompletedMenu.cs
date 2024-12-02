@@ -4,7 +4,7 @@ using TMPro;
 
 public class LevelCompletedMenu : MonoBehaviour
 {
-    public TransitionController transitionController;
+    public SceneTransitionController transitionController;
     public TMP_Text timeText; // Untuk menampilkan waktu penyelesaian
     public bool hasOrb = true;
     public AudioSource[] orbSounds;

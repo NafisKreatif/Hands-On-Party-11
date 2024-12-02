@@ -5,7 +5,7 @@ using UnityEngine.U2D;
 
 public class BallDieController : MonoBehaviour
 {
-    public TransitionController transitionController;
+    public SceneTransitionController transitionController;
     public ParticleSystem dieParticle;
     public AudioSource[] dieSound;
     public SpriteShapeRenderer shapeRenderer;
