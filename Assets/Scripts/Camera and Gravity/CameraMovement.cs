@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public GameObject target;
+    public Transform targetTranform;
     private Transform _cameraTransform;
     private Rigidbody2D _cameraRb;
     private float _distanceX;
@@ -18,7 +18,8 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = target.transform.position;
+        
+        Vector3 pos = targetTranform.position;
         pos.z = _cameraTransform.position.z;
         _cameraTransform.position = pos;
         // _distanceX = target.transform.position.x - _cameraTransform.position.x;

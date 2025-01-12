@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class CanvasTransitionController : MonoBehaviour
 {
     // Arah transisi dari mana atau ke mana
-    public enum Direction
+    [Serializable] public enum Direction
     {
         Up,
         Down,
