@@ -43,7 +43,7 @@ public class SceneTransitionController : MonoBehaviour
     {
         if (_isInTransition)
         {
-            // Biar kalo kameranya gerak-gerak dan berotasi masih menutupiwin
+            // Biar kalo kameranya gerak-gerak dan berotasi masih menutupin
             Vector3 position = new(_cameraTransform.position.x, _cameraTransform.position.y, -9);
             Quaternion rotation = _cameraTransform.rotation;
             blackScreen.SetPositionAndRotation(position, rotation);
