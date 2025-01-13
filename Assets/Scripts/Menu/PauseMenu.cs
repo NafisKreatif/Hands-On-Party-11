@@ -12,7 +12,6 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f; // Mengatur waktu menjadi normal saat game dimulai
-        PauseMenuCanvas.worldCamera = Camera.main;
         FindFirstObjectByType<WinController>().WinningEvent.AddListener(OnWin);
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<BallDieController>();
     }
@@ -53,7 +52,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         Time.timeScale = 1f; // Supaya transisinya bisa jalan
-        SceneTransitionController.Instance.GoToSceneByIndex(0);
+        SceneTransitionController.Instance.GoToScene(0);
     }
     // Kalau sudah menang tidak bisa pause
     void OnWin()

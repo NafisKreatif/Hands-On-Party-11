@@ -401,7 +401,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1171,6 +1171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &2486628266144258421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1189,7 @@ GameObject:
   - component: {fileID: 2455407275451944628}
   - component: {fileID: 5422050535309282973}
   - component: {fileID: 6257387735662775094}
+  - component: {fileID: 1706010972136550727}
   - component: {fileID: 4765704755436934632}
   m_Layer: 5
   m_Name: Level Completed Menu
@@ -1289,13 +1295,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2316a7173694b6b9a39ba2d3ef18dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionController: {fileID: 0}
   timeText: {fileID: 1134094768928912769}
   hasOrb: 1
   orbSounds:
   - {fileID: 5909722645242930449}
   - {fileID: 7183554136962622857}
   - {fileID: 2473829852350205593}
+--- !u!114 &1706010972136550727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486628266144258421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51ede2bc8d354e4fb5ff28991afb557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4765704755436934632
 Animator:
   serializedVersion: 7
@@ -1935,6 +1952,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &3928074231299960646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,6 +3280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &8059367787561965212
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class CreditsCamera : MonoBehaviour
         scrollingContent.anchoredPosition += creditsSpeed * Time.deltaTime * Vector2.up;
         if (scrollingContent.anchoredPosition.y > scrollingContent.sizeDelta.y)
         {
-            SceneTransitionController.Instance.GoToSceneByIndex(0);
+            SceneTransitionController.Instance.GoToScene(0);
         }
     }
 }

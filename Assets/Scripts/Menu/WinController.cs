@@ -69,7 +69,7 @@ public class WinController : MonoBehaviour
     {
         if (isCutsceneLevel)
         {
-            SceneTransitionController.Instance.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneTransitionController.Instance.GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
         WinningEvent.Invoke();

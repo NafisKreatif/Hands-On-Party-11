@@ -4,17 +4,16 @@ using TMPro;
 
 public class LevelCompletedMenu : MonoBehaviour
 {
-    public SceneTransitionController transitionController;
     public TMP_Text timeText; // Untuk menampilkan waktu penyelesaian
     public bool hasOrb = true;
     public AudioSource[] orbSounds;
     public void GoToNextLevel(int level)
     {
-        transitionController.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneTransitionController.Instance.GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void GoToMainMenu()
     {
-        transitionController.GoToSceneByIndex(0);
+        SceneTransitionController.Instance.GoToScene(0);
     }
     public void SetWinTime(int timeInMiliseconds)
     {

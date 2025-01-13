@@ -20,7 +20,6 @@ public class BallDieController : MonoBehaviour
         dieParticle.Play();
         dieSound[Random.Range(0, dieSound.Length)].Play();
         StartCoroutine(DeadIn(SceneTransitionController.Instance.transitionTime * 0.5f)); // Menghentikan pembesaran bola
-        StartCoroutine(ResetSceneIn(SceneTransitionController.Instance.transitionTime * 1.5f)); // Reset Scene
     }
 
     // Bola benar-benar menghilang dalam waktu sekian detik
@@ -31,11 +30,6 @@ public class BallDieController : MonoBehaviour
         shapeRenderer.enabled = false; // Hilangkan bola dari kamera
         trailRenderer.enabled = false; // Hilangkan trailnya juga dari kamera
         mataRenderer.enabled = false; // Hilangkan mata dari kamera
-        SceneTransitionController.Instance.TransitionOut();
-    }
-    IEnumerator ResetSceneIn(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Load scene yang sama
+        SceneTransitionController.Instance.ReloadScene();
     }
 }

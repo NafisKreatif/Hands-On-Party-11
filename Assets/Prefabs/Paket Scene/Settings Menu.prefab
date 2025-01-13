@@ -463,6 +463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &4279864844974077822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1064,7 @@ GameObject:
   - component: {fileID: 5660570091359146053}
   - component: {fileID: 1600833631113376639}
   - component: {fileID: 767042899884087261}
+  - component: {fileID: 4055839458602409006}
   m_Layer: 5
   m_Name: Settings Menu
   m_TagString: Untagged
@@ -1190,6 +1196,18 @@ MonoBehaviour:
   musicSlider: {fileID: 3496180976089667325}
   gyroToggle: {fileID: 6338794769433198556}
   gravityRotationController: {fileID: 0}
+--- !u!114 &4055839458602409006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6568177959433410544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51ede2bc8d354e4fb5ff28991afb557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6715099586827539842
 GameObject:
   m_ObjectHideFlags: 0

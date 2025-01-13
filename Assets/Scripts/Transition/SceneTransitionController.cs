@@ -45,13 +45,13 @@ public class SceneTransitionController : MonoBehaviour
         {
             _cameraTransform = Camera.main.transform;
         }
+        // Biar kalo kameranya gerak-gerak dan berotasi masih menutupin
+        Vector3 position = new(_cameraTransform.position.x, _cameraTransform.position.y, -9);
+        Quaternion rotation = _cameraTransform.rotation;
+        blackScreen.SetPositionAndRotation(position, rotation);
+        maskTransform.SetPositionAndRotation(position, rotation);
         if (_isInTransition)
         {
-            // Biar kalo kameranya gerak-gerak dan berotasi masih menutupin
-            Vector3 position = new(_cameraTransform.position.x, _cameraTransform.position.y, -9);
-            Quaternion rotation = _cameraTransform.rotation;
-            blackScreen.SetPositionAndRotation(position, rotation);
-            maskTransform.SetPositionAndRotation(position, rotation);
             // Update scale dari masknya
             if (Time.timeScale != 1) // Lagi pause pake unscaleDeltaTime biar tidak terpengaruh
             {
@@ -96,34 +96,37 @@ public class SceneTransitionController : MonoBehaviour
         _transitionSpeed = -scale / transitionTime; // Scale mengecil
         StartCoroutine(FinishTransitionIn(transitionTime, new Vector3(0, 0, maskTransform.localScale.z)));
     }
-    public void GoToSceneByName(string name)
+    public void GoToScene(string name)
     {
         TransitionOut(); // Transisi dulu
-        StartCoroutine(LoadSceneByName(name, transitionTime)); // Baru load scene baru
+        StartCoroutine(LoadScene(name, transitionTime)); // Baru load scene baru
+
     }
-    public void GoToSceneByIndex(int index)
+    public void GoToScene(int index)
     {
         TransitionOut(); // Transisi dulu
-        StartCoroutine(LoadSceneByIndex(index, transitionTime)); // Baru load scene baru
+        StartCoroutine(LoadScene(index, transitionTime)); // Baru load scene baru
+
     }
     public void ReloadScene()
     {
         TransitionOut(); // Transisi dulu
-        StartCoroutine(LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex, transitionTime)); // Baru load scene baru
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex, transitionTime)); // Baru load scene baru
     }
-    IEnumerator LoadSceneByName(string name, float timeInSeconds)
+    IEnumerator LoadScene(string name, float timeInSeconds)
     {
         if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);
         else yield return new WaitForSeconds(timeInSeconds);
         Time.timeScale = 1;
-        SceneManager.LoadScene(name);
-        yield return null;
+        yield return SceneManager.LoadSceneAsync(name);
+        TransitionIn(); // Transisi setelah loading
     }
-    IEnumerator LoadSceneByIndex(int index, float timeInSeconds)
+    IEnumerator LoadScene(int index, float timeInSeconds)
     {
         if (Time.timeScale != 1) yield return new WaitForSecondsRealtime(timeInSeconds);
         else yield return new WaitForSeconds(timeInSeconds);
         Time.timeScale = 1;
-        SceneManager.LoadScene(index);
+        yield return SceneManager.LoadSceneAsync(index);
+        TransitionIn(); // Transisi setelah loading
     }
 }

@@ -88,6 +88,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &664071848767127357
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &4385017819017626553
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,18 +621,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonPressSfx, Assembly-CSharp
-        m_MethodName: PlaySfx
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &5982118284360531190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,6 +876,7 @@ GameObject:
   - component: {fileID: 7256971398278143953}
   - component: {fileID: 1648930840910370082}
   - component: {fileID: 1790558469192739368}
+  - component: {fileID: 3566261229029141630}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -984,8 +983,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6006f7826237ce43807533f27b31158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionController: {fileID: 0}
   PauseMenuCanvas: {fileID: 2999228580789711838}
+--- !u!114 &3566261229029141630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4995163715584169325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51ede2bc8d354e4fb5ff28991afb557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5274300736564141910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b96a5a3a504a009c949ac67a22b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  onHoverColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _image: {fileID: 0}
 --- !u!1 &7333088486959931116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,16 +1573,16 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonPressSfx, Assembly-CSharp
-        m_MethodName: PlaySfx
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
@@ -1797,7 +1812,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8831498934207057187}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneTransitionController, Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2363276332038465161
 MonoBehaviour:
   m_ObjectHideFlags: 0
