@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public SceneTransitionController transitionController;
     public Canvas MainMenuCanvas;
     void Start()
     {
@@ -10,7 +9,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Play(int level)
     {
-        transitionController.GoToSceneByIndex(level);
+        SceneTransitionController.Instance.GoToSceneByIndex(level);
     }
     public void Quit()
     {

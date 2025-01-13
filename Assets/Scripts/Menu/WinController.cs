@@ -24,7 +24,6 @@ public class WinController : MonoBehaviour
     private Transform _thisTransform;
     private GameObject _player;
     public int timeInMiliseconds;
-    private SceneTransitionController _transitionController;
 
     void Start()
     {
@@ -54,7 +53,6 @@ public class WinController : MonoBehaviour
             gameCamera.transform.position += Time.deltaTime / slowMotionTimeScale * positionChange; // Gerakkan kamera ke arah goal
             gameCamera.orthographicSize -= zoomSpeed * Time.deltaTime / slowMotionTimeScale; // Zoom kameranya
         }
-        _transitionController = FindFirstObjectByType<SceneTransitionController>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -71,7 +69,7 @@ public class WinController : MonoBehaviour
     {
         if (isCutsceneLevel)
         {
-            _transitionController.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneTransitionController.Instance.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
         WinningEvent.Invoke();

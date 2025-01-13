@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransitionController : MonoBehaviour
 {
     public static SceneTransitionController Instance;
-    private Transform _cameraTransform; // 
+    public Transform _cameraTransform; // 
     public Transform blackScreen;
     public Transform maskTransform;
     public bool transitionOnStart = true; // Apakah perlu ada transisi saat masuk scene ini
@@ -41,6 +41,10 @@ public class SceneTransitionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_cameraTransform == null)
+        {
+            _cameraTransform = Camera.main.transform;
+        }
         if (_isInTransition)
         {
             // Biar kalo kameranya gerak-gerak dan berotasi masih menutupin
@@ -70,7 +74,7 @@ public class SceneTransitionController : MonoBehaviour
     {
         if (_isInTransition)
         { // Jangan transisi lagi kalo lagi transisi
-            Debug.Log("Can't set another transition!");
+            Debug.LogWarning("Can't set another transition!");
             return;
         }
         float scale = new Vector2(blackScreen.localScale.x, blackScreen.localScale.y).magnitude * maskScale;
@@ -83,7 +87,7 @@ public class SceneTransitionController : MonoBehaviour
     {
         if (_isInTransition)
         { // Jangan transisi lagi kalo lagi transisi
-            Debug.Log("Can't set another transition!");
+            Debug.LogWarning("Can't set another transition!");
             return;
         }
         float scale = new Vector2(blackScreen.localScale.x, blackScreen.localScale.y).magnitude * maskScale;
@@ -113,6 +117,7 @@ public class SceneTransitionController : MonoBehaviour
         else yield return new WaitForSeconds(timeInSeconds);
         Time.timeScale = 1;
         SceneManager.LoadScene(name);
+        yield return null;
     }
     IEnumerator LoadSceneByIndex(int index, float timeInSeconds)
     {
