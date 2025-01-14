@@ -4,7 +4,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Play(int level)
     {
-        SceneTransitionController.Instance.GoToScene(level);
+        SceneTransitionManager.Instance.GoToScene(level);
     }
     public void Quit()
     {

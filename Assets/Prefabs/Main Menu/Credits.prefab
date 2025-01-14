@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 349028416049120061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5774983750256328231}
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be57eb85fbd94d8fb77e166d7e30fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTime: 1
 --- !u!1 &1086815802741717118
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +580,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Visual Artist:
 
-    Aghii (167)
+    Aghii (021)
 
     Fibar (151)
 
@@ -1254,6 +1253,7 @@ GameObject:
   - component: {fileID: 3676407151824572059}
   - component: {fileID: 1765992683837350933}
   - component: {fileID: 6830007784165741552}
+  - component: {fileID: 2027615133092460817}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -1356,8 +1356,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a178ee0210bb47a0ac0da1a8e7cb49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionController: {fileID: 0}
-  MainMenuCanvas: {fileID: 8093743002532487633}
+--- !u!114 &2027615133092460817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550368730838510703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51ede2bc8d354e4fb5ff28991afb557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8450968908764488933
 GameObject:
   m_ObjectHideFlags: 0

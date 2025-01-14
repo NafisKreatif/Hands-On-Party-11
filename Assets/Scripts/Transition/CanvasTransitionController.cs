@@ -39,12 +39,14 @@ public class CanvasTransitionController : MonoBehaviour
             Debug.Log("Target Position : " + _targetPosition.x + ", " + _targetPosition.y + ", " + _targetPosition.z);
             _time += Time.unscaledDeltaTime / _transitionTime;
             SmoothSlideStep(); // Pindahkan posisi selangkah
+            UIDisablerManager.Instance.DisableUI(); // Tidak boleh pejet-pejet tombol dulu
         }
         // Transisi sudah selesai
         else if (_time > _transitionTime)
         {
             _time = _transitionTime;
             SnapToTargetPosition(); // Memastikan posisi akhir pas dengan targetPosition 
+            UIDisablerManager.Instance.EnableUI(); // Boleh pejet-pejet tombol kembali
         }
     }
     public void TransitionInFrom(Direction direction)
@@ -107,7 +109,75 @@ public class CanvasTransitionController : MonoBehaviour
 
         Reveal(); // Pastikan UI element terlihat
     }
+    public void TransitionInFromUp()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
 
+        _initialPosition.y += Camera.main.orthographicSize * 2;
+        Reveal();
+    }
+    public void TransitionInFromDown()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z); ;
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _initialPosition.y -= Camera.main.orthographicSize * 2;
+        Reveal();
+    }
+    public void TransitionInFromRight()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _initialPosition.x += Camera.main.orthographicSize * Camera.main.aspect * 2;
+        Reveal();
+    }
+    public void TransitionInFromLeft()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _initialPosition.x -= Camera.main.orthographicSize * Camera.main.aspect * 2;
+        Reveal();
+    }
+
+    public void TransitionOutToUp()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _targetPosition.y += Camera.main.orthographicSize * 2;
+    }
+    public void TransitionOutToDown()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _targetPosition.y -= Camera.main.orthographicSize * 2;
+    }
+    public void TransitionOutToRight()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _targetPosition.x += Camera.main.orthographicSize * Camera.main.aspect * 2;
+    }
+    public void TransitionOutToLeft()
+    {
+        _initialPosition = new Vector3(0, 0, _thisTransform.position.z);
+        _targetPosition = new Vector3(0, 0, _thisTransform.position.z); // target position nanti disesuaikan dengan arah 
+        _time = 0;
+
+        _targetPosition.x -= Camera.main.orthographicSize * Camera.main.aspect * 2;
+    }
     // Perubahan posisi secara smooth
     private void SmoothSlideStep()
     {

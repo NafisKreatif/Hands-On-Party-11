@@ -52,7 +52,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         Time.timeScale = 1f; // Supaya transisinya bisa jalan
-        SceneTransitionController.Instance.GoToScene(0);
+        SceneTransitionManager.Instance.GoToScene(0);
     }
     // Kalau sudah menang tidak bisa pause
     void OnWin()

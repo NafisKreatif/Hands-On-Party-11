@@ -9,11 +9,11 @@ public class LevelCompletedMenu : MonoBehaviour
     public AudioSource[] orbSounds;
     public void GoToNextLevel(int level)
     {
-        SceneTransitionController.Instance.GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneTransitionManager.Instance.GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void GoToMainMenu()
     {
-        SceneTransitionController.Instance.GoToScene(0);
+        SceneTransitionManager.Instance.GoToScene(0);
     }
     public void SetWinTime(int timeInMiliseconds)
     {
