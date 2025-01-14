@@ -7851,7 +7851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b972defab7b4c9bbcbb0066c21e42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionController: {fileID: 0}
   dieParticle: {fileID: 3363382922198718651}
   dieSound:
   - {fileID: 5519685230998147383}
@@ -7992,7 +7991,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2

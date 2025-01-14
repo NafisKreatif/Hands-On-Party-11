@@ -20,6 +20,8 @@ public class BallDieController : MonoBehaviour
         dieParticle.Play();
         dieSound[Random.Range(0, dieSound.Length)].Play();
         StartCoroutine(DeadIn(SceneTransitionManager.Instance.transitionTime * 0.5f)); // Menghentikan pembesaran bola
+        shapeRenderer.enabled = false; // Hilangkan bola dari kamera
+        mataRenderer.enabled = false; // Hilangkan mata dari kamera
     }
 
     // Bola benar-benar menghilang dalam waktu sekian detik
@@ -27,9 +29,7 @@ public class BallDieController : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         // Hanya particle system yang masih kelihatan, renderer sisanya di-disable
-        shapeRenderer.enabled = false; // Hilangkan bola dari kamera
         trailRenderer.enabled = false; // Hilangkan trailnya juga dari kamera
-        mataRenderer.enabled = false; // Hilangkan mata dari kamera
         SceneTransitionManager.Instance.ReloadScene();
     }
 }

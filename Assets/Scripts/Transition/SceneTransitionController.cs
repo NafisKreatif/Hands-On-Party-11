@@ -23,4 +23,8 @@ public class SceneTransitionController : MonoBehaviour
     {
         SceneTransitionManager.Instance.ReloadScene();
     }
+    public void NextScene()
+    {
+        SceneTransitionManager.Instance.NextScene();
+    }
 }

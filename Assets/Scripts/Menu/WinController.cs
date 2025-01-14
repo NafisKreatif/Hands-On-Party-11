@@ -107,6 +107,7 @@ public class WinController : MonoBehaviour
 
         // Display how many orb was collected
         var orbImages = levelCompletedMenu.GetComponentsInChildren<RawImage>();
+        Debug.Log("Orb Images: " + orbImages.Length);
         for (int i = 0; i < Collectible.collectibleCount; i++)
         {
             Debug.Log("Orb: " + orbImages[i].name);

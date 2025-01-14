@@ -862,10 +862,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 803188563342223479, guid: ed86d8b41c5d0430893c9e661331d825, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 419560956}
     - target: {fileID: 1887226207590129073, guid: ed86d8b41c5d0430893c9e661331d825, type: 3}
       propertyPath: m_Camera
       value: 
@@ -954,6 +950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Selector
       objectReference: {fileID: 0}
+    - target: {fileID: 7268332219726443671, guid: ed86d8b41c5d0430893c9e661331d825, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 419560956}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1072,6 +1072,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5639911785965164350, guid: e3fb2cefca5854435be07acdffa792ed, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 419560956}
     - target: {fileID: 5910716159418885605, guid: e3fb2cefca5854435be07acdffa792ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1156,10 +1160,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credits
       objectReference: {fileID: 0}
-    - target: {fileID: 8026443862729464707, guid: e3fb2cefca5854435be07acdffa792ed, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 419560956}
     - target: {fileID: 8093743002532487633, guid: e3fb2cefca5854435be07acdffa792ed, type: 3}
       propertyPath: m_Camera
       value: 

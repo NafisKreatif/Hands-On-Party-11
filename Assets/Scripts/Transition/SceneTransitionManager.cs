@@ -12,7 +12,6 @@ public class SceneTransitionManager : MonoBehaviour
     public float transitionTime = 1f; // Dalam detik
     private float _transitionPercentage; // Persen transisi
     private bool _isInTransition = false;
-    private float maskTargetScale = 1f; // Besar mask yang diinginkan
     void Awake()
     {
         // Kalo udah ada transition manager
@@ -128,6 +127,11 @@ public class SceneTransitionManager : MonoBehaviour
     {
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex, transitionTime)); // Baru load scene baru
+    }
+    public void NextScene()
+    {
+        TransitionOut(); // Transisi dulu
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1, transitionTime)); // Baru load scene baru
     }
     IEnumerator LoadScene(string name, float timeInSeconds)
     {
