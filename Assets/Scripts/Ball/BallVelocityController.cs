@@ -33,7 +33,7 @@ public class BallVelocityController : MonoBehaviour
         if (!_ballInWaterController.isInWater) // Tidak di air
         {
             // Suara gesekan dengan udara, dikali Time.timeScale supaya berhenti jika pause
-            wooshSound.volume = magnitude / maxVelocity / maxVelocity * Time.timeScale;
+            wooshSound.volume = magnitude / maxVelocity / Mathf.Sqrt(maxVelocity) * Time.timeScale;
             wooshSound.pitch = 1.2f;
 
             // Kalo tiba-tiba nabrak keluarkan suara nabrak

@@ -10,7 +10,6 @@ public class CreditsCamera : MonoBehaviour
     private Camera _camera;
     private Vector2 _cameraPosition;
     private Vector2 _cameraSize;
-    private TransitionController _transitionController;
     void Start()
     {
         _camera = Camera.main;
@@ -20,7 +19,6 @@ public class CreditsCamera : MonoBehaviour
         }
         _cameraSize = new(_camera.orthographicSize * _camera.aspect, _camera.orthographicSize);
         _cameraPosition = _camera.transform.position;
-        _transitionController = FindFirstObjectByType<TransitionController>();
     }
 
     void Update()
@@ -30,10 +28,10 @@ public class CreditsCamera : MonoBehaviour
         _borderColliders[2].transform.localPosition = _cameraPosition + new Vector2(0, -_cameraSize.y - 0.5f);
         _borderColliders[3].transform.localPosition = _cameraPosition + new Vector2(0, _cameraSize.y + 0.5f);
 
-        scrollingContent.anchoredPosition +=  creditsSpeed * Time.deltaTime * Vector2.up;
+        scrollingContent.anchoredPosition += creditsSpeed * Time.deltaTime * Vector2.up;
         if (scrollingContent.anchoredPosition.y > scrollingContent.sizeDelta.y)
         {
-            _transitionController.GoToSceneByIndex(0);
+            SceneTransitionManager.Instance.GoToScene(0);
         }
     }
 }

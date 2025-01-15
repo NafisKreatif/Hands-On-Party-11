@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ButtonPressSfx : MonoBehaviour
+public class ButtonPressSfx : MonoBehaviour, IPointerClickHandler
 {
     public AudioSource pressSfx;
-    public void PlaySfx()
+    public void OnPointerClick(PointerEventData data)
     {
         pressSfx.Play();
     }

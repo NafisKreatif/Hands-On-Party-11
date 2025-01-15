@@ -24,7 +24,6 @@ public class WinController : MonoBehaviour
     private Transform _thisTransform;
     private GameObject _player;
     public int timeInMiliseconds;
-    private TransitionController _transitionController;
 
     void Start()
     {
@@ -54,7 +53,6 @@ public class WinController : MonoBehaviour
             gameCamera.transform.position += Time.deltaTime / slowMotionTimeScale * positionChange; // Gerakkan kamera ke arah goal
             gameCamera.orthographicSize -= zoomSpeed * Time.deltaTime / slowMotionTimeScale; // Zoom kameranya
         }
-        _transitionController = FindFirstObjectByType<TransitionController>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -71,7 +69,7 @@ public class WinController : MonoBehaviour
     {
         if (isCutsceneLevel)
         {
-            _transitionController.GoToSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneTransitionManager.Instance.GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
         WinningEvent.Invoke();
@@ -109,6 +107,7 @@ public class WinController : MonoBehaviour
 
         // Display how many orb was collected
         var orbImages = levelCompletedMenu.GetComponentsInChildren<RawImage>();
+        Debug.Log("Orb Images: " + orbImages.Length);
         for (int i = 0; i < Collectible.collectibleCount; i++)
         {
             Debug.Log("Orb: " + orbImages[i].name);
@@ -120,7 +119,7 @@ public class WinController : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         HasWonEvent.Invoke();
-        _player.SetActive(false);
+        //_player.SetActive(false);
         levelCompletedMenu.SetActive(true);
         _isZooming = false;
         Time.timeScale = 0; // Berhentikan waktu
