@@ -44,7 +44,7 @@ public class SceneTransitionManager : MonoBehaviour
             _cameraTransform = Camera.main.transform;
         }
         // Biar kalo kameranya gerak-gerak dan berotasi masih menutupin
-        Vector3 scale = new(Camera.main.orthographicSize * Camera.main.aspect * 2, Camera.main.orthographicSize * 2, 1);
+        Vector3 scale = new(Camera.main.orthographicSize * Camera.main.aspect * 2.5f, Camera.main.orthographicSize * 2.5f, 1);
         Vector3 position = new(_cameraTransform.position.x, _cameraTransform.position.y, -9);
         Quaternion rotation = _cameraTransform.rotation;
         blackScreen.localScale = scale;
