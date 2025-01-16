@@ -90,46 +90,55 @@ public class SceneTransitionManager : MonoBehaviour
         }
         _transitionPercentage = 1;
         UIDisablerManager.Instance.EnableUI();
-        _isInTransition = false; // Anggap sudah selesai
         maskTransform.localScale = new Vector3(0, 0, 1); // Pas kan dengan hasil akhir yang diinginkan
     }
     public void TransitionIn()
     {
-        if (_isInTransition)
-        { // Jangan transisi lagi kalo lagi transisi
-            Debug.LogWarning("Can't set another transition!");
-            return;
-        }
         StartCoroutine(TransitioningIn());
     }
     public void TransitionOut()
     {
-        if (_isInTransition)
-        { // Jangan transisi lagi kalo lagi transisi
-            Debug.LogWarning("Can't set another transition!");
-            return;
-        }
         StartCoroutine(TransitioningOut());
     }
     public void GoToScene(string name)
     {
+        if (_isInTransition)
+        { // Jangan ganti scene lagi kalo udah lagi transisi
+            Debug.LogWarning("Already in transition, can't load scene!");
+            return;
+        }
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadScene(name, transitionTime)); // Baru load scene baru
 
     }
     public void GoToScene(int index)
     {
+        if (_isInTransition)
+        { // Jangan ganti scene lagi kalo udah lagi transisi
+            Debug.LogWarning("Already in transition, can't load scene!");
+            return;
+        }
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadScene(index, transitionTime)); // Baru load scene baru
 
     }
     public void ReloadScene()
     {
+        if (_isInTransition)
+        { // Jangan ganti scene lagi kalo udah lagi transisi
+            Debug.LogWarning("Already in transition, can't load scene!");
+            return;
+        }
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex, transitionTime)); // Baru load scene baru
     }
     public void NextScene()
     {
+        if (_isInTransition)
+        { // Jangan ganti scene lagi kalo udah lagi transisi
+            Debug.LogWarning("Already in transition, can't load scene!");
+            return;
+        }
         TransitionOut(); // Transisi dulu
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1, transitionTime)); // Baru load scene baru
     }

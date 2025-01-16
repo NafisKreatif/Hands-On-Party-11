@@ -26,9 +26,6 @@ public class Boss_animation : MonoBehaviour
     {
         Vector2 bossPosition = transform.position;
         Vector2 playerPosition = _playerTranform.position;
-        Debug.Log("Boss Position: " + bossPosition.x + ", " + bossPosition.y);
-        Debug.Log("Player Position: " + playerPosition.x + ", " + playerPosition.y);
-        Debug.Log((playerPosition - bossPosition).magnitude);
         actualSpeed = Math.Max(bossSpeed, ((playerPosition - bossPosition).magnitude - startAccelerateDistance + 1) * bossSpeed);
         _xRotation = Mathf.Sin(Time.time * flapSpeed) * xFlapAngle;
         _zRotation = Mathf.Sin(Time.time * flapSpeed) * zFlapAngle;
