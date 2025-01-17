@@ -200,12 +200,12 @@ MonoBehaviour:
   head: {fileID: 298920634663946887}
   startHead: {x: 0, y: 0, z: 0}
   bossSpeed: 1
-  startAccelerateDistance: 13
+  startAccelerateDistance: 14
   actualSpeed: 0.3
-  flapFrequency: 0.3
+  flapFrequency: 0.2
   xFlapAngle: -30
   zFlapAngle: 20
-  headRotationFrequency: 0.3
+  headRotationFrequency: 0.2
   headAngle: -20
 --- !u!1 &4659588085165437504
 GameObject:
