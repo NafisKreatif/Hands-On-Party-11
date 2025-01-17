@@ -1,3 +1,4 @@
+action|EventActionSprite|sync
 action|TransformActionCape|async
 action|DelayAction|sync
 action|TransformActionHand|sync
