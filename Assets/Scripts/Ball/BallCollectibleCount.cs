@@ -3,18 +3,12 @@ using UnityEngine.Rendering.Universal;
 
 public class BallCollectibleCount : MonoBehaviour
 {
-    private float _collectibleCount = 0f;
-    public float glowIntensity = 1f; // Seberapa besar intensitas glow bertambah setiap mendapatkan collectible
+    public float glowIntensity = 0.35f; // Seberapa besar intensitas glow bertambah setiap mendapatkan collectible
+    public float glowRadius = 1f;
     public Light2D ballLight;
-
-    void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
-        // Check if the player collected it
-        if (other.CompareTag("Collectible"))
-        {
-            Debug.Log("Collected");
-            _collectibleCount += 1f;
-            ballLight.intensity = glowIntensity * _collectibleCount; // Besar intensitas sesuai dengan collectible yang telah didapat
-        }
+        ballLight.intensity = glowIntensity * Collectible.collectibleCount; // Besar intensitas sesuai dengan collectible yang telah didapat
+        ballLight.pointLightOuterRadius = glowRadius * Mathf.Sqrt(Collectible.collectibleCount); // Besar radius glow sesuai dengan collectible yang telah didapat
     }
 }
