@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.20910978, y: -0.36741412, z: 0.08025129}
-  m_LocalScale: {x: 7.971184, y: 4.468081, z: 1}
+  m_LocalScale: {x: 12, y: 4.468081, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4619180916524753046}
@@ -174,8 +174,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4766501148345758828}
   - {fileID: 2690717648632461297}
@@ -199,14 +199,14 @@ MonoBehaviour:
   rightWing: {fileID: 2690717648632461297}
   head: {fileID: 298920634663946887}
   startHead: {x: 0, y: 0, z: 0}
-  bossSpeed: 0.3
-  startAccelerateDistance: 5
+  bossSpeed: 1
+  startAccelerateDistance: 13
   actualSpeed: 0.3
-  flapSpeed: 0
-  xFlapAngle: 0.8
-  zFlapAngle: 8
-  headRotationSpeed: 0.8
-  headAngle: -6
+  flapSpeed: 1
+  xFlapAngle: -30
+  zFlapAngle: 20
+  headRotationSpeed: 1
+  headAngle: -20
 --- !u!1 &4659588085165437504
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ Transform:
   m_GameObject: {fileID: 4659588085165437504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7999997, y: 0.6800002, z: 0.08025129}
+  m_LocalPosition: {x: 2.2163815, y: -1.60545, z: 0.08025129}
   m_LocalScale: {x: 0.8226128, y: 0.8226128, z: 0.8226128}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 4905084481273718876}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2399998, y: -0.07, z: 0.08025129}
+  m_LocalPosition: {x: -0.530411, y: -1.9415494, z: 0.08025129}
   m_LocalScale: {x: 0.7426978, y: 0.7426978, z: 0.7426978}
   m_ConstrainProportionsScale: 0
   m_Children: []

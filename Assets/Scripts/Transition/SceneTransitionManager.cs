@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager Instance;
-    public Transform _cameraTransform; // 
+    private Transform _cameraTransform;
     public Transform blackScreen;
     public Transform maskTransform;
     public bool transitionOnStart = true; // Apakah perlu ada transisi saat masuk scene ini
