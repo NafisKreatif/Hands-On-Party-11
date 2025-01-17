@@ -137,7 +137,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999992
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &3560188229318572902
@@ -158,7 +158,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.1607271
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &570932450508246916
@@ -179,7 +179,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &2049327829357244526
@@ -484,7 +484,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.21000004
+  m_Distance: 0.21000002
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &2623086429253957229
@@ -505,7 +505,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &7810614107085718857
@@ -526,7 +526,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.1607271
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &9087591732970252856
@@ -702,7 +702,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.21000004
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &6299423127197780458
@@ -723,7 +723,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &5495283378375781596
@@ -744,7 +744,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &4302904725892398537
@@ -941,7 +941,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &4085284779554092265
@@ -962,7 +962,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &5144357867618804216
@@ -6223,7 +6223,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999987
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &8202384762538585492
@@ -6244,7 +6244,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &5695451263642089765
@@ -6265,7 +6265,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &5234542461471775983
@@ -6313,7 +6313,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8040790110359041394}
-  - component: {fileID: 3485667908043458960}
   m_Layer: 0
   m_Name: Inner Light
   m_TagString: Untagged
@@ -6336,58 +6335,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7861752847538887860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3485667908043458960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4079469608905292718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 634d62ec0000000065590c21
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0.3
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.4
-  m_PointLightOuterRadius: 1
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &4096386406338823780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6525,7 +6472,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999987
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &371412863507774165
@@ -6546,7 +6493,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &7100514374720059108
@@ -6567,7 +6514,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072701
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &1878180667285672024
@@ -6743,7 +6690,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.20999992
+  m_Distance: 0.21000001
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &6128963673020954924
@@ -6764,7 +6711,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.16072707
+  m_Distance: 0.16072708
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &1313672993395769554
@@ -6785,7 +6732,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &4347682219886963150
@@ -7646,7 +7593,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!231 &2504341454725254713
@@ -7667,7 +7614,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.160727
+  m_Distance: 0.16072702
   m_DampingRatio: 0.5
   m_Frequency: 10
 --- !u!58 &6193142416902125445
@@ -7720,6 +7667,8 @@ GameObject:
   - component: {fileID: 1514127365190104677}
   - component: {fileID: 6373651284392584789}
   - component: {fileID: 4935004252321140807}
+  - component: {fileID: 3475210941461405770}
+  - component: {fileID: 2135614742614964788}
   m_Layer: 0
   m_Name: Bola
   m_TagString: Player
@@ -7875,6 +7824,72 @@ MonoBehaviour:
   bubbleParticleSystem: {fileID: 6026607613902426298}
   isInWater: 0
   waterLinearDamping: 30
+--- !u!114 &3475210941461405770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127435965089795443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795b5c75c741a9a44bad2dabc7691c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleCount: 0
+  ballLight: {fileID: 2135614742614964788}
+--- !u!114 &2135614742614964788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127435965089795443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 634d62ec00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.4
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &7580984317370001492
 GameObject:
   m_ObjectHideFlags: 0
