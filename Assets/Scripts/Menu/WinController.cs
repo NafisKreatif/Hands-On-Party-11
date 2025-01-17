@@ -30,6 +30,8 @@ public class WinController : MonoBehaviour
         _initialSize = gameCamera.orthographicSize;
         _thisTransform = GetComponent<Transform>();
 
+        Collectible.collectibleCount = 0; // Reset jumlah collectible
+
         // Kalau levelnya tidak ada orb, jangan tampilin orb (bikin transparan)
         if (!winMenu.hasOrb)
         {

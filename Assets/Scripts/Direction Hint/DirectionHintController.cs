@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class DirectionHintController : MonoBehaviour
 {
-    public Camera mainCamera;
+    private Camera _mainCamera;
     public Transform target;
     private Transform _thisTranform;
     private Vector3 _initialScale;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _mainCamera = Camera.main;
         _thisTranform = GetComponent<Transform>();
         _initialScale = _thisTranform.localScale;
     }
@@ -19,7 +20,7 @@ public class DirectionHintController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 positionOnViewport = mainCamera.WorldToViewportPoint(target.position);
+        Vector3 positionOnViewport = _mainCamera.WorldToViewportPoint(target.position);
         // Jika di target di dalam kamera
         if (positionOnViewport.x >= 0 && positionOnViewport.x <= 1 && positionOnViewport.y >= 0 && positionOnViewport.y <= 1)
         {
@@ -34,13 +35,13 @@ public class DirectionHintController : MonoBehaviour
             _thisTranform.localScale = _initialScale * Mathf.Min(1, newScale); // Jangan sampai memperbesar
 
             // Harus dirotate dengan kamera vektornya
-            float angle = mainCamera.transform.eulerAngles.z / 180 * Mathf.PI;
+            float angle = _mainCamera.transform.eulerAngles.z / 180 * Mathf.PI;
             Vector3 rotatedScale = _thisTranform.lossyScale;
             rotatedScale.x = Mathf.Cos(angle) * _thisTranform.lossyScale.x - Mathf.Sin(angle) * _thisTranform.lossyScale.y;
             rotatedScale.y = Mathf.Sin(angle) * _thisTranform.lossyScale.x + Mathf.Cos(angle) * _thisTranform.lossyScale.y;
 
             // Offset posisi di kamera
-            Vector2 scaleOnViewport = mainCamera.WorldToViewportPoint(rotatedScale + mainCamera.transform.position);
+            Vector2 scaleOnViewport = _mainCamera.WorldToViewportPoint(rotatedScale + _mainCamera.transform.position);
             scaleOnViewport -= new Vector2(0.5f, 0.5f);
 
             // Normalisasi posisi
@@ -60,7 +61,7 @@ public class DirectionHintController : MonoBehaviour
             {
                 positionOnViewport.y = 1 - scaleOnViewport.y;
             }
-            Vector3 worldPointPos = mainCamera.ViewportToWorldPoint(positionOnViewport);
+            Vector3 worldPointPos = _mainCamera.ViewportToWorldPoint(positionOnViewport);
             _thisTranform.position = new Vector3(worldPointPos.x, worldPointPos.y, _thisTranform.position.z);
             // Rotasikan petunjuk sesuai arah target
             Vector2 directionTowardTarget = target.position - _thisTranform.position;
