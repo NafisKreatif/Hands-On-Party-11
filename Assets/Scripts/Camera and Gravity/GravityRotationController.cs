@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -112,16 +113,18 @@ public class GravityRotationController : MonoBehaviour
   // Updates the rotation of the camera and the direction of gravity based on the current angle.
   private void UpdateRotation()
   {
-    _currentAngle = _offsetAngle + _gyroAngle;
+    _currentAngle = _offsetAngle;
+    if (_currentAngle >= minAngle && _currentAngle <= maxAngle) _currentAngle += _gyroAngle;
+
     if (_currentAngle < minAngle)
     {
       _currentAngle = Mathf.Min(minAngle, _currentAngle + adjustmentSpeed * Time.deltaTime);
-      _offsetAngle = _currentAngle - _gyroAngle;
+      _offsetAngle = _currentAngle;
     }
     else if (_currentAngle > maxAngle)
     {
       _currentAngle = Mathf.Max(maxAngle, _currentAngle - adjustmentSpeed * Time.deltaTime);
-      _offsetAngle = _currentAngle - _gyroAngle;
+      _offsetAngle = _currentAngle;
     }
 
     if (_currentAngle < 0) _currentAngle += 360;
