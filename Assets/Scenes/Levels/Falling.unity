@@ -422,7 +422,7 @@ MonoBehaviour:
   ExecuteEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536155049}
+      - m_Target: {fileID: 1631840411}
         m_TargetAssemblyTypeName: BallSpriteShapeController, Assembly-CSharp
         m_MethodName: SetSpriteShape
         m_Mode: 2
@@ -434,17 +434,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &536155049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5414019441520475832, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
-  m_PrefabInstance: {fileID: 1631840409}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99ee3fe2a27f4575bc520334d16cd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &632581377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119915,6 +119904,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7127435965089795443, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
   m_PrefabInstance: {fileID: 1631840409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1631840411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1678453955639698637, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}
+  m_PrefabInstance: {fileID: 1631840409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b192ed23fa4df1b12978f421f8a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1631840416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7861752847538887860, guid: d51c6586ce7f243cabcacf0b3751774c, type: 3}

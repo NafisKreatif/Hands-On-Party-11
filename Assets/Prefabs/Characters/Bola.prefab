@@ -12868,7 +12868,6 @@ GameObject:
   - component: {fileID: 5177673272234691011}
   - component: {fileID: 1678453955639698637}
   - component: {fileID: 3583196527953255562}
-  - component: {fileID: 5414019441520475832}
   m_Layer: 0
   m_Name: Sprite Shape
   m_TagString: Untagged
@@ -13124,18 +13123,6 @@ MonoBehaviour:
   - {fileID: 3991393964873933803}
   - {fileID: 3130178814041663750}
   angleSpeedRatio: 1.25
---- !u!114 &5414019441520475832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8412788248582467301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99ee3fe2a27f4575bc520334d16cd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8844069064929206086
 GameObject:
   m_ObjectHideFlags: 0
