@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class BallCollectibleCount : MonoBehaviour
+public class BallGlowController : MonoBehaviour
 {
     public float glowIntensity = 0.35f; // Seberapa besar intensitas glow bertambah setiap mendapatkan collectible
     public float glowRadius = 1f;
